@@ -497,10 +497,10 @@ Batam side: Medco Tanjung Uncang add-on +39 MW (COD Nov 2025). MaxPower lease am
 
 **🔴 CAUTION** — Tight: safe only if every gas project finishes on time.
 
-**Key figures:** **35%** best case · **10–15%** if delayed
+**Key figures:** **26%** base case 2030 · **2–14%** if delayed
 
-- ✅ If all are on time, reserve margin is ±35% in 2030.
-- ⚠️ One delayed project cuts reserve to 10–15%.
+- ✅ If all are on time, reserve margin is ±26% in 2030.
+- ⚠️ One delayed project (Batam 3 or 4) cuts reserve to ≈2–14%.
 - ⚠️ DC load rises faster than plants get built.
 - • Load growth above 15% per year.
 
@@ -508,7 +508,7 @@ Batam side: Medco Tanjung Uncang add-on +39 MW (COD Nov 2025). MaxPower lease am
 
 <details><summary>Full explanation</summary>
 
-Tight. With load growing 12%/yr (conservative versus >15% actual), the 2030 peak is ±1,230 MW. If every gas project is on time, supply is ±1,650 MW (RM ±35%). But a single delay (e.g. Batam 3&4) cuts RM to ±10–15%. Data centers can add hundreds of MW within 2–3 years (DayOne alone is 450 MW), faster than the gas-plant build cycle (3–4 years).
+Tight. With load growing 12%/yr (conservative versus >15% actual), the 2030 peak is ±1,230 MW. If every gas project is on time, supply is ±1,550 MW (RM ±26%). But a single delay (e.g. Batam 3&4) cuts RM to ±2–14%. Data centers can add hundreds of MW within 2–3 years (DayOne alone is 450 MW), faster than the gas-plant build cycle (3–4 years).
 
 - DayOne PJBTL 511 MVA (17 Apr 2026)
 - Batam data-center pipeline 1.47 GW
