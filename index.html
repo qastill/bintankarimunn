@@ -757,7 +757,7 @@ svg.i{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;st
 .mapspace{pointer-events:none;position:relative}
 .mapspace>*{pointer-events:auto}
 .panel{background:var(--card);border-left:1px solid var(--line);display:grid;grid-template-rows:auto minmax(0,1fr);min-height:0;box-shadow:-10px 0 30px rgba(13,34,56,.06)}
-.tabs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;padding:10px 12px 0;border-bottom:1px solid var(--line)}
+.tabs{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;padding:10px 12px 0;border-bottom:1px solid var(--line)}
 .tab{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px 9px;font-size:11.5px;font-weight:700;color:var(--mut);border-bottom:3px solid transparent;border-radius:10px 10px 0 0}
 .tab svg.i{width:20px;height:20px}
 .tab:hover{color:var(--ink);background:var(--soft)}
@@ -773,6 +773,30 @@ svg.i{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;st
 .kp{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:clamp(6px,.8vw,10px)}
 .kpi{background:var(--soft);border-radius:14px;padding:clamp(8px,1.2vh,12px) clamp(8px,.8vw,12px);display:grid;gap:2px;position:relative;overflow:hidden;animation:pop .5s ease both}
 .kpi:nth-child(2){animation-delay:.06s}.kpi:nth-child(3){animation-delay:.12s}.kpi:nth-child(4){animation-delay:.18s}
+.kpi{border:2px solid transparent;text-align:left;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(13,34,56,.10)}
+.kpi.on{border-color:var(--ocean);box-shadow:0 6px 18px rgba(14,124,155,.22)}
+.isl-k .kpi.on{border-color:var(--sun)}
+.kpi .qi-i{position:absolute;right:7px;top:7px;color:var(--mut);opacity:.55}
+.kpi .qi-i svg.i{width:14px;height:14px}
+.kpi:hover .qi-i{opacity:1;color:var(--ocean)}
+.body{position:relative}
+.exp{position:absolute;left:clamp(14px,1.4vw,22px);right:clamp(14px,1.4vw,22px);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 44px rgba(13,34,56,.18);padding:clamp(12px,1.8vh,18px);display:grid;grid-template-rows:auto auto minmax(0,auto) auto;gap:clamp(6px,1.2vh,12px);z-index:5;animation:rise .3s ease both;overflow:hidden}
+.exp header{display:flex;gap:12px;align-items:center}
+.exp header .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#e6f5fa;color:var(--ocean);flex:none}
+.isl-k .exp header .ico{background:#fff1e2;color:#c4700a}
+.exp header small{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.exp h4{margin:0;font-size:clamp(15px,2.2vh,19px);font-weight:800}
+.exp .xx{margin-left:auto;border:0;background:var(--soft);border-radius:999px;width:34px;height:34px;display:grid;place-items:center}
+.exp .big{font-family:var(--fm);font-size:clamp(24px,4.4vh,40px);font-weight:700;letter-spacing:-.02em;line-height:1.05;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}
+.exp .big small{font-size:.42em;color:var(--mut)}
+.exp .big span{font-family:var(--f);font-size:13px;font-weight:600;color:var(--mut);letter-spacing:0;flex-basis:100%}
+.exp .big.hot{color:var(--coral)}.exp .big.ok{color:var(--leaf)}.exp .big.sun{color:#c4700a}
+.exp p{margin:0;font-size:clamp(13px,1.9vh,16px);line-height:1.55;font-weight:500;overflow:auto}
+.exp footer{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.exp .go{border:0;background:#e6f5fa;color:var(--ocean);border-radius:999px;padding:8px 14px;font-weight:800;display:flex;gap:6px;align-items:center}
+.isl-k .exp .go{background:#fff1e2;color:#c4700a}
+.exp .hint2{font-size:11.5px;color:var(--mut);font-weight:600}
 .kpi .t{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--mut);line-height:1.2}
 .kpi .t svg{color:var(--ocean)}
 .kpi b{font-family:var(--fm);font-size:clamp(17px,2.9vh,27px);font-weight:700;line-height:1.05;letter-spacing:-.02em;white-space:nowrap}
@@ -796,6 +820,20 @@ svg.i{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;st
 .in svg{flex:none;margin-top:1px;color:var(--ocean)}
 .in.w{background:#fdeceb}.in.w svg{color:var(--coral)}
 .in.g{background:#e7f6ef}.in.g svg{color:var(--leaf)}
+.body.insm{grid-template-rows:auto minmax(0,1fr) auto auto}
+.igrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:clamp(6px,1vh,10px);min-height:0}
+.icd{border:1px solid var(--line);background:linear-gradient(180deg,#fff,#f6fafc);border-radius:16px;padding:clamp(8px,1.2vh,12px) 12px;display:grid;grid-template-rows:auto auto minmax(0,1fr);gap:clamp(2px,.6vh,6px);text-align:left;min-height:0;overflow:hidden;position:relative;animation:pop .5s ease both;transition:transform .2s,box-shadow .2s}
+.icd:hover{transform:translateY(-2px);box-shadow:var(--sh);border-color:#cfe3ec}
+.icd .qq{display:flex;gap:8px;align-items:center;font-size:clamp(10.5px,1.35vh,12px);font-weight:800;color:var(--mut);line-height:1.2;text-transform:uppercase;letter-spacing:.03em}
+.icd .qq span.n{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;background:#e6f5fa;color:var(--ocean);font-family:var(--fm);font-size:11px;flex:none}
+.isl-k .icd .qq span.n{background:#fff1e2;color:#c4700a}
+.icd b{font-family:var(--fm);font-size:clamp(18px,3vh,28px);font-weight:700;letter-spacing:-.02em;line-height:1.05;display:flex;align-items:baseline;gap:6px}
+.icd b small{font-size:.48em;color:var(--mut)}
+.icd p{margin:0;font-size:clamp(11px,1.45vh,13px);font-weight:600;line-height:1.35;color:var(--ink);overflow:hidden}
+.icd.hot b{color:var(--coral)}.icd.ok b{color:var(--leaf)}.icd.sun b{color:#c4700a}
+.icd .go{position:absolute;right:10px;top:10px;color:var(--mut)}
+.inote{display:flex;gap:10px;align-items:flex-start;background:#fff7e6;border:1px solid #f6dfae;border-radius:14px;padding:8px 12px;font-size:clamp(11px,1.45vh,12.5px);font-weight:600;line-height:1.35}
+.inote svg{color:#c4700a;margin-top:1px}
 .src{font-size:10.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .src b{font-weight:700}
 
@@ -1011,6 +1049,7 @@ const IP={
  leaf:'<path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19 13 11"/>',
  money:'<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/>',
  cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
  island:'<path d="M3 17c3-1 5-4 9-4s6 3 9 4"/><path d="M12 13V5l5 3"/><path d="M2 21h20"/>'
 };
 const ic=(n,cls='')=>`<svg class="i ${cls}" viewBox="0 0 24 24" aria-hidden="true">${IP[n]||''}</svg>`;
@@ -1088,18 +1127,89 @@ function flow(o){ // nodes[{x,y,t,v,c,ic,r}], links[{a,b,c,w,t,dash}]
 const legendHtml=items=>'<div class="leg">'+items.map(([n,c,d])=>`<span><i style="background:${c};${d?'height:3px;vertical-align:3px;width:14px':''}"></i>${esc(n)}</span>`).join('')+'</div>';
 
 /* ---------- ISLAND CONTENT ---------- */
-const TABS=[['ring','grid','Ringkasan'],['kap','plant','Kapasitas'],['dem','trend','Demand'],['ebt','sun','EBT'],['tar','tag','Tarif'],['rel','shield','Keandalan'],['int','cable','Interkoneksi']];
+const EXPL={
+'bintan.ring':[
+ ['Daya pasok total sistem interkoneksi Batam–Bintan yang dioperasikan PT PLN Batam (Okt 2026). Beban puncaknya ±780 MW, sehingga cadangan ±150 MW (±19%). Bintan tidak punya sistem sendiri; ia menarik daya dari 930 MW ini.','sys_bt'],
+ ['Beban puncak Tanjungpinang + Kabupaten Bintan. Angka resmi terakhir 65,1 MW (2016). Dengan pertumbuhan ±5% per tahun selama 10 tahun, hasilnya ±106 MW. RUPTL tidak memecah angka per pulau, jadi ini estimasi.','sys_b'],
+ ['Pembangkit PLN yang secara fisik ada di Pulau Bintan: PLTD Air Raja & Suka Berenang serta PLTMG Kuala Lobam 9 MW (berbahan CNG dari Batam). Hanya cukup untuk ±⅓ beban, sehingga Bintan tidak bisa berdiri sendiri (islanding) saat Batam gangguan.','g_ar'],
+ ['Seluruh impor dari Batam lewat satu lintasan: PLTU Tanjung Kasam → Pulau Tanjung Sauh → Pulau Ngenang (kabel laut 3,45 km) → Tanjung Taloh, Bintan (kabel laut 6,55 km). Jika lintasan ini terganggu, ±⅔ pasokan Bintan hilang.','ce']],
+'bintan.kap':[
+ ['PLTMG = pembangkit listrik tenaga mesin gas. RUPTL 2025–2034 mencatat 100 MW (2027) dan 50 MW (2031) untuk Bintan, dibangun lewat kerja sama wilayah usaha (wilus) dengan PT PLN Batam. Pengembang yang juga membawa permintaan listrik diprioritaskan, dengan kontrak take-or-pay. Lokasinya belum dipublikasikan; bila di Pulau Bintan, pembangkit ini sekaligus menjadi cadangan saat kabel terganggu.','p_mg'],
+ ['PLTS = pembangkit listrik tenaga surya. RUPTL mencatat 25 MW (2028) + 25 MW (2030), juga lewat kerja sama wilus PLN Batam. Produksinya hanya siang hari, sehingga tidak dihitung sebagai cadangan untuk beban puncak malam.','re_bin'],
+ ['Target daya pasok sistem Batam–Bintan pada akhir 2027 menurut PLN Batam (1.200–1.300 MW; yang ditampilkan titik tengahnya). Sumbernya: PLTGU Batam #1 120 MW, sewa MaxPower hingga 150 MW, dan PLTGU Batam 3 & 4 2×150 MW.','p_b1'],
+ ['Reserve margin = (daya pasok − beban puncak) ÷ beban puncak = (930 − 780) ÷ 780 ≈ 19%. Kajian PLN menilai cadangan optimal ±35% untuk sistem besar. Beban tumbuh >15% per tahun, jadi cadangan cepat tergerus bila pembangkit baru terlambat.',null]],
+'bintan.dem':[
+ ['Beban puncak Tanjungpinang + Kabupaten Bintan. Angka resmi terakhir 65,1 MW (2016); dengan pertumbuhan ±5% per tahun menjadi ±106 MW pada 2026. Estimasi, karena RUPTL tidak memecah angka per pulau.','sys_b'],
+ ['Skenario dasar: tumbuh 5,3% per tahun (rata-rata nasional RUPTL) dari ±105 MW. Skenario rendah ±120 MW (4%/tahun); skenario tinggi ±300 MW bila beban besar seperti data center atau KEK tersambung ke grid.',null],
+ ['PT Bintan Alumina Indonesia (KEK Galang Batang) dan rencana data center Bintan tercatat di RUPTL dengan kebutuhan 1.500 MVA mulai 2032, berstatus keyakinan rendah. Pasokannya memerlukan ekstensi 500 kV dari ISBB.','gb'],
+ ['Nota kerja sama tidak mengikat (15 Sep 2026) untuk kampus data center AI ±500 MW di KEK Galang Batang. Satu fasilitas ini ±5× beban Bintan saat ini.','gb']],
+'bintan.ebt':[
+ ['RUPTL mencatat PLTS 25 MW (2028) + 25 MW (2030) untuk Bintan lewat kerja sama wilus PLN Batam. PLTS menghemat bahan bakar siang hari, tetapi tidak dihitung sebagai cadangan malam.','re_bin'],
+ ['Bintan menerima listrik dari sistem Batam yang hampir seluruhnya gas (PLTGU/PLTMG) dan batubara (PLTU Tanjung Kasam). Porsi EBT di grid Batam–Bintan masih sangat kecil.',null],
+ ['ISBB = Interkoneksi Sumatera–Batam. Rencana RUPTL: kabel HVDC dari Peranap (Riau) ke Rempang (Batam), transfer 1.200 MW mulai 2031, bersumber dari pembangkit EBT Sumatera. Ini jalan utama menghijaukan pasokan Batam–Bintan.','isbb']],
+'bintan.tar':[
+ ['Golongan industri tegangan menengah (>200 kVA s.d. <30 MVA). Rp1.114,74/kWh berlaku di luar waktu beban puncak (LWBP). Saat beban puncak (WBP, umumnya 17.00–22.00) tarif dikali faktor K 1,4–2. Tarif Q4 2026 tidak berubah.',null],
+ ['Golongan industri tegangan tinggi, kontrak ≥30 MVA (30.000 kVA). Cocok untuk smelter atau data center besar; memerlukan sambungan 150 kV ke gardu induk.',null],
+ ['Golongan bisnis tegangan menengah (>200 kVA), misalnya hotel dan resort di Lagoi. Tarifnya sama dengan I-3 LWBP. Q4 2026 tidak berubah dari Q3.','lagoi']],
+'bintan.rel':[
+ ['12 Okt 2026 pukul 06.37 WIB: gangguan di GI Sungai Harapan, Batam (indikasi awal hewan/kelelawar) menjatuhkan sistem Batam–Bintan. Bintan dan Tanjungpinang ikut padam karena pembangkit lokalnya tidak cukup. Penyebab final masih diselidiki ESDM.','inc1'],
+ ['Lebih dari 411 ribu pelanggan PLN Batam terdampak, termasuk PDAM, Bandara Hang Nadim, dan data center. Kompensasi diberikan pada tagihan November 2026.','inc1'],
+ ['Total trafo 150/20 kV di Bintan: Ngenang 10, Tanjung Uban 60, Sri Bintan 60, Air Raja 120, Kijang 60 MVA (9 trafo). Beban ±117 MVA berarti terisi ±38%. Trafo bukan kendala; kendalanya jalur pasok ke gardu induk.','gi_ar']],
+'bintan.int':[
+ ['Dua ruas kabel laut 150 kV: barat 3,45 km (Tanjung Sauh–Ngenang, ditambah 1 km kabel tanah) dan timur 6,55 km (Ngenang–Tanjung Taloh). Beroperasi sejak 10 Nov 2015. Rating dan jumlah sirkitnya tidak dipublikasikan.','ce'],
+ ['ISBB = Interkoneksi Sumatera–Batam: kabel HVDC Peranap → Sungai Guntung (darat 360 kms) → Rempang (laut 156 kms), konverter 1.500 MW. Transfer 1.200 MW mulai 2031; bisa melayani hingga ±3 GW beban Batam–Bintan.','isbb'],
+ ['Ekstensi 500 kV dari Rempang melalui Ngenang ke GITET Bintan (500/150 kV, 250 MVA) dan GITET KTT BAI/data center, total 162 kms. Hanya dibangun bila permintaan besar sudah pasti. Inilah calon jalur kedua yang sesungguhnya ke Bintan.','ext500']],
+'karimun.ring':[
+ ['Daya mampu = kapasitas yang benar-benar bisa dibangkitkan setelah penurunan kemampuan mesin (derating), per 17 Nov 2026. Berasal dari PLTU TBK 2×7 MW, PLTD Bukit Carok, mesin baru 6 MW, dan genset sewa.','sys_k'],
+ ['Beban puncak sistem Tanjung Balai Karimun (zona PLN), umumnya terjadi 17.30–22.00. Naik dari 25,4 MW (2017) dan 28,2 MW (2019).','sys_k'],
+ ['Cadangan = 40,6 − 36,1 = 4,5 MW. Unit terbesar (PLTU 7 MW) lebih besar dari cadangan, sehingga jika satu unit trip beban tidak terpenuhi dan terjadi padam bergilir. RUPTL mensyaratkan sistem isolated tahan kehilangan dua unit terbesar (N-2) dengan cadangan ≥35%.',null],
+ ['RUPTL merencanakan kabel 150 kV Sumatera → Selat Panjang → Pulau Rangsang → GI Tanjung Balai Karimun (±210 kms). Tabel RUPTL menulis 2026, Lampiran E menulis 2028; dengan kabel laut 70 km sebagai jalur kritis, perkiraan realistis 2027–2028.','karint']],
+'karimun.kap':[
+ ['PLTU batubara Tanjung Sebatak, 2 unit × 7 MW; daya mampu bersih (DMN) 10,2 MW. Satu unit ≈ 20% beban puncak, dan unit 2 berulang kali gangguan (2022, Mei dan Jul 2026).','g_tbk'],
+ ['PLTD Bukit Carok mendapat mesin baru 6 MW (2026) ditambah genset sewa 7 MW (kontrak Jun 2026). Diesel cepat dipasang tetapi mahal karena bahan bakar solar.','g_bc'],
+ ['Kriteria RUPTL untuk sistem isolated: cadangan harus lebih besar dari unit terbesar pertama dan kedua (N-2). Beban 36,1 + 7 + 7 = 50,1 MW. Daya mampu sekarang 40,6 MW, jadi kurang ±9,5 MW.',null]],
+'karimun.dem':[
+ ['Beban puncak sistem PLN Karimun per Nov 2026. Naik dari 25,4 MW (2017) dan 28,2 MW (2019), atau ±3,6% per tahun.','sys_k'],
+ ['Skenario dasar ±5% per tahun. Pertumbuhan historis rendah karena pasokan terbatas; bila keandalan pulih, permintaan yang tertahan (pelanggan yang memakai genset) akan muncul. Skenario tinggi ±55 MW.',null],
+ ['Karimun dibagi tiga wilayah usaha listrik: Zona 1 (PT Soma Daya Utama), Zona 2 (PT Karimun Power Plant, ±75% pulau), Zona 3 (PLN). Industri FTZ (galangan, migas, granit) banyak berada di zona swasta atau memakai genset sendiri, sehingga tidak tercatat di beban PLN.','kftz']],
+'karimun.ebt':[
+ ['PLTS rencana Pemkab Karimun (±2,6 MW). Mengurangi pemakaian solar di siang hari, tetapi tidak membantu beban puncak malam.','re_tbk'],
+ ['Pilot gasifikasi biomassa PLN EPI bersama PT Karimun Power Plant (MoU Apr 2026): 1 MW, butuh ±35 ton biomassa per hari. Karimun disebut pilot dedieselisasi nasional.','re_bio'],
+ ['Rencana PLTS + baterai skala besar (hingga ±2 GW) di Pulau Belat oleh Gotion dan Oriens (MoU Jan 2026). Orientasinya ekspor ke Singapura atau industri/data center, bukan grid kota Karimun yang hanya ±36 MW.','belat']],
+'karimun.tar':[
+ ['Golongan industri tegangan menengah (>200 kVA s.d. <30 MVA). Rp1.114,74/kWh berlaku di luar waktu beban puncak (LWBP); saat beban puncak dikali faktor K 1,4–2. Sama dengan tarif di Jawa.',null],
+ ['Perkiraan biaya bahan bakar PLTD: ±0,25–0,28 liter solar per kWh. Pada harga solar industri, biayanya ±Rp3.000–4.000/kWh, sekitar 3× tarif. Selisihnya ditutup kompensasi pemerintah kepada PLN.',null],
+ ['Pelanggan di zona swasta (Soma Daya Utama, Karimun Power Plant) membayar tarif yang ditetapkan per wilayah usaha melalui kontrak bisnis. Tarif ini tidak dipublikasikan.','kftz']],
+'karimun.rel':[
+ ['Mei 2022: PLTU unit 2 rusak bersamaan lonjakan beban 28–29 → 36 MW setelah Lebaran. Defisit ±5 MW memaksa padam bergilir sekitar 25 hari.','inc2'],
+ ['Mar–Apr: PLTU unit 1 dipelihara 18 hari. Mei: unit 2 gangguan (32 vs 34,5 MW). 20–24 Jul: traveling grate unit 2 rusak. Okt: blackout karena frekuensi turun (under-frequency).','inc2'],
+ ['UFR (under-frequency relay) memutus beban saat frekuensi turun di bawah batas. Di sistem kecil, kehilangan satu unit membuat frekuensi jatuh cepat; bila pelepasan beban tidak bertahap, seluruh sistem padam. Baterai (BESS) dapat menahan frekuensi dalam hitungan milidetik.',null]],
+'karimun.int':[
+ ['Rute RUPTL: SKLT (kabel laut) 6 kms Sumatera → Selat Panjang, SUTT (saluran udara) 120 kms melintasi Pulau Tebing Tinggi dan Rangsang, SKLT 70 kms Rangsang → Karimun, lalu 14 kms ke GI TBK.','karint'],
+ ['Gardu induk 150/20 kV baru di Tanjung Balai Karimun: 2 trafo × 30 MVA (cukup untuk beban ±36–50 MW), ditambah 1×60 MVA pada 2032.','gi_tbk'],
+ ['Tiga versi dalam RUPTL: tabel transmisi 2026 (Committed), Bab V.11.2 "masih tahap perencanaan", Lampiran E 2028. Secara nasional, realisasi pembangunan transmisi 2025 hanya ±37% dari target.','karint']]
+};
+
+const TABS=[['ring','grid','Ringkasan'],['ins','bulb','Insight'],['kap','plant','Kapasitas'],['dem','trend','Demand'],['ebt','sun','EBT'],['tar','tag','Tarif'],['rel','shield','Keandalan'],['int','cable','Interkoneksi']];
 const ISL={
 bintan:{name:'Bintan',cls:'b',color:C.ocean,bounds:[[0.8,103.95],[1.22,104.72]],wide:[[-0.75,101.9],[1.3,104.85]],
  badge:'Terinterkoneksi ke Batam',tag:'Tanjungpinang · Kab. Bintan · UP3 Tanjungpinang',
  land:{stats:[['±105','MW','beban puncak (est.)'],['30–35','MW','pembangkit lokal'],['1','','koridor kabel 150 kV',1]],key:'Keandalan Bintan = keandalan sistem Batam; satu gangguan di Batam memadamkan Bintan 15–16 jam (12 Okt 2026).'},
  T:{
+ ins:{h:'Jawaban singkat atas pertanyaan studi untuk Bintan',lay:['corr','tx','gi','gen','sys','load','plan'],
+  cards:[['bolt','Demand, kapasitas & cadangan','930/780','MW','Sistem Batam–Bintan, cadangan ±19%. Beban Bintan ±105 MW; pembangkit lokal hanya 30–35 MW.','kap',''],
+   ['trend','Proyeksi 2030–2035','±130','MW 2030','Kepri tanpa Batam 241 MW (2030) → 980 MW (2031). BAI/data center Bintan 1.500 MVA mulai 2032.','dem','sun'],
+   ['cal','Proyek RUPTL 2025–2034','150+50','MW','PLTMG 100 MW (2027) + 50 MW (2031), PLTS 25+25 MW via PLN Batam; ISBB 1.200 MW (2031).','kap','ok'],
+   ['shield','Kendala & investasi','1','koridor','Blackout 15–16 jam (12 Okt 2026). Investasi: GI Tanjung Sauh, BESS, rekonduktoring 2031, 500 kV 2032.','rel','hot'],
+   ['sun','EBT & hambatannya','50','MW PLTS','Bauran Batam ±100% fosil. EBT besar datang via ISBB; terms ekspor ke Singapura belum final.','ebt','sun'],
+   ['tag','Tarif industri','1.114,74','Rp/kWh','I-3/TM (LWBP); I-4/TT Rp996,74. Energi dibeli dari PLN Batam, dijual dengan tarif nasional.','tar','']],
+  note:'Catatan RUPTL: ISBB tertulis 2031 di neraca daya tetapi 2028 di hlm A-51; lonjakan industri 2031 berasal dari pelanggan besar yang tidak disebut namanya.',src:'RUPTL 2025–2034 Lampiran A4, Bab V · PLN Batam Okt 2026 · ESDM · media s.d. 25 Nov 2026'},
  ring:{h:'Bintan dipasok Batam lewat satu koridor kabel 150 kV',lay:['corr','tx','gi','gen','sys','load'],
   k:[['bolt','Sistem Batam–Bintan','930','MW','pasok · puncak 780 MW'],['users','Beban Bintan','±105','MW','est.; resmi 65,1 MW (2016)'],['plant','Pembangkit lokal','30–35','MW','PLTD + PLTMG 9 MW','hot'],['cable','Jalur pasok','1','koridor','kabel laut 3,45 + 6,55 km','hot']],
   v:{t:'Aliran daya ke Bintan',s:'MW, kondisi 2026',f:()=>flow({nodes:[{x:62,y:110,t:'Pembangkit Batam',s:'gas + PLTU',v:'930 MW',c:C.gas,ic:'flame',r:38},{x:210,y:110,t:'Kabel laut 150 kV',s:'Tg Sauh · Ngenang',v:'~70 MW',c:C.coral,ic:'cable',r:30,ring:1},{x:352,y:110,t:'Beban Bintan',s:'±105 MW puncak',v:'105',c:C.ocean,ic:'users',r:38},{x:352,y:28,t:'',v:'',c:C.mut,ic:'plant',r:18}],links:[{a:0,b:1,c:C.gas,t:'PLN Batam',bend:40,ty:-4},{a:1,b:2,c:C.coral,t:'impor antar-wilus',bend:40,ty:-4},{a:3,b:2,c:C.mut,dash:'4 6',sp:2.4,w:3}]})+'',leg:[['Sistem Batam',C.gas],['Koridor tunggal',C.coral],['Pembangkit lokal Bintan 30–35 MW',C.mut]]},
   i:[['alert','w','Satu koridor = single point of failure'],['users','','Operator Batam, ritel PLN Persero'],['cal','g','PLTMG 100 MW (2027) via PLN Batam']],src:'PLN Batam Okt 2026 · Setkab 2016 · ESDM Kepri Okt 2026 · RUPTL 2025–2034'},
  kap:{h:'Kapasitas baru Bintan dicatat lewat kerja sama wilus PLN Batam',lay:['gen','plan','gi','tx','corr'],
-  k:[['flame','PLTMG Bintan','100+50','MW','2027 + 2031 (wilus)','ok'],['sun','PLTS Bintan','25+25','MW','2028 + 2030','sun'],['plant','Batam 2027','1.250','MW','target pasok PLN Batam'],['bolt','Cadangan 2026','±19','%','930 vs 780 MW']],
+  k:[['flame','PLTMG Bintan','100+50','MW','2027 + 2031 · via PLN Batam','ok'],['sun','PLTS Bintan','25+25','MW','2028 + 2030','sun'],['plant','Batam 2027','1.250','MW','target pasok PLN Batam'],['bolt','Cadangan 2026','±19','%','930 vs 780 MW']],
   v:{t:'Sistem Batam–Bintan: pasok vs beban puncak',s:'MW',f:()=>bars({cats:['Des 2025','Okt 2026','2027','2030'],sub:['','','target','estimasi'],series:[{n:'Daya mampu/pasok',v:[844.2,930,1250,1650],c:C.ocean},{n:'Beban puncak',v:[755,780,874,1228],c:C.coral}],max:1800,ticks:[0,600,1200,1800],unit:'MW',vlab:1}),leg:[['Pasok',C.ocean],['Beban puncak',C.coral]]},
   i:[['plant','','Batam: PLTGU #1 120 MW (2028), Batam 3&4 2×150 MW'],['flame','','MaxPower 50→150 MW sewa; BESS direncanakan'],['info','w','Lokasi PLTMG 100 MW belum dipublikasikan']],src:'RUPTL hlm A-52 · PLN Batam · Ombudsman Des 2025 · Bisnis Okt 2025 · RRI Jul 2026'},
  dem:{h:'Organik ±5%/th; lonjakan datang dari KEK dan data center',lay:['load','sys','gi','tx'],
@@ -1107,7 +1217,7 @@ bintan:{name:'Bintan',cls:'b',color:C.ocean,bounds:[[0.8,103.95],[1.22,104.72]],
   v:{t:'Beban puncak Bintan, skenario',s:'MW · estimasi',f:()=>lines({xs:['2016','2018','2020','2022','2024','2026','2028','2030'],series:[{n:'Tinggi (anchor load)',v:[null,null,null,null,null,105,190,300],c:C.violet,dash:1},{n:'Dasar 5,3%/th',v:[65.1,72,80,88,96,105,117,130],c:C.ocean,area:1,dots:0},{n:'Rendah 4%/th',v:[null,null,null,null,null,105,113,120],c:C.mut,dash:1}],max:320,ticks:[0,100,200,300],unit:'MW',marks:[{i:0,v:65.1,t:'65,1 MW resmi',c:C.navy,dy:-10}]}),leg:[['Dasar',C.ocean],['Tinggi',C.violet,1],['Rendah',C.mut,1]]},
   i:[['factory','','KEK Galang Batang: alumina + rencana smelter'],['server','','Hub data center BBK (Menteri ESDM, Okt 2026)'],['users','','Lagoi resort: SUTT 150 kV baru 2030']],src:'Setkab 2016 · RUPTL A4.8 & Lampiran E · ESDM 19 Okt 2026 · estimasi'},
  ebt:{h:'EBT Bintan kecil sampai listrik Sumatera masuk',lay:['re','plan','tx','gi'],
-  k:[['sun','PLTS Bintan','50','MW','25 (2028) + 25 (2030)','sun'],['flame','Bauran Batam','~100','% fosil','gas + PLTU','hot'],['leaf','ISBB 2031','1.200','MW','dari EBT Sumatera','ok']],
+  k:[['sun','PLTS Bintan','50','MW','2028 + 2030 · via PLN Batam','sun'],['flame','Bauran Batam','~100','% fosil','gas + PLTU','hot'],['leaf','ISBB 2031','1.200','MW','dari EBT Sumatera','ok']],
   v:{t:'Rencana EBT untuk Bintan',s:'MW kumulatif',f:()=>bars({cats:['2026','2027','2028','2029','2030','2031'],series:[{n:'PLTS wilus Bintan',v:[0,0,25,25,50,50],c:C.sun},{n:'Akses EBT via ISBB',v:[0,0,0,0,0,1200],c:C.leaf}],max:1300,ticks:[0,600,1200],unit:'MW',vlab:1}),leg:[['PLTS Bintan',C.sun],['Impor EBT Sumatera (ISBB)',C.leaf]]},
   i:[['sun','','Kuota surya "Sumatera–Bintan tersebar" terbuka untuk mitra'],['wave','','Proyek ekspor ke Singapura skala GW di Kepri'],['alert','w','Terms ekspor RI–SG belum final']],src:'RUPTL A4.15, hlm A-51/52, Bab V · EMA · laporan 2026'},
  tar:{h:'Tarif nasional, walau energinya dibeli dari PLN Batam',lay:['sys','load'],
@@ -1127,6 +1237,14 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
  badge:'Sistem isolated',tag:'Tanjung Balai Karimun · ULP TBK · 3 zona wilus',
  land:{stats:[['40,6','MW','daya mampu'],['36,1','MW','beban puncak'],['4,5','MW','cadangan < unit 7 MW',1]],key:'Satu unit PLTU 7 MW ≈ 20% beban puncak; satu trip = padam bergilir, sampai kabel 150 kV dari Sumatera masuk.'},
  T:{
+ ins:{h:'Jawaban singkat atas pertanyaan studi untuk Karimun',lay:['sys','gen','plan','zone','inc'],
+  cards:[['bolt','Demand, kapasitas & cadangan','40,6/36,1','MW','Cadangan 4,5 MW, lebih kecil dari satu unit PLTU 7 MW: sistem gagal N-1.','kap','hot'],
+   ['trend','Proyeksi 2030–2035','±44','MW 2030','Tumbuh ±3–4%/th, tertahan pasokan. Demand industri FTZ ada di zona swasta dan genset.','dem',''],
+   ['cal','Proyek RUPTL 2025–2034','2×30','MVA','Kabel 150 kV Sumatera → Rangsang → GI TBK. Jangka pendek: PLTD +6 MW, sewa 7 MW, biomassa 1 MW.','int','ok'],
+   ['shield','Kendala & investasi','4','gangguan 2026','PLTU 2×7 MW (1 unit ≈ 20% beban). Prioritas: BESS 5–10 MW, skema UFLS, kabel Sumatera.','rel','hot'],
+   ['sun','EBT & hambatannya','≈10','MW lokal','Grid kecil membatasi PLTS. Setelah kabel masuk, bauran ikut Sumatera (EBT >30,5%). Belat s.d. 2 GW untuk ekspor.','ebt','sun'],
+   ['tag','Tarif industri','1.114,74','Rp/kWh','Tarif nasional, padahal biaya BBM PLTD ±Rp3.000–4.000/kWh; selisih ditutup kompensasi.','tar','']],
+  note:'Catatan RUPTL: COD kabel 150 kV Karimun tertulis 2026 (Committed) di tabel transmisi, "masih tahap perencanaan" di Bab V.11.2, dan 2028 di Lampiran E. Perkiraan realistis 2027–2028.',src:'RUPTL 2025–2034 Lampiran A4, II.2.2, V.11.2, Lampiran E · Tribun Batam Nov 2026 · media 2026'},
  ring:{h:'Pulau isolated ±40 MW yang menunggu kabel dari Sumatera',lay:['sys','gen','plan','zone','inc'],
   k:[['bolt','Daya mampu','40,6','MW','17 Nov 2026'],['users','Beban puncak','36,1','MW','tumbuh dari 28,2 (2019)'],['battery','Cadangan','4,5','MW','< unit PLTU 7 MW','hot'],['cable','Kabel Sumatera','2027–28','','RUPTL: 2026 / 2028','sun']],
   v:{t:'Cadangan Karimun vs kebutuhan',s:'MW',f:()=>gauge({v:4.5,max:20,c:C.coral,label:'4,5 MW',sub:'cadangan saat ini',u:' MW',zones:[[0,7,C.coral],[7,14,C.sun],[14,20,C.leaf]],mark:{v:14,t:'N-2: 14 MW'}}),leg:[['< 1 unit (gagal N-1)',C.coral],['N-1 s.d. N-2',C.sun],['Memenuhi N-2',C.leaf]]},
@@ -1161,15 +1279,16 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
 /* ---------- MAP ---------- */
 const map=L.map('map',{zoomSnap:.25,zoomControl:false,attributionControl:true,preferCanvas:false}).fitBounds([[0.6,103.15],[1.3,104.8]]);
 const land=L.geoJSON({type:'Feature',geometry:{type:'MultiPolygon',coordinates:LAND}},{style:{color:C.coast,weight:1,fillColor:C.sand,fillOpacity:1},interactive:false}).addTo(map);
-const BASES=[['https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png','© OpenStreetMap © CARTO','PETA'],['https://tile.openstreetmap.org/{z}/{x}/{y}.png','© OpenStreetMap','OSM'],['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}','© Esri, Maxar','SAT'],null];
+const ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/';
+const BASES=[[[ESRI+'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',ESRI+'Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}'],'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap','PETA',16],[[ESRI+'Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',ESRI+'Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}'],'Tiles © Esri — GEBCO, NOAA, Garmin','LAUT',10],[['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],'© OpenStreetMap','OSM'],[[ESRI+'World_Imagery/MapServer/tile/{z}/{y}/{x}'],'Tiles © Esri — Maxar, Earthstar','SAT'],null];
 let bi=0,tile=null;
 function setBase(i,auto){bi=i;if(tile){map.removeLayer(tile);tile=null}
  if(!BASES[i]){land.setStyle({color:C.coast,fillColor:C.sand,fillOpacity:1});$('#bb').textContent='GARIS';return}
- tile=L.tileLayer(BASES[i][0],{attribution:BASES[i][1],maxZoom:18,subdomains:'abcd'}).addTo(map);tile.bringToBack();land.setStyle({fillOpacity:0,color:'transparent'});
- $('#bb').textContent=BASES[i][2];let ok=0,bad=0;tile.on('tileload',()=>ok++);tile.on('tileerror',()=>{if(!ok&&++bad>3){if(auto&&i<1)setBase(i+1,1);else setBase(3)}})}
+ const ls=BASES[i][0].map((u,j)=>L.tileLayer(u,{attribution:j?'':BASES[i][1],maxZoom:18,maxNativeZoom:BASES[i][3]||18}));tile=L.layerGroup(ls).addTo(map);ls[0].bringToBack();land.setStyle({fillOpacity:0,color:'transparent'});
+ $('#bb').textContent=BASES[i][2];let ok=0,bad=0;ls[0].on('tileload',()=>ok++);ls[0].on('tileerror',()=>{if(!ok&&++bad>3){if(auto&&i<2)setBase(i+1,1);else setBase(BASES.length-1)}})}
 $('#bb').onclick=()=>setBase((bi+1)%BASES.length);
 let inClaude=false;try{inClaude=/claude|anthropic/.test(location.host)}catch(e){}
-setBase(inClaude?3:0,1);
+setBase(inClaude?BASES.length-1:0,1);
 $('#zi').onclick=()=>map.zoomIn();$('#zo').onclick=()=>map.zoomOut();
 
 const pp=(title,tag,tagc,rows)=>`<div class="pp"><h4>${esc(title)}</h4>${tag?`<span class="tg" style="background:${tagc}22;color:${tagc}">${esc(tag)}</span>`:''}<dl>${rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl></div>`;
@@ -1296,14 +1415,28 @@ function show(t){topic=t;const I=ISL[isl],T=I.T[t];
  const tabName=TABS.find(x=>x[0]===t);
  $('#mtitle').innerHTML=`<span class="ic">${ic(tabName[1])}</span><span><b>${esc(I.name)} · ${esc(tabName[2])}</b><span>${esc(I.tag)}</span></span>`;
  $('#hint').innerHTML=ic('info')+' Klik kabel, gardu, atau titik untuk detail';
- const b=$('#body');
+ const b=$('#body');b.classList.toggle('insm',!!T.cards);
+ if(T.cards){b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · Insight</small><h2>${esc(T.h)}</h2></div></div>
+  <div class="igrid">${T.cards.map((c,i)=>`<button type="button" class="icd ${c[6]}" data-go="${c[5]}" style="animation-delay:${i*.06}s"><span class="go">${ic('arrow')}</span><span class="qq"><span class="n">${i+1}</span>${ic(c[0])}${esc(c[1])}</span><b data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small></b><p>${esc(c[4])}</p></button>`).join('')}</div>
+  <div class="inote">${ic('info')}<span>${esc(T.note)}</span></div><div class="src"><b>Sumber:</b> ${esc(T.src)}</div>`;
+  countUp(b);fitIsl();setHash(isl+'-'+t);return}
  b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · ${esc(tabName[2])}</small><h2>${esc(T.h)}</h2></div></div>
-  <div class="kp" style="--n:${T.k.length}">${T.k.map(k=>`<div class="kpi ${k[5]||''}"><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${esc(k[4])}</span></div>`).join('')}</div>
+  <div class="kp" style="--n:${T.k.length}">${T.k.map((k,i)=>`<button type="button" class="kpi ${k[5]||''}" data-x="${i}" aria-label="Penjelasan ${esc(k[1])}"><span class="qi-i">${ic('info')}</span><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${esc(k[4])}</span></button>`).join('')}</div>
   <div class="viz"><h3>${esc(T.v.t)}<span>${esc(T.v.s)}</span></h3><div class="cv">${T.v.f()}</div>${T.v.leg?legendHtml(T.v.leg):'<div></div>'}</div>
   <div class="ins" style="--n:${T.i.length}">${T.i.map(x=>`<div class="in ${x[1]}">${ic(x[0])}<span>${esc(x[2])}</span></div>`).join('')}</div>
-  <div class="src"><b>Sumber:</b> ${esc(T.src)}</div>`;
+  <div class="src"><b>Sumber:</b> ${esc(T.src)}</div><div class="exp" id="exp" hidden></div>`;
  countUp(b);fitIsl();setHash(isl+(t!=='ring'?'-'+t:''));}
+function explain(i){const T=ISL[isl].T[topic],k=T.k[i],E=(EXPL[isl+'.'+topic]||[])[i];if(!k||!E)return;const b=$('#body'),ex=$('#exp'),viz=b.querySelector('.viz');
+ b.querySelectorAll('.kpi').forEach((x,j)=>x.classList.toggle('on',j===i));
+ ex.style.top=viz.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-viz.offsetTop-12)+'px';ex.hidden=false;
+ ex.innerHTML=`<header><span class="ico">${ic(k[0])}</span><div><small>Apa artinya?</small><h4>${esc(k[1])}</h4></div><button type="button" class="xx" aria-label="Tutup penjelasan">${ic('x')}</button></header>
+  <div class="big ${k[5]||''}">${esc(k[2])}<small>${esc(k[3]||'')}</small><span>${esc(k[4])}</span></div><p>${esc(E[0])}</p>
+  <footer>${E[1]&&REG[E[1]]?`<button type="button" class="go" data-loc="${E[1]}">${ic('arrow')} Lihat di peta</button>`:'<span></span>'}<span class="hint2">Klik kotak angka lain untuk penjelasannya</span></footer>`;}
+function unexplain(){const ex=$('#exp');if(ex)ex.hidden=true;$('#body').querySelectorAll('.kpi.on').forEach(x=>x.classList.remove('on'))}
+function focusLoc(id){const r=REG[id];if(!r)return;setLayer(r.k,true);map.flyTo(r.ll,['isbb','karint','ext500'].includes(id)?8.6:11,{duration:.7});setTimeout(()=>{if(r.pop)r.pop();else if(r.l.openPopup)r.l.openPopup();else r.l.eachLayer&&r.l.eachLayer(x=>x.getPopup&&x.getPopup()&&x.openPopup())},800)}
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)show(b.dataset.t)});
+$('#body').addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#exp')&&!$('#exp').hidden&&$('#qa').hidden)unexplain()});
 $('#seg').addEventListener('click',e=>{const b=e.target.closest('[data-isl]');if(b&&b.dataset.isl!==isl)open(b.dataset.isl,topic)});
 $('#home').onclick=home;
 function countUp(root){root.querySelectorAll('[data-c]').forEach(el=>{const raw=el.dataset.c,m=raw.match(/^([±~]?)([\d.]+)(,\d+)?$/);if(!m||/^(19|20)\d\d$/.test(raw)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -1318,7 +1451,7 @@ $('#land').innerHTML=`<div class="hero"><span class="k">${ic('bolt')} Studi pemb
   <div class="stats">${I.land.stats.map(s=>`<div class="stat ${s[3]?'hot':''}"><b data-c="${esc(s[0])}">${esc(s[0])}${s[1]?`<small>${esc(s[1])}</small>`:''}</b><span>${esc(s[2])}</span></div>`).join('')}</div>
   <div class="key">${ic('alert')}<span>${esc(I.land.key)}</span></div><span class="cta">Lihat ${I.name} ${ic('arrow')}</span></button>`}).join('')}</div>
  <div class="strip"><span class="pill">${ic('bolt')} Batam–Bintan <b>930/780 MW</b></span><span class="pill">${ic('plant')} Kepri tanpa Batam <b>109,8 MW</b> DMN</span><span class="pill">${ic('cable')} ISBB <b>1.200 MW</b> · 2031</span><span class="pill">${ic('tag')} I-3 <b>Rp1.114,74</b>/kWh</span></div>`;
-$('#land').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)open(b.dataset.open)});
+$('#land').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)open(b.dataset.open,'ins')});
 countUp($('#land'));
 
 /* ---------- Q&A ---------- */
