@@ -1337,6 +1337,29 @@ details.pwhy[open] summary{margin-bottom:6px}details.pwhy .pnote{margin-top:6px!
 .ppd li,.ppw li{display:flex;gap:6px;align-items:flex-start;font-size:12.5px;font-weight:600;line-height:1.35;padding:5px 8px;border-radius:8px;background:#f5f7fa}
 .ppd li svg.i,.ppw li svg.i{width:14px;height:14px;flex:none;margin-top:1px;color:#16a05a}
 .ppw li.g{background:#eaf7ef}.ppw li.w{background:#fdeeec}.ppw li.w svg.i{color:#d23b2a}.ppw li.s svg.i{color:var(--mut)}
+
+/* triggers */
+.gro{display:flex;gap:6px;align-items:flex-start;margin:8px 0 0;font-size:12.5px;font-weight:600;line-height:1.4;color:var(--ink)}.gro svg.i{width:14px;height:14px;color:#16a05a;flex:none;margin-top:2px}.gro b{font-weight:800}
+.trg{margin-top:8px;border-top:1px solid var(--line);padding-top:7px}
+.trg small{display:flex;gap:5px;align-items:center;font-size:10.5px;font-weight:800;color:#5b3fd6;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}.trg small svg.i{width:13px;height:13px}
+.trg.iss small{color:#c23a2b}
+.trg ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.trg li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:start;padding:6px 8px;border-radius:9px;background:#f7f8fb;border:1px solid transparent}
+.trg li.on{background:#f3efff;border-color:#d9d0fb}
+.trg li.w{grid-template-columns:auto minmax(0,1fr) auto;background:#fdf1ef}.trg li.w>svg.i{width:15px;height:15px;color:#d23b2a;margin-top:2px}
+.trg .ty{font:800 11px var(--fm);color:#5b3fd6;background:#fff;border:1px solid #e1d9fd;border-radius:6px;padding:2px 6px;white-space:nowrap}
+.trg li b{display:block;font-size:12.5px;font-weight:800;line-height:1.3}.trg li b .stb{margin-left:4px;vertical-align:1px}
+.trg li span{display:block;font-size:12px;font-weight:600;line-height:1.35;color:var(--ink)}
+.trg li em{display:block;font-style:normal;font-size:11.5px;font-weight:700;color:#5b3fd6;margin-top:2px}
+.mpb{border:0;background:#e6f5fa;color:var(--ocean);border-radius:999px;padding:3px 8px;font:800 11px var(--f);display:inline-flex;gap:3px;align-items:center;cursor:pointer;white-space:nowrap}.mpb svg.i{width:11px;height:11px}
+.bas2{margin:8px 0 0!important;font-size:10.5px!important;color:var(--mut)!important;font-weight:600!important;display:flex;gap:4px;align-items:center}.bas2 svg.i{width:11px;height:11px;flex:none}
+.pjc .pb.pr[data-pb]{fill-opacity:.62}.pleg{gap:3px 10px!important;font-size:10.5px!important}
+
+.trg ul{grid-template-columns:1fr!important}
+.trg li{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;background:#f7f8fb;font-size:12px}
+.trg li.on{background:#f3efff!important}.trg li.w{background:#fdf1ef!important}
+.trg li .stb{display:inline-block!important;width:auto!important;font-size:9px!important;line-height:1.5!important;padding:0 6px!important;margin-left:6px}
+.exp p.gro,.ppop p.gro{font-size:12.5px!important;line-height:1.4!important;font-weight:600!important;margin:8px 0 0!important}
 .lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:var(--mut);text-decoration:none;margin-right:8px}.lang:hover{color:var(--ink)}</style>
 </head>
 <body>
@@ -1906,7 +1929,7 @@ function pchart(P,si,sel){const S=P.sc[si],W=540,H=290,L=46,R=12,T=24,B=24,cw=(W
  PY.forEach((yr,i)=>{const pr=i>0;g+=`<rect x="${L+cw*i+3}" y="${T-18}" width="${cw-6}" height="${H-T-B+18+B}" rx="8" class="col${i===sel?' on':''}"/>`;
   if(P.stack){let acc=0;bars.forEach((s,k)=>{const v=s.v[i];if(!v)return;const y0=y(acc+v),h=y(acc)-y(acc+v);acc+=v;g+=`<rect class="pb${pr?' pr':''}${i===sel&&pjS.k==='bar'&&pjS.sk===bars.indexOf(s)?' sel':''}" data-pb="${S.s.indexOf(s)}" data-py="${i}" x="${cx(i)-bw/2}" y="${y0}" width="${bw}" height="${Math.max(h,0)}" fill="${s.c}" style="--d:${i*.08+k*.05}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u} — click for details</title></rect>`});
    g+=`<text x="${cx(i)}" y="${y(acc)-5}" text-anchor="middle" class="lb">${d(acc)}</text>`}
-  else bars.forEach((s,k)=>{const v=s.v[i],x=cx(i)-nb*bw/2+k*bw;g+=`<rect class="pb${pr?' pr':''}${i===sel&&pjS.k==='bar'&&pjS.sk===S.s.indexOf(s)?' sel':''}" data-pb="${S.s.indexOf(s)}" data-py="${i}" x="${x+1}" y="${y(v)}" width="${bw-2}" height="${Math.max(y(0)-y(v),0)}" fill="${s.c}" rx="3" style="--d:${i*.08}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u} — click for details</title></rect>${v?`<text x="${x+bw/2}" y="${y(v)-5}" text-anchor="middle" class="lb">${d(v)}</text>`:`<text x="${x+bw/2}" y="${y(0)-5}" text-anchor="middle" class="lb">0</text>`}`});
+  else bars.forEach((s,k)=>{const v=s.v[i],x=cx(i)-nb*bw/2+k*bw;const MF=PJMIX[isl+'.'+topic];if(k===0&&MF){const mx=MF(si,i);let acc=0;mx.forEach(([n,mv,c],q)=>{if(!mv)return;const y0=y(acc),y1=y(acc+mv);acc+=mv;g+=`<rect class="pb${pr?' pr':''}${i===sel&&pjS.k==='bar'&&pjS.sk===0?' sel':''}" data-pb="0" data-py="${i}" x="${x+1}" y="${y1}" width="${bw-2}" height="${Math.max(y0-y1,.5)}" fill="${c}" style="--d:${i*.08+q*.03}s"${pr?` stroke="#fff" stroke-width="1"`:' stroke="#fff" stroke-width="1"'}><title>${yr} · ${esc(n)}: ${d(mv)} ${P.u} — click for details</title></rect>`});g+=`<text x="${x+bw/2}" y="${y(acc)-5}" text-anchor="middle" class="lb">${d(acc)}</text>`;return}g+=`<rect class="pb${pr?' pr':''}${i===sel&&pjS.k==='bar'&&pjS.sk===S.s.indexOf(s)?' sel':''}" data-pb="${S.s.indexOf(s)}" data-py="${i}" x="${x+1}" y="${y(v)}" width="${bw-2}" height="${Math.max(y(0)-y(v),0)}" fill="${s.c}" rx="3" style="--d:${i*.08}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u} — click for details</title></rect>${v?`<text x="${x+bw/2}" y="${y(v)-5}" text-anchor="middle" class="lb">${d(v)}</text>`:`<text x="${x+bw/2}" y="${y(0)-5}" text-anchor="middle" class="lb">0</text>`}`});
   g+=`<text x="${cx(i)}" y="${H-6}" text-anchor="middle" class="yr${i===sel?' on':''}">${yr}</text>`});
  lines.forEach(s=>{g+=`<polyline points="${PY.map((_,i)=>cx(i)+','+y(s.v[i])).join(' ')}" fill="none" stroke="${s.c}" stroke-width="2.6" stroke-dasharray="${'6 4'}" class="pl"/>`+PY.map((_,i)=>`<circle class="pd" data-pb="${S.s.indexOf(s)}" data-py="${i}" cx="${cx(i)}" cy="${y(s.v[i])}" r="5" fill="#fff" stroke="${s.c}" stroke-width="2.4"><title>${PY[i]} · ${esc(s.n)}: ${d(s.v[i])} ${P.u} — click for details</title></circle>`).join('')});
  return `<svg viewBox="0 0 ${W} ${H}" class="pjc" role="img" aria-label="${esc(P.t)}">${g}</svg>`}
@@ -1998,7 +2021,7 @@ function pjHead(P,S,M){const bars=S.s.filter(x=>!x.line);const tot=i=>P.stack?ba
 function pjEx(P,S,M){const i=pjS.y,pr=i>0,u=P.u,badge=`<span class="stb st-${pr?'F':'C'}" style="--sc:${ST[pr?'F':'C'][1]}">${pr?'Estimate':'Existing'}</span>`;const yrl=`<ul class="yl">${P.yr[i].map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul>`;
  if(pjS.k==='bar'){const s=S.s[pjS.sk],X=sx(s.n),v=s.v[i],pv=i?s.v[i-1]:null,dl=pv==null?0:v-pv;
   return `<div class="exh"><i style="background:${s.c}"></i><div><small>${esc(s.n)} · ${PY[i]} ${badge}</small><b>${fN(v)} <span>${esc(u)}</span></b>${pv!=null?`<span class="dlt ${dl>0?'up':dl<0?'dn':''}">${Math.abs(dl)<.05?'same as '+PY[i-1]:(dl>0?'+':'')+fN(dl)+' vs '+PY[i-1]}</span>`:''}</div></div>
-  ${(()=>{const pm=PMIX[isl+'.'+topic];const mx=pm&&pjS.sk===0?pm(pjS.si,i):null;return mx?`<div class="cbg pmx"><div class="cvz">${mixBlock({mix:mx,u:P.u})}</div><div class="cbt"><h4>Supply mix ${PY[i]}</h4><p>${PY[i]>2026?'Projection: ':''}existing fleet plus plants due by that year. Our estimate.</p></div></div>`:''})()}<dl><dt>${ic('info')}What it means</dt><dd>${esc(X[0])}</dd><dt>${ic('bulb')}${pr?'Why this number':'Where the number comes from'}</dt><dd>${esc(pr?X[2]+' Scenario "'+S.n+'": '+S.d:X[1])}</dd><dt>${ic('cal')}What happens in ${PY[i]}</dt><dd>${yrl}</dd></dl>`}
+  ${(()=>{const pm=PMIX[isl+'.'+topic];const mx=pm&&pjS.sk===0?pm(pjS.si,i):null;return mx?`<div class="cbg pmx"><div class="cvz">${mixBlock({mix:mx,u:P.u})}</div><div class="cbt"><h4>Supply mix ${PY[i]}</h4><p>${PY[i]>2026?'Projection: ':''}existing fleet plus plants due by that year. Our estimate.</p></div></div>`:''})()}${(()=>{const m=(TGP[isl+'.'+topic]||{})[s.n];if(!m||!m.length)return '';const T={t:[],i:[]};m.forEach(x=>{const g=(TG[isl+'.'+topic]||{})[x];if(g){T.t=T.t.concat(g.t||[]);T.i=T.i.concat((g.i||[]).filter(z=>!T.i.includes(z)))}});return trgHtml(T,PY[i])})()}<dl><dt>${ic('info')}What it means</dt><dd>${esc(X[0])}</dd><dt>${ic('bulb')}${pr?'Why this number':'Where the number comes from'}</dt><dd>${esc(pr?X[2]+' Scenario "'+S.n+'": '+S.d:X[1])}</dd><dt>${ic('cal')}What happens in ${PY[i]}</dt><dd>${yrl}</dd></dl>`}
  if(pjS.k==='metric'){const m=M.v[i],X=MX[isl+'.'+topic]||['','',()=>''];
   return `<div class="exh"><i class="mc ${m[1]}"></i><div><small>${esc(M.n)} · ${PY[i]} ${badge}</small><b class="mt ${m[1]}">${esc(m[0])}</b></div></div>
   <dl><dt>${ic('info')}What it means</dt><dd>${esc(X[0])}</dd><dt>${ic('bulb')}How it is calculated</dt><dd class="fx">${esc(X[2](S,i))} = <b>${esc(m[0])}</b></dd><dt>${ic('shield')}Colour key</dt><dd>${esc(X[1])}</dd></dl>`}
@@ -2012,7 +2035,7 @@ pjRender=function(){const key=isl+'.'+topic,P=PJ[key];if(!P)return;const ex=$('#
  else if(k!=='none')pop=`<div class="pyd">${pjEx(P,S,M)}</div>`;
  ex.innerHTML=`<header><div><small>Projection 2026–2030 ${vpill(P.v)}</small><h4>${esc(P.t)}</h4></div><div class="pseg"><button type="button" data-pjx>Existing</button><button type="button" class="on">Projection</button></div><button type="button" class="xx" aria-label="Close projection">${ic('x')}</button></header>
  <div class="psc">${P.sc.length>1?`<span>Scenario:</span>${P.sc.map((s,j)=>`<button type="button" data-psc="${j}" aria-pressed="${j===pjS.si}" title="${esc(s.d)}">${esc(s.n)}</button>`).join('')}`:''}<button type="button" class="pq${k==='scn'?' on':''}" data-pjw="scn">${ic('info')}Why this scenario</button><button type="button" class="pq${k==='why'?' on':''}" data-pjw="why">${ic('bulb')}Rationale</button></div>
- <div class="pjw">${pchart(P,pjS.si,k==='none'||k==='scn'||k==='why'?-1:i)}<div class="pleg">${S.s.map((s,kk)=>`<button type="button" data-pb="${kk}" data-py="${i}"><i style="background:${s.c}${s.line?';height:3px;border-radius:2px':''}"></i>${esc(s.n)}</button>`).join('')}<span><i class="hx"></i>dashed = estimate</span><span class="tip">${ic('info')}click any bar or number</span><span class="u">${esc(P.u)}</span></div></div>
+ <div class="pjw">${pchart(P,pjS.si,k==='none'||k==='scn'||k==='why'?-1:i)}<div class="pleg">${PJMIX[key]?PJMIX[key](pjS.si,4).filter(x=>x[1]).map(x=>`<button type="button" data-pb="0" data-py="${i}"><i style="background:${x[2]}"></i>${esc(x[0])}</button>`).join('')+S.s.filter(s=>s.line).map(s=>`<button type="button" data-pb="${S.s.indexOf(s)}" data-py="${i}"><i style="background:${s.c};height:3px;border-radius:2px"></i>${esc(s.n)}</button>`).join(''):S.s.map((s,kk)=>`<button type="button" data-pb="${kk}" data-py="${i}"><i style="background:${s.c}${s.line?';height:3px;border-radius:2px':''}"></i>${esc(s.n)}</button>`).join('')}<span><i class="hx"></i>dashed = estimate</span><span class="tip">${ic('info')}click any bar or number</span><span class="u">${esc(P.u)}</span></div></div>
  <div class="pms"><span class="mn">${esc(M.n)} ${ic('info')}</span>${M.v.map((v,j)=>`<button type="button" data-pm="${j}" class="${v[1]}${v[0].length>6?' tx':''}${j===i&&k==='metric'?' on':''}" title="Click: meaning & calculation">${esc(v[0])}<small>${PY[j]}</small></button>`).join('')}</div>
  ${pop?`<div class="ppop"><button type="button" class="ppx" data-ppx aria-label="Close">${ic('x')}</button>${pop}</div>`:''}`;
  const pp=ex.querySelector('.ppop');if(pp){const w=ex.querySelector('.pjw'),ms=ex.querySelector('.pms');const tp=w.offsetTop+4;pp.style.top=tp+'px';pp.style.maxHeight=Math.max(160,ms.offsetTop-tp-6)+'px'}};
@@ -2068,7 +2091,7 @@ function mixBlock(d){if(!d.mix)return '';const tot=d.mix.reduce((a,x)=>a+x[1],0)
 function chartDetail(ci,si,el){const B=BRK[isl+'.'+topic];if(!B)return;const d=typeof B==='function'?B(ci,si):(B[ci+'|'+si]||B[ci+'|0']);if(!d)return;
  const b=$('#body'),ex=$('#exp');b.querySelectorAll('.cv .sel').forEach(x=>x.classList.remove('sel'));if(el)el.classList.add('sel');b.querySelectorAll('.kpi.on').forEach(x=>x.classList.remove('on'));
  ex.className='exp cbx';const tp=(b.querySelector('.kp')||b).offsetTop;ex.style.top=tp+'px';ex.style.maxHeight=(b.clientHeight-tp-10)+'px';ex.style.height='';ex.hidden=false;
- ex.innerHTML=`<button type="button" class="xx" aria-label="Close">${ic('x')}</button><div class="cbg${d.mix?'':' nm'}">${d.mix?`<div class="cvz">${mixBlock(d)}</div>`:''}<div class="cbt"><small>${d.st?stb(d.st):''}</small><h4>${esc(d.t)}</h4><b>${esc(d.v)}</b><p>${esc(d.txt)}</p>${d.basis?`<p class="bas">${ic('check')}<span><b>Basis:</b> ${esc(d.basis)}</span></p>`:''}</div></div>${d.notes&&d.notes.length?`<div class="cbn"><small>${ic('cal')} What drives this year</small><ul>${d.notes.map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul></div>`:''}`;}
+ ex.innerHTML=`<button type="button" class="xx" aria-label="Close">${ic('x')}</button><div class="cbg${d.mix?'':' nm'}">${d.mix?`<div class="cvz">${mixBlock(d)}</div>`:''}<div class="cbt"><small>${d.st?stb(d.st):''}</small><h4>${esc(d.t)}</h4><b>${esc(d.v)}</b><p>${esc(d.txt)}</p></div></div>${d.trig?trgHtml(d.trig,d.yr):''}${d.notes&&d.notes.length?`<div class="cbn"><small>${ic('cal')} What drives this year</small><ul>${d.notes.map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul></div>`:''}${d.basis?`<p class="bas2">${ic('info')} Basis: ${esc(d.basis)}</p>`:''}`;}
 
 /* ---------- STACKED MIX CHARTS (capacity, demand, renewables) ---------- */
 function sbars(o){const m={l:40,r:o.lines&&o.lines.length?52:12,t:24,b:24},w=W-m.l-m.r,h=H-m.t-m.b,n=o.cats.length,gw=w/n,bw=Math.min(o.bw||46,gw*.62),Y=v=>m.t+h-(v/o.max)*h,X=i=>m.l+i*gw+gw/2;let s='';
@@ -2088,9 +2111,9 @@ function sbars(o){const m={l:40,r:o.lines&&o.lines.length?52:12,t:24,b:24},w=W-m
  return svg(s)}
 const sbLeg=o=>o.segs.map(g=>[g.n+(g.up?' (upside)':g.nf?' (not firm)':''),g.c]).concat((o.lines||[]).map(l=>[l.n,l.c,1]));
 function sbDetail(key,ci,k){const o=SB[key],cat=o.cats[ci],pr=o.fut!=null&&ci>=o.fut,notes=(o.yr&&o.yr[ci])||[];
- if(typeof k==='string'&&k[0]==='L'){const l=o.lines[+k.slice(1)];return {t:l.n+' · '+cat,v:fN(l.v[ci])+' '+o.unit,txt:l.x,st:pr?'F':'C',notes}}
+ const TGk=(TG[key]||{})[k];if(typeof k==='string'&&k[0]==='L'){const l=o.lines[+k.slice(1)];return {t:l.n+' · '+cat,v:fN(l.v[ci])+' '+o.unit,txt:l.x,st:pr?'F':'C',notes,trig:TGk,yr:cat}}
  const g=o.segs[k];if(!g||!g.v[ci])return null;const mix=o.segs.filter(x=>x.v[ci]).map(x=>[x.n+(x.up?' (upside)':x.nf?' (not firm)':''),x.v[ci],x.c]);
- return {t:g.n+' · '+cat,v:fN(g.v[ci])+' '+o.unit,txt:g.x,basis:g.b,st:g.st&&!pr?g.st:pr?(g.up||g.nf||g.v[0]===0?'R':'F'):'C',mix,u:o.unit,mixC:fN(o.segs.filter(x=>!x.up&&!x.nf).reduce((a,x)=>a+(x.v[ci]||0),0))+(o.unit==='%'?'%':''),mixS:o.totLab||'total '+o.unit,notes}}
+ return {t:g.n+' · '+cat,v:fN(g.v[ci])+' '+o.unit,txt:g.x,basis:g.b,st:g.st&&!pr?g.st:pr?(g.up||g.nf||g.v[0]===0?'R':'F'):'C',mix,u:o.unit,mixC:fN(o.segs.filter(x=>!x.up&&!x.nf).reduce((a,x)=>a+(x.v[ci]||0),0))+(o.unit==='%'?'%':''),mixS:o.totLab||'total '+o.unit,notes,trig:TGk,yr:cat}}
 const SB={
 'bintan.kap':{t:'Batam–Bintan supply by plant',s:'MW · firm supply + peak load',cats:['2026','2027','2028','2029','2030'],fut:1,max:1800,ticks:[0,600,1200,1800],unit:'MW',totLab:'firm MW',
  segs:[{n:'Batam gas plants',c:C.gas,v:[707,707,707,707,707],x:'Existing gas-fired plants on Batam: CCGT Panaran (Mitra Energi Batam) 164 MW, CCGT Tanjung Uncang & IPP 120 MW (incl. Medco add-on +39 MW, Nov 2025), gas turbine Batamindo 114 MW, gas engines Baloi 30 MW, plus other Batam gas plants incl. Sagulung gas engines ≈279 MW (unit ratings not published).',b:'PLN Batam plant data; supply 930 MW (Oct 2026).'},
@@ -2163,6 +2186,71 @@ Object.keys(SB).forEach(k=>{const [i,t]=k.split('.'),o=SB[k];ISL[i].T[t].v={t:o.
 const pmixFrom=(k,i,si)=>{const o=SB[k];return o.segs.filter(x=>!x.nf&&!x.up&&x.v[i]).map(x=>[x.n,x.v[i],x.c])};
 PMIX['bintan.kap']=(si,i)=>si===0?pmixFrom('bintan.kap',i):null;
 PMIX['karimun.kap']=(si,i)=>{const m=pmixFrom('karimun.kap',i);return si===1&&i<4?m.filter(x=>!/cable/.test(x[0])):si===1&&i===4?pmixFrom('karimun.kap',4):m};
+
+/* ---------- TRIGGERS: named projects & issues behind each segment ---------- */
+// row: [mapId, year, status, who / what, detail, how it enters our numbers]
+const TG={
+'bintan.dem':{
+ 0:{g:'≈+5%/yr: population ≈+2%/yr, new connections and more air-conditioning in Tanjungpinang and Bintan Regency.',t:[],i:[]},
+ 1:{g:'≈+5%/yr, following tourism and Tanjungpinang commerce.',t:[['lagoi','2030','R','Lagoi · Bintan Resorts','Integrated resort area, supplied by PLN 160 MVA; RUPTL adds a 2-circuit 150 kV line in 2030.','Supports resort growth inside the base case; no step-change assumed.']],i:[]},
+ 2:{g:'≈+3–5%/yr: government, water utility, airport, street lighting.',t:[],i:['i_air']},
+ 3:{g:'≈+7%/yr from a small base; most heavy industry on Bintan runs captive plants.',t:[
+   ['lobam','2026','E','Lobam Industrial Estate (BIIE)','Electronics and light manufacturing; estate utility plus PLN.','Part of today’s ≈12 MW industrial load.'],
+   ['l_tsauh','2027','K','Tanjung Sauh SEZ (PSN, PP 24/2024)','Electronics & logistics estate under construction; Tanjung Sauh substation live 9 Nov 2026; own ≈300 MW coal plant.','Mostly captive; only a small PLN draw counted (see upside).'],
+   ['gb','2026','E','Galang Batang SEZ · PT Bintan Alumina Indonesia (BAI)','Alumina refinery with its own ≈200 MW coal plant.','Not in PLN demand (captive).']],i:['i_tsauh']},
+ 4:{g:'Not organic growth: only appears if announced projects connect to PLN.',t:[
+   ['l_tsauh','2027','K','Tanjung Sauh SEZ','First tenants draw from PLN via the new substation.','+5 MW 2027 → ≈20 MW 2030.'],
+   ['l_sos','2028','M','SOS AI data-center campus (Galang Batang SEZ)','≈500 MW at full build; non-binding cooperation note, 15 Sep 2026.','Phase 1 counted at 25–30%: ≈50 MW 2028 → ≈120 MW 2030.'],
+   ['l_dci','2028','M','DCI Indonesia data center (planned, Bintan)','>1,000 MW announced in 2023; claims 100% renewable supply.','Low weight: ≈10 MW 2028 → ≈30 MW 2030.'],
+   ['l_aizone','2031','M','Bintan AI zone / national data hub (Province)','≈3,000 ha allocated by the Riau Islands Provincial Government.','Not counted before 2031 (proposal only).'],
+   ['l_ktt31','2031','R','Unnamed ≈500 MW HV customer (RUPTL)','RUPTL industrial sales jump 58 → 4,442 GWh in 2031.','After 2030 — outside this chart.'],
+   ['l_baidc','2032','R','BAI HV customer / Bintan Data Center (RUPTL)','1,500 MVA via a new 500 kV substation.','After 2030 — outside this chart.'],
+   ['l_smelter','2032+','M','Planned BAI aluminium smelter','≈250k t/yr; estate requirement ≈2,850 MW (PLN–BAI MoU 2022).','Not counted (investor plan, likely captive).']],i:['i_air','i_pltmg','i_cable']}},
+'karimun.dem':{
+ 0:{g:'≈+4%/yr (25.4 MW in 2017 → 36.1 MW in 2026), held back by rolling blackouts.',t:[],i:[]},
+ 1:{g:'≈+4%/yr: port services, shops and hotels in Tanjung Balai Karimun.',t:[],i:[]},
+ 2:{g:'≈+4%/yr.',t:[],i:[]},
+ 3:{g:'≈+5%/yr; heavy FTZ industry is outside PLN’s zone.',t:[
+   ['l_kmic','2028','R','Karimun Maritime Industrial Complex','Shipyards & offshore fabrication; RUPTL Appendix E lists the industrial-estate requirement.','Grows with the cable; small PLN draw in base case.'],
+   ['kftz','2026','E','Karimun FTZ (shipyards, oil & gas, granite)','Mostly served by private zones and own gensets.','Not in PLN demand today.']],i:['i_frag']},
+ 4:{g:'Not organic: load that appears once the Sumatra cable makes supply reliable.',t:[
+   ['kftz','2028','E','FTZ industry on private gensets','Switches to PLN when supply is reliable and cheaper than diesel (≈IDR 4,000/kWh).','≈+3 MW 2028 → ≈+6 MW 2030.'],
+   ['l_kmic','2028','R','Karimun Maritime Industrial Complex expansion','New fabrication yards can connect after the cable.','≈+2 MW 2028 → ≈+5 MW 2030.'],
+   ['l_kdc','2030+','M','Karimun data-center hub (MEMR proposal)','Cited by the Energy Minister, 19 Oct 2026; needs the cable, water and land.','Not counted before 2030.']],i:['i_kcod','i_geo','i_frag']}},
+'bintan.kap':{
+ 0:{t:[['g_pan','2026','E','Panaran CCGT (Mitra Energi Batam)','164 MW.',''],['g_tu','2026','E','Tanjung Uncang CCGT (Medco)','109 MW + 39 MW add-on (Nov 2025).',''],['g_bip','2026','E','Batamindo gas turbine','114 MW.','']],i:[]},
+ 1:{t:[['g_tk','2026','E','Tanjung Kasam coal plant (TJK Power)','≈130 MW base load.','']],i:[]},
+ 2:{t:[['g_sag','2027','K','MaxPower Sagulung gas engines','60 MW, black-start capable.','Part of the 50 → 150 MW lease.'],['g_sek','2026','K','MaxPower Sekupang gas engines','40 MW, COD 6 Mar 2026.','Part of the 50 → 150 MW lease.']],i:[]},
+ 3:{t:[['g_ar','2026','E','Air Raja & Suka Berenang diesel','≈24 MW firm, local backup.',''],['g_lob','2026','E','Kuala Lobam gas engines','9 MW, CNG from Panaran.','']],i:['i_cable']},
+ 5:{t:[['p_mg','2027','R','Bintan gas-engine plant (PLN Batam licence area)','100 MW (2027) + 50 MW (2031); developer must bring demand (take-or-pay).','+100 MW from 2027.']],i:['i_pltmg']},
+ 6:{t:[['p_b1','2028','K','Batam #1 CCGT','120 MW; EPC by a PP-led consortium.','+120 MW from 2028.']],i:[]},
+ 7:{t:[['p_b34','2029','K','Batam 3 & 4 CCGT','2×150 MW; supply contract 16 Jul 2026.','+150 MW 2029, +150 MW 2030.']],i:['i_isbb']},
+ 8:{t:[['re_bin','2028','R','Bintan solar PV (PLN Batam licence area)','25 MW (2028) + 25 MW (2030); site indicative.','Shown, not counted as firm.']],i:[]},
+ L0:{t:[['kabil','2026','K','DayOne data center, Kabil (Batam)','Supply contract 511 MVA (Apr 2026), ramping 2026–27.','Main driver of the peak-load rise.'],['nongsa','2027','K','Nongsa data center (Altiva), Batam','Supply contract 690 MVA (Jul 2026).','Ramps after DayOne.'],['l_tsauh','2027','K','Tanjung Sauh SEZ','New load on the cable corridor.','Small PLN draw.'],['p_tsauh','2026','K','Tanjung Sauh estate coal plant ≈300 MW','Captive to the SEZ; possible backup for Bintan.','Not counted in PLN supply.']],i:['i_cable','i_isbb']}},
+'karimun.kap':{
+ 0:{t:[['g_tbk','2026','E','TBK Tanjung Sebatak coal plant','2×7 MW, 10.2 MW dependable; unit 2 outages May and Jul 2026.','']],i:[]},
+ 1:{t:[['g_bc','2026','E','Bukit Carok diesel plant','Older units incl. 17 × 1 MW added in 2017.','']],i:[]},
+ 2:{t:[['g_bc','2026','E','Bukit Carok diesel plant','+6 MW new units (2026).','']],i:[]},
+ 3:{t:[['g_bc','2026','E','Rented gensets at Bukit Carok','7 MW bridging until the cable.','']],i:[]},
+ 4:{t:[['re_bio','2027','M','PLN EPI × KPP biomass pilot','1 MW, ≈35 t/day feedstock; MoU Apr 2026.','+1 MW from 2027.']],i:[]},
+ 5:{t:[['gi_tbk','2028','R','TBK 150/20 kV substation + Sumatra cable','2×30 MVA; route Sumatra → Selat Panjang → Rangsang → Karimun.','+54 MW from 2028 (realistic).'],['p_mgk','?','R','Karimun gas-engine plant (RUPTL Appendix E)','Capacity not specified in RUPTL.','Not counted (no size given).'],['g_soma','2026','E','Soma Daya Utama coal (private Zone 1)','2×25 MW for Zone 1 customers.','Not PLN supply; no pooling with PLN.']],i:['i_kcod','i_frag']},
+ 6:{t:[['re_tbk','2027','R','Karimun regency solar','2.6 MW.','Shown, not counted as firm.']],i:[]},
+ L0:{t:[],i:[]},L1:{t:[['kftz','2028','E','FTZ genset users','Switch to PLN once the cable arrives.','See demand upside.']],i:['i_kcod']}},
+'bintan.ebt':{2:{t:[['re_bin','2028','R','Bintan solar PV','25 + 25 MW (RUPTL).','Main local renewable addition.'],['x_duri','?','M','Duriangkang floating solar (proposal)','≈2.2 GWp, MoU 2021.','Not counted.'],['x_vena','2026+','R','Vena Energy × Shell solar + BESS','≈2 GW, export to Singapore.','Not counted (export).'],['x_semb','?','R','Sembcorp BBK solar','≈1 GW, export.','Not counted (export).']],i:['i_export']},
+ 3:{t:[],i:['i_isbb','i_rempang']}},
+'karimun.ebt':{0:{t:[['re_kpp','2026','E','Karimun Power Plant solar','5 MW, private Zone 2.','']],i:[]},1:{t:[['re_tbk','2027','R','Regency solar','2.6 MW.','']],i:[]},2:{t:[['re_bio','2027','M','PLN EPI × KPP biomass pilot','1 MW.','']],i:[]},
+ 3:{t:[],i:[]},4:{t:[['belat','?','M','Pulau Belat solar + BESS (Gotion × Oriens)','≈2 GW, MoU Jan 2026, export-oriented.','Not counted (export).'],['x_equator','2029','R','Equator Renewables solar + BESS','≈900 MW + 1.2 GWh; 400 MW export to Singapore 2029.','Not counted (export).']],i:['i_export']}}};
+const TGP={'bintan.kap':{'Supply capacity':[5,6,7,2],'Peak load':['L0']},'bintan.dem':{'New SEZ / data-center load':[4],'Industry on PLN grid':[3],'Households, business, public':[0,1]},'karimun.kap':{'Firm capacity':[5,4],'N-2 requirement':['L1']},'karimun.dem':{'Suppressed demand & new industry':[4],'Industry on PLN grid':[3]},'karimun.int':{'Cable capacity':[]},'karimun.rel':{'Reserve':[]}};
+function isuRow(id){const u=ISU.find(x=>x[0]===id);return u?`<li class="w">${ic('alert')}<div><b>${esc(u[2])}</b><span>${esc(u[4])}</span></div><button type="button" class="mpb" data-loc="${u[0]}" title="Show on map">${ic('arrow')}Map</button></li>`:''}
+function trgHtml(T,yr){if(!T)return '';const y=String(yr||'');const rows=(T.t||[]).slice().sort((a,b)=>String(a[1]).localeCompare(String(b[1])));
+ return `${T.g?`<p class="gro">${ic('trend')}<span><b>Normal growth:</b> ${esc(T.g)}</span></p>`:''}${rows.length?`<div class="trg"><small>${ic('factory')} What drives it — named projects</small><ul>${rows.map(r=>`<li class="${r[1]===y?'on':''}"><span class="ty">${esc(r[1])}</span><div><b>${esc(r[3])} ${stb(r[2])}</b><span>${esc(r[4])}</span>${r[5]?`<em>${esc(r[5])}</em>`:''}</div>${REG[r[0]]?`<button type="button" class="mpb" data-loc="${r[0]}" title="Show on map">${ic('arrow')}Map</button>`:''}</li>`).join('')}</ul></div>`:''}${T.i&&T.i.length?`<div class="trg iss"><small>${ic('alert')} Issues & risks</small><ul>${T.i.map(isuRow).join('')}</ul></div>`:''}`}
+
+
+/* projection capacity bars stacked by source, per scenario */
+const PJMIX={'bintan.kap':(si,i)=>{const o=SB['bintan.kap'],dl={'Rented gas engines · MaxPower':[50,150,150,150,150],'NEW Bintan gas engines (PLTMG)':[0,0,100,100,100],'NEW CCGT Batam #1':[0,0,0,120,120],'NEW CCGT Batam 3 & 4':[0,0,0,0,0]};return o.segs.filter(x=>!x.nf&&!x.up).map(x=>[x.n,si===1&&dl[x.n]?dl[x.n][i]:x.v[i],x.c])},
+ 'karimun.kap':(si,i)=>{const o=SB['karimun.kap'];return o.segs.filter(x=>!x.nf&&!x.up).map(x=>[x.n,si===1&&/cable/.test(x.n)?[0,0,0,0,54][i]:x.v[i],x.c])}};
+PMIX['bintan.kap']=(si,i)=>PJMIX['bintan.kap'](si,i).filter(x=>x[1]);
+PMIX['karimun.kap']=(si,i)=>PJMIX['karimun.kap'](si,i).filter(x=>x[1]);
 
 /* ---------- MAP ---------- */
 const map=L.map('map',{zoomSnap:.25,zoomControl:false,attributionControl:true,preferCanvas:false}).fitBounds([[0.6,103.15],[1.3,104.8]]);
