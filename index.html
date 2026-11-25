@@ -1039,12 +1039,11 @@ mark{background:#ffe7a8;color:inherit;border-radius:3px;padding:0 1px}
 .kc b.tx{font-size:16px}
 .bal{display:grid;gap:6px}
 .bal .bar{display:flex;gap:3px;height:12px;border-radius:999px;overflow:hidden;background:var(--soft)}
-.bal .bar i{display:block;transform-origin:left;animation:grow .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:.25s}
+.bal .bar i{display:block;transform-origin:left;animation:growx .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:.25s}
 .bal .bar i.g{background:linear-gradient(90deg,#1fb866,#16a05a)}.bal .bar i.w{background:linear-gradient(90deg,#ef5a46,#d23b2a)}.bal .bar i.s{background:#c9d3dd}
 .bal .lg{display:flex;gap:14px;font-size:11.5px;font-weight:800}
 .bal .lg span{display:flex;gap:4px;align-items:center}.bal .lg svg.i{width:13px;height:13px}
 .bal .g{color:#16a05a}.bal .w{color:#d23b2a}.bal .s{color:var(--mut)}
-@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .pts li.g{background:#eaf7ef;border-left:3px solid #16a05a}.pts li.g>svg.i{color:#16a05a}
 .pts li.w{background:#fdeeec;border-left:3px solid #d23b2a}.pts li.w>svg.i{color:#d23b2a}
 .pts li.s{background:#f5f7fa;border-left:3px solid #c9d3dd}.pts li.s>svg.i{color:var(--mut)}
@@ -1058,6 +1057,146 @@ mark{background:#ffe7a8;color:inherit;border-radius:3px;padding:0 1px}
 .vsep{width:1px;background:var(--line);margin:2px 4px}
 .chip.vp[aria-pressed=true]{background:#16a05a;border-color:#16a05a;color:#fff}.chip.vn[aria-pressed=true]{background:#d23b2a;border-color:#d23b2a;color:#fff}.chip.vm[aria-pressed=true]{background:#c27f00;border-color:#c27f00;color:#fff}
 .chip.vp{color:#16804a}.chip.vn{color:#c23a2b}.chip.vm{color:#a86a00}.chip svg.i{width:12px;height:12px;margin-right:4px;vertical-align:-1px}
+
+/* insight visuals */
+.vpl{display:inline-flex;align-items:center;gap:3px;font:800 9.5px/1.6 var(--f);letter-spacing:.05em;text-transform:uppercase;padding:0 7px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.vpl svg.i{width:11px;height:11px}
+.vpl.g{background:#e3f6ea;color:#16804a}.vpl.w{background:#fde7e4;color:#c23a2b}.vpl.m{background:#fff1d6;color:#a86a00}
+.icd{grid-template-rows:auto minmax(0,1fr)!important;cursor:pointer}
+.icd .qq{padding-right:0}.icd .qq .tt{flex:1;min-width:0}
+.icd .vd2{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;flex:none}
+.icd .vd2 svg.i{width:14px;height:14px}
+.icd.v-g .vd2{background:#e3f6ea;color:#16a05a}.icd.v-w .vd2{background:#fde7e4;color:#d23b2a}.icd.v-m .vd2{background:#fff1d6;color:#c27f00}
+.icd.v-g{border-top:3px solid #16a05a}.icd.v-w{border-top:3px solid #d23b2a}.icd.v-m{border-top:3px solid #e0a100}
+.icd.v-g b{color:#16a05a}.icd.v-w b{color:#d23b2a}.icd.v-m b{color:#c27f00}
+.icd .go{display:none}
+.icd.on{box-shadow:0 0 0 2px var(--ocean),var(--sh)}
+.icd .cb{display:grid;grid-template-columns:minmax(0,46%) minmax(0,1fr);gap:10px;align-items:center;min-height:0}
+.icd .mv{min-height:0;height:100%;display:grid;align-items:center}
+.icd .cr{display:grid;gap:3px;align-content:center;min-width:0}
+.icd .cr .stb{justify-self:start}
+.icd .tl{font-size:clamp(11px,1.45vh,12.5px);font-weight:700;color:var(--ink);line-height:1.3}
+.icd .tap{position:absolute;right:10px;bottom:6px;font-size:10px;font-weight:800;color:var(--mut);opacity:0;display:flex;gap:3px;align-items:center;text-transform:uppercase;letter-spacing:.05em;transition:opacity .2s}
+.icd .tap svg.i{width:11px;height:11px}.icd:hover .tap{opacity:1}
+.mvz{min-width:0}
+.mvz.dn svg{width:100%;height:100%;max-height:clamp(64px,13vh,120px);display:block}
+.mvz.dn .sg{animation:dn 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes dn{from{stroke-dasharray:0 999}}
+.mvz.dn .dc{font:800 17px var(--fm);fill:var(--ink)}.mvz.dn .ds{font:700 8.5px var(--f);fill:var(--mut)}
+.mvz.mb{display:grid;gap:5px}
+.mvz.mb .r{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"l v" "tr tr";gap:2px 6px;align-items:center}
+.mvz.mb .l{grid-area:l;font-size:10px;font-weight:700;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mvz.mb .v{grid-area:v;font:700 10.5px var(--fm);text-align:right;white-space:nowrap}
+.mvz.mb .tr{grid-area:tr;height:9px;border-radius:999px;background:#edf2f6;overflow:hidden}
+.mvz.mb .tr i{display:block;height:100%;border-radius:999px;transform-origin:left;animation:growx .9s cubic-bezier(.2,.8,.2,1) both}
+.mvz.sp svg{width:100%;height:auto;max-height:clamp(60px,12vh,110px);display:block;overflow:visible}
+.mvz.sp .ln{stroke-dasharray:400;animation:draw 1.2s ease both}.mvz.sp .ln2{animation:fade .6s 1s ease both}
+@keyframes draw{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}@keyframes fade{from{opacity:0}}
+.mvz.sp .sv{font:800 9px var(--fm);fill:var(--ink)}.mvz.sp .sx{font:700 7.5px var(--f);fill:var(--mut)}.mvz.sp .st{font:800 7.5px var(--fm)}
+.mvz.mo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.mvz.mo span{aspect-ratio:1;border-radius:7px;background:#edf2f6;display:grid;place-items:center;position:relative;animation:pop .4s ease both}
+.mvz.mo span small{font:800 8.5px var(--f);color:var(--mut)}
+.mvz.mo span.on{background:#d23b2a}.mvz.mo span.on small{position:absolute;bottom:1px;font-size:7px;color:#fff}
+.mvz.mo span.on svg.i{width:58%;height:58%;color:#fff;margin-top:-5px}
+.mvz.mo span.nw{outline:2px dashed var(--ocean);outline-offset:-2px}
+.mvz.rt{display:flex;align-items:center}
+.mvz.rt .nd{display:grid;justify-items:center;gap:2px;flex:none;animation:pop .4s ease both}
+.mvz.rt .nd svg.i{width:26px;height:26px;padding:5px;border-radius:50%;background:#fff;border:2px solid var(--nc);color:var(--nc)}
+.mvz.rt .nd small{font:700 8.5px var(--f);color:var(--mut);white-space:nowrap}
+.mvz.rt .sgm{flex:1;height:0;border-top:3px solid var(--leaf);position:relative;margin:0 2px 14px;transform-origin:left;animation:growx .6s ease both}
+.mvz.rt .sgm.sea{border-top:3px dashed var(--ocean2)}
+.mvz.rt .sgm em{position:absolute;left:50%;top:-14px;transform:translateX(-50%);font:700 8px var(--fm);color:var(--mut);font-style:normal}
+.exp.cdx{grid-template-rows:auto auto auto auto}
+.cdt{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:center;background:var(--soft);border-radius:14px;padding:12px}
+.cdt .mvz.dn{display:grid;grid-template-columns:minmax(90px,130px) minmax(0,1fr);gap:10px;align-items:center}
+.cdt .mvz.dn svg{max-height:130px}
+.cdt .dl{display:grid;gap:4px;font-size:11.5px;font-weight:600;color:var(--mut)}
+.cdt .dl i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.cdt .dl b{color:var(--ink);font-family:var(--fm)}
+.cdt .mvz.mb .l,.cdt .mvz.mb .v{font-size:12px}.cdt .mvz.mb .tr{height:12px}
+.cdt .mvz.mo{max-width:260px}.cdt .mvz.mo span small{font-size:10px}
+.cdt .mvz.sp svg{max-height:120px}
+.cnum{display:grid;gap:6px;justify-items:start}
+.cnum b{font:700 clamp(26px,4.6vh,42px)/1 var(--fm);letter-spacing:-.02em}
+.cnum b small{font-size:.42em;color:var(--mut);margin-left:4px}
+.cnum.v-g b{color:#16a05a}.cnum.v-w b{color:#d23b2a}.cnum.v-m b{color:#c27f00}
+.cnum>span:last-child{font-size:13px;font-weight:700;color:var(--ink)}
+.cpts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.cpts li{display:flex;gap:8px;align-items:flex-start;font-size:clamp(12px,1.6vh,13.5px);font-weight:600;line-height:1.35;padding:8px 10px;border-radius:10px;animation:rise .4s ease both}
+.cpts li svg.i{width:16px;height:16px;flex:none;margin-top:1px}
+.cpts li.g{background:#eaf7ef;border-left:3px solid #16a05a}.cpts li.g svg.i{color:#16a05a}
+.cpts li.w{background:#fdeeec;border-left:3px solid #d23b2a}.cpts li.w svg.i{color:#d23b2a}
+.cpts li.s{background:#f5f7fa;border-left:3px solid #c9d3dd}.cpts li.s svg.i{color:var(--mut)}
+.kpi .s:empty{display:none}
+.mtr{display:block;height:6px;border-radius:999px;background:rgba(13,34,56,.08);overflow:hidden;margin-top:4px}
+.mtr i{display:block;height:100%;border-radius:999px;transform-origin:left;animation:growx .9s .2s cubic-bezier(.2,.8,.2,1) both}
+.exp .big .mtr2{display:grid;grid-template-columns:minmax(0,180px) auto;gap:10px;align-items:center;flex-basis:100%}
+.exp .big .mtr2 .mtr{height:9px;margin:0}.exp .big .mtr2 em{font:700 12px var(--f);font-style:normal;color:var(--mut);letter-spacing:0}
+@media (max-width:900px){.cpts{grid-template-columns:1fr}.cdt{grid-template-columns:1fr}}
+
+.icd b{font-size:clamp(17px,2.7vh,26px)!important;white-space:nowrap}
+.icd b.lv{font-size:clamp(14px,2.1vh,20px)!important}
+.icd .cb{grid-template-columns:minmax(0,42%) minmax(0,1fr)!important}
+.icd .tl{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cdt .mvz.rt .nd svg.i{width:38px;height:38px;padding:7px}.cdt .mvz.rt .nd small{font-size:11px}.cdt .mvz.rt .sgm em{font-size:10px;top:-16px}
+
+/* proyeksi */
+.viz h3{align-items:center}.viz h3 .vt{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;min-width:0}
+.pseg{display:inline-flex;background:#eef3f7;border-radius:999px;padding:3px;gap:2px;flex:none}
+.pseg button{border:0;background:none;border-radius:999px;padding:5px 11px;font:800 11px var(--f);letter-spacing:.02em;text-transform:none;color:var(--mut);display:flex;gap:5px;align-items:center;cursor:pointer}
+.pseg button svg.i{width:13px;height:13px}
+.pseg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(13,34,56,.12)}
+.pseg button[data-pj]{background:linear-gradient(135deg,#7a5af5,#5b8def);color:#fff;animation:pulse 2.4s ease-in-out 3}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(122,90,245,.45)}50%{box-shadow:0 0 0 6px rgba(122,90,245,0)}}
+.exp.pjx{display:flex;flex-direction:column;gap:8px;overflow:auto;padding:12px 14px}
+.exp.pjx header .pseg{margin-left:auto}.exp.pjx header .xx{margin-left:6px}
+.exp.pjx header .pseg button.on{background:linear-gradient(135deg,#7a5af5,#5b8def);color:#fff}
+.psc{display:flex;flex-wrap:wrap;gap:6px}
+.psc button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700;color:var(--mut);cursor:pointer}
+.psc button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pjw{background:linear-gradient(180deg,#fbfdfe,#f3f8fb);border:1px solid var(--line);border-radius:14px;padding:8px 10px 6px}
+.pjc{width:100%;height:auto;display:block;max-height:30vh}
+.pjc text{font-family:var(--fm);font-size:10.5px;fill:var(--mut)}
+.pjc .lb{fill:var(--ink);font-weight:700;font-size:11px}.pjc .ll{font-weight:800;font-size:11px}
+.pjc .bn{font:800 9.5px var(--f);letter-spacing:.08em}.pjc .bn.e{fill:#16804a}.pjc .bn.p{fill:#7a5af5}
+.pjc .yr{font-weight:700;font-size:11.5px}.pjc .yr.on{fill:var(--ink);font-weight:800}
+.pjc .gl{stroke:#dbe5ec;stroke-dasharray:3 4}
+.pjc .col{fill:transparent;transition:fill .2s}.pjc .col.on{fill:rgba(122,90,245,.10);stroke:rgba(122,90,245,.45);stroke-width:1.5}
+.pjc .hit{cursor:pointer}.pjc .hit:hover{fill:rgba(13,34,56,.04)}
+.pjc .pb{transform-box:fill-box;transform-origin:bottom;animation:grow .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d)}
+.pjc .pb.pr{fill-opacity:.42;stroke-width:1.6;stroke-dasharray:4 3}
+.pjc .pl{stroke-dasharray:6 4;animation:fade .6s .4s ease both}
+.pleg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;color:var(--mut);font-weight:600;margin-top:4px}
+.pleg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.pleg i.hx{background:repeating-linear-gradient(45deg,#c9d3dd 0 2px,#fff 2px 5px);border:1px dashed #9fb3c4}
+.pleg .u{margin-left:auto;font-family:var(--fm)}
+.pms{display:grid;grid-template-columns:auto repeat(5,minmax(0,1fr));gap:5px;align-items:stretch}
+.pms .mn{font-size:10.5px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;max-width:110px;line-height:1.2}
+.pms button{border:0;border-radius:10px;padding:5px 4px;font:800 12.5px var(--fm);display:grid;gap:1px;justify-items:center;cursor:pointer;border:2px solid transparent}
+.pms button small{font:700 9.5px var(--f);opacity:.75}
+.pms button.g{background:#e3f6ea;color:#16804a}.pms button.w{background:#fde7e4;color:#c23a2b}.pms button.m{background:#fff1d6;color:#a86a00}.pms button.s{background:var(--soft);color:var(--mut)}
+.pms button.on{border-color:#7a5af5}
+.pyd{border:1px solid #d9d0fb;background:#f8f6ff;border-radius:14px;padding:8px 12px;animation:rise .3s ease both}
+.pyd .yh{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-bottom:6px}
+.pyd .yh>b{font:800 18px var(--fm);color:#5b3fd6}
+.pyd .vals{display:flex;flex-wrap:wrap;gap:4px 12px;margin-left:auto}
+.pyd .vals em{font-style:normal;font-size:11.5px;color:var(--mut);font-weight:600;border-left:3px solid var(--c);padding-left:6px}
+.pyd .vals em b{font-family:var(--fm);color:var(--ink)}
+.pyd ul,.pwhy ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.pyd li,.pwhy li{display:flex;gap:7px;align-items:flex-start;font-size:12.5px;font-weight:600;line-height:1.35;padding:5px 8px;border-radius:9px;background:#fff}
+.pyd li svg.i,.pwhy li svg.i{width:15px;height:15px;flex:none;margin-top:1px}
+.pyd li.g svg.i,.pwhy li.g svg.i{color:#16a05a}.pyd li.w svg.i,.pwhy li.w svg.i{color:#d23b2a}.pyd li.s svg.i,.pwhy li.s svg.i{color:var(--mut)}
+.pwhy li.g{background:#eaf7ef}.pwhy li.w{background:#fdeeec}.pwhy li.s{background:#f5f7fa}
+.pwhy small{display:flex;gap:6px;align-items:center;font-size:10.5px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.pwhy small svg.i{width:14px;height:14px;color:#d48a00}
+.pnote{margin:0;font-size:11px;color:var(--mut);display:flex;gap:6px;align-items:flex-start;line-height:1.4}.pnote svg.i{width:13px;height:13px;flex:none;margin-top:1px}
+.icd .mv{overflow:hidden}.mvz.mb .r{grid-template-columns:minmax(0,1fr) auto}
+@media (max-width:900px){.pyd ul,.pwhy ul{grid-template-columns:1fr}.pms{grid-template-columns:repeat(5,minmax(0,1fr))}.pms .mn{grid-column:1/-1;max-width:none}}
+
+.exp.pjx header .ico{display:none}
+.exp.pjx h4{font-size:clamp(14px,2vh,17px);line-height:1.2}
+.exp.pjx .pnote{font-size:11px;font-weight:500;overflow:visible}
+.pjc{max-height:27vh}
 </style>
 
 </head>
@@ -1401,6 +1540,247 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
  }}
 };
 
+/* ---------- INSIGHT VISUALS ---------- */
+const VTX={p:['g','check','Positif'],n:['w','alert','Waspada'],m:['m','scale','Campuran']};
+const vpill=v=>`<span class="vpl ${VTX[v][0]}">${ic(VTX[v][1])}${VTX[v][2]}</span>`;
+function donut(segs,center,sub,o={}){const R=38,CF=2*Math.PI*R,tot=o.tot||segs.reduce((a,s)=>a+s.v,0);let acc=0;
+ return `<div class="mvz dn"><svg viewBox="0 0 100 100" role="img" aria-label="${esc(segs.map(s=>s.n+' '+s.t).join(', '))}"><circle cx="50" cy="50" r="${R}" fill="none" stroke="#edf2f6" stroke-width="13"/>${segs.map((s,i)=>{const l=CF*s.v/tot,st=acc;acc+=l;return `<circle class="sg" cx="50" cy="50" r="${R}" fill="none" stroke="${s.c}" stroke-width="13" stroke-dasharray="${Math.max(l-1.2,.5)} ${CF}" stroke-dashoffset="${-st}" transform="rotate(-90 50 50)" style="animation-delay:${.15+i*.12}s"${s.dash?' opacity=".45"':''}><title>${esc(s.n)}: ${esc(s.t)}</title></circle>`}).join('')}
+ <text x="50" y="${sub?49:55}" text-anchor="middle" class="dc">${esc(center)}</text>${sub?`<text x="50" y="63" text-anchor="middle" class="ds">${esc(sub)}</text>`:''}</svg>
+ ${o.leg?`<div class="dl">${segs.map(s=>`<span><i style="background:${s.c}${s.dash?';opacity:.45':''}"></i>${esc(s.n)} <b>${esc(s.t)}</b></span>`).join('')}</div>`:''}</div>`}
+function mbars(rows,max,o={}){return `<div class="mvz mb">${rows.map((r,i)=>`<div class="r"><span class="l">${esc(r.n)}</span><span class="tr"><i style="width:${Math.max(3,100*r.v/max)}%;background:${r.c};animation-delay:${.15+i*.1}s"${r.dash?' class="ds"':''}></i></span><span class="v" style="color:${r.c}">${esc(r.t)}</span></div>`).join('')}</div>`}
+function spark(pts,o={}){const W=150,H=64,xs=pts.length,mx=o.max||Math.max(...pts.map(p=>p[1]))*1.15;const X=i=>8+i*(W-16)/(xs-1),Y=v=>H-10-(v/mx)*(H-20);
+ const hist=pts.filter(p=>!p[2]),pi=pts.findIndex(p=>p[2]);const path=a=>a.map(([i,v])=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+ const hp=pts.map((p,i)=>[i,p[1],p[2]]).filter(p=>!p[2]),pp=pts.map((p,i)=>[i,p[1],p[2]]).filter((p,i)=>p[2]||i===pi-1);
+ return `<div class="mvz sp"><svg viewBox="0 0 ${W} ${H}"><polygon points="${X(0)},${H-10} ${path(hp)} ${X(hp[hp.length-1][0])},${H-10}" fill="${o.c||C.ocean}" opacity=".12"/>
+ <polyline class="ln" points="${path(hp)}" fill="none" stroke="${o.c||C.ocean}" stroke-width="2.6" stroke-linecap="round"/>
+ ${pp.length>1?`<polyline class="ln2" points="${path(pp)}" fill="none" stroke="${o.c||C.ocean}" stroke-width="2.6" stroke-dasharray="4 4"/>`:''}
+ ${o.hi?`<polyline class="ln2" points="${path([[pi-1,pts[pi-1][1]],...o.hi.map((v,j)=>[pi+j,v])])}" fill="none" stroke="${C.violet}" stroke-width="2" stroke-dasharray="3 4"/><circle cx="${X(xs-1)}" cy="${Y(o.hi[o.hi.length-1])}" r="3.2" fill="${C.violet}"/>${o.leg?`<text x="${X(xs-1)-6}" y="${Y(o.hi[o.hi.length-1])+3}" text-anchor="end" class="st" fill="${C.violet}">${esc(o.hiT)}</text>`:''}`:''}
+ ${pts.map((p,i)=>(i===0||i===xs-1||p[3])?`<circle cx="${X(i)}" cy="${Y(p[1])}" r="3.4" fill="#fff" stroke="${o.c||C.ocean}" stroke-width="2"/><text x="${X(i)}" y="${Y(p[1])-7}" text-anchor="${i===0?'start':i===xs-1?'end':'middle'}" class="sv">${esc(p[4]||fmt(p[1],p[1]%1?1:0))}</text><text x="${X(i)}" y="${H-1}" text-anchor="${i===0?'start':i===xs-1?'end':'middle'}" class="sx">${esc(p[0])}</text>`:'').join('')}</svg></div>`}
+function months(on,now){const M='JFMAMJJASOND';return `<div class="mvz mo">${[...M].map((m,i)=>`<span class="${on[i]?'on':''}${i===now?' nw':''}" title="${on[i]?esc(on[i]):''}" style="animation-delay:${.1+i*.04}s">${on[i]?ic('alert'):''}<small>${m}</small></span>`).join('')}</div>`}
+function route(nodes){return `<div class="mvz rt">${nodes.map((n,i)=>`${i?`<i class="sgm ${n.sea?'sea':''}" style="animation-delay:${i*.15}s"><em>${esc(n.d||'')}</em></i>`:''}<span class="nd" style="--nc:${n.c}">${ic(n.ic)}<small>${esc(n.n)}</small></span>`).join('')}</div>`}
+const INSV={
+ bintan:[
+  {v:'m',t:'Cadangan ±19% · Bintan ±105 MW',z:o=>donut([{n:'Beban Batam',v:675,c:'#1b3a5c',t:'±675 MW'},{n:'Beban Bintan',v:105,c:C.ocean,t:'±105 MW'},{n:'Cadangan',v:150,c:C.leaf,t:'±150 MW'}],'±19%','cadangan',o),
+   p:[['g','Sistem besar ±930 MW, cadangan ±150 MW'],['w','Cadangan tergerus data center Batam (DayOne 511 MVA)'],['w','Pembangkit lokal Bintan hanya 30–35 MW'],['s','Target pasok PLN Batam 1.200–1.300 MW akhir 2027']]},
+  {v:'p',t:'+5%/th · anchor load bisa ×2',z:o=>spark([['2016',65.1],['2026',105],['2028',117,1],['2030',130,1]],{leg:o.leg,c:C.ocean,max:330,hi:[190,300],hiT:'300 tinggi'}),
+   p:[['s','Organik ±5,3%/th → ±130 MW (2030)'],['g','Kampus DC AI ±500 MW (MoU) & BAI 1.500 MVA (2032)'],['w','Lonjakan butuh pasokan dedicated'],['s','Kepri tanpa Batam 241 → 980 MW (2031)']]},
+  {v:'p',t:'PLTMG · PLTS · ISBB 2031',z:o=>mbars([{n:'PLTMG',v:150,c:C.ocean2,t:'150 MW'},{n:'PLTS',v:50,c:'#e0a100',t:'50 MW'},{n:'ISBB',v:1200,c:C.leaf,t:'1.200 MW'}],1200),
+   p:[['g','PLTMG 100 MW (2027) bisa jadi cadangan lokal'],['g','ISBB 1.200 MW (2031) membawa EBT Sumatera'],['w','Lokasi PLTMG belum dipublikasikan'],['w','Realisasi transmisi nasional 2025 hanya 37%']]},
+  {v:'n',t:'Blackout 15–16 jam · 411 rb pelanggan',z:o=>mbars([{n:'Bintan 1×',v:15.5,c:C.coral,t:'15,5 jam'},{n:'SAIDI/th',v:4.5,c:C.ocean,t:'4,5 jam'}],16),
+   p:[['w','Satu koridor kabel 150 kV = titik gagal tunggal'],['w','Pembangkit lokal kecil: tidak bisa islanding'],['g','GI Tanjung Sauh beroperasi 9 Nov 2026'],['s','Jalur kedua 500 kV baru 2032, bersyarat']]},
+  {v:'n',t:'Grid hampir 100% fosil',z:o=>donut([{n:'Fosil (gas + PLTU)',v:97,c:'#8a99a8',t:'≈97%'},{n:'EBT',v:3,c:C.leaf,t:'<3%'}],'<3%','EBT',o),
+   p:[['w','Bauran Batam–Bintan ±100% fosil'],['g','Kuota PLTS 25+25 MW terbuka untuk mitra'],['g','ISBB 2031: listrik EBT dari Sumatera'],['w','Terms ekspor RI–Singapura belum final']]},
+  {v:'p',t:'Tarif nasional · I-4 Rp996,74',z:o=>mbars([{n:'I-4/TT',v:996.74,c:C.leaf,t:'997'},{n:'I-3 LWBP',v:1114.74,c:C.ocean,t:'1.115'},{n:'I-3 WBP',v:2229,c:C.coral,t:'≤2.229'}],2229),
+   p:[['g','Tarif nasional, sama dengan Jawa'],['g','I-4 (≥30 MVA) Rp996,74/kWh'],['w','Jam 17–22: dikali faktor K 1,4–2'],['s','Ditahan Q4 2026; risiko naik 2027']]}],
+ karimun:[
+  {v:'n',t:'Cadangan 4,5 MW < 1 unit PLTU',z:o=>donut([{n:'PLTU TBK',v:10.2,c:'#1b3a5c',t:'10,2 MW'},{n:'PLTD lama',v:17.4,c:'#e07b39',t:'17,4 MW'},{n:'PLTD baru',v:6,c:C.sun,t:'6 MW'},{n:'Sewa',v:7,c:'#f7c86a',t:'7 MW'}],'4,5','MW sisa',o),
+   p:[['w','Cadangan 4,5 MW < unit PLTU 7 MW: gagal N-1'],['w','Kriteria N-2 butuh ±50 MW'],['s','±75% daya mampu dari diesel'],['g','Daya mampu pulih ke 40,6 MW (Nov 2026)']]},
+  {v:'m',t:'+3–4%/th · tertahan pasokan',z:o=>spark([['2017',25.4],['2019',28.2],['2026',36.1],['2028',40,1],['2030',44,1]],{leg:o.leg,c:'#c4700a',max:60,hi:[45,55],hiT:'55 tinggi'}),
+   p:[['s','Tumbuh ±3–4%/th → ±44 MW (2030)'],['g','Demand laten: industri pakai genset'],['s','Industri FTZ di zona swasta (Zona 1–2)'],['w','Tidak ada ruang beban baru >2–3 MW']]},
+  {v:'m',t:'Kabel Sumatera realistis 2027–28',z:o=>!o.leg?mbars([{n:'PLTD baru',v:6,c:C.sun,t:'+6 MW'},{n:'Genset sewa',v:7,c:'#f7c86a',t:'+7 MW'},{n:'Biomassa',v:1,c:C.leaf,t:'+1 MW'},{n:'GI TBK (kabel)',v:60,c:'#2b5fa8',t:'60 MVA',dash:1}],60):route([{n:'Sumatera',ic:'tower',c:C.leaf},{n:'Sl. Panjang',ic:'island',c:C.ocean,d:'6',sea:1},{n:'Rangsang',ic:'island',c:C.ocean,d:'120'},{n:'GI TBK',ic:'bolt',c:'#c4700a',d:'84',sea:1}]),
+   p:[['g','Kabel 150 kV ±210 kms + GI TBK 2×30 MVA'],['g','Jangka pendek: PLTD +6, sewa 7, biomassa 1 MW'],['w','COD tertulis 2026 vs 2028 (tidak konsisten)'],['w','Kabel laut 70 km = jalur kritis']]},
+  {v:'n',t:'1 unit PLTU ≈ 20% beban',z:o=>months({2:'Mar: PLTU unit 1 dipelihara 18 hari',4:'Mei: defisit 32 vs 34,5 MW',6:'Jul: traveling grate rusak',9:'Okt: blackout frekuensi'},10),
+   p:[['w','PLTU 2×7 MW: satu trip = padam bergilir'],['w','Okt 2026: blackout karena frekuensi jatuh'],['g','BESS 5–10 MW: penahan frekuensi tercepat'],['g','Skema UFLS bertahap, bukan padam total']]},
+  {v:'m',t:'Grid kecil batasi PLTS',z:o=>donut([{n:'PLTS tanpa BESS',v:5.5,c:'#e0a100',t:'4–7 MW'},{n:'Tambahan dengan BESS',v:7,c:'#e0a100',t:'+6–8 MW',dash:1},{n:'Sisa beban siang',v:14.5,c:'#dfe6ec',t:'±27 MW total'}],'4–7','MW tanpa BESS',o),
+   p:[['w','Beban siang ±27 MW: serap PLTS ±4–7 MW tanpa BESS'],['g','Dengan BESS grid-forming: 10–15 MW'],['g','Setelah kabel: bauran ikut Sumatera (EBT >30,5%)'],['s','Pulau Belat s.d. 2 GW orientasi ekspor']]},
+  {v:'m',t:'Biaya diesel ≈3× tarif',z:o=>mbars([{n:'Tarif I-3',v:1114.74,c:C.ocean,t:'1.115'},{n:'Biaya BBM PLTD',v:3500,c:C.coral,t:o.leg?'3.000–4.000':'±3.500'}],4000),
+   p:[['g','Pelanggan bayar tarif nasional'],['w','PLN rugi di tiap kWh diesel'],['g','Kabel Sumatera = penghematan BBM'],['s','Zona 1–2: tarif B2B swasta, tidak publik']]}]};
+const VTOP={'bintan.ring':'n','bintan.kap':'m','bintan.dem':'p','bintan.ebt':'n','bintan.tar':'p','bintan.rel':'n','bintan.int':'m','karimun.ring':'n','karimun.kap':'n','karimun.dem':'m','karimun.ebt':'m','karimun.tar':'m','karimun.rel':'n','karimun.int':'m'};
+const MTR={'bintan.ring':[[780/930,C.coral,'84% kapasitas sistem terpakai saat puncak'],[105/780,C.ocean,'±13% dari beban sistem Batam–Bintan'],[33/105,C.coral,'pembangkit lokal hanya ±31% beban Bintan']],
+ 'bintan.kap':[null,null,[930/1250,C.ocean,'pasok 2026 = 74% target 2027'],[19/35,'#e0a100','19% vs reserve margin optimal 35%']],
+ 'bintan.dem':[[105/130,C.ocean,'beban 2026 = 81% skenario dasar 2030']],
+ 'bintan.ebt':[null,[.97,C.coral,'≈97% fosil']],
+ 'bintan.rel':[[15.5/24,C.coral,'15,5 dari 24 jam padam'],null,[.38,C.leaf,'trafo ±38% terbebani']],
+ 'karimun.ring':[[36.1/40.6,C.coral,'89% daya mampu terpakai saat puncak'],[36.1/44,'#e0a100','36,1 MW = 82% beban 2030'],[4.5/14,C.coral,'4,5 dari 14 MW cadangan N-2']],
+ 'karimun.kap':[[40.6/50.1,'#e0a100','81% dari kebutuhan N-2'],[10.2/40.6,'#1b3a5c','PLTU 25% daya mampu'],[30.4/40.6,'#e07b39','diesel 75% daya mampu']],
+ 'karimun.dem':[[36.1/44,'#e0a100','82% dari beban 2030 (dasar)']],
+ 'karimun.tar':[[1114.74/3500,C.ocean,'tarif ≈ 32% biaya BBM PLTD']]};
+function cardDetail(i){const I=ISL[isl],T=I.T.ins,c=T.cards[i],V=INSV[isl][i];if(!c||!V)return;const b=$('#body'),ex=$('#exp'),g=b.querySelector('.igrid');
+ b.querySelectorAll('.icd').forEach((x,j)=>x.classList.toggle('on',j===i));
+ ex.style.top=g.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-g.offsetTop-10)+'px';ex.hidden=false;ex.className='exp cdx';
+ const tab=TABS.find(x=>x[0]===c[5]);
+ ex.innerHTML=`<header><span class="ico">${ic(c[0])}</span><div><small>Insight ${i+1} ${vpill(V.v)}</small><h4>${esc(c[1])}</h4></div><button type="button" class="xx" aria-label="Tutup">${ic('x')}</button></header>
+  <div class="cdt"><div class="cvz">${V.z({leg:1})}</div><div class="cnum v-${VTX[V.v][0]}"><b data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small></b>${stb((BADGE[isl+'.ins']||'')[i])}<span>${esc(V.t)}</span></div></div>
+  <ul class="cpts">${V.p.map((p,j)=>`<li class="${p[0]}" style="animation-delay:${.1+j*.07}s">${ic(p[0]==='g'?'check':p[0]==='w'?'alert':'info')}<span>${esc(p[1])}</span></li>`).join('')}</ul>
+  <footer><button type="button" class="go" data-go="${c[5]}">${ic(tab?tab[1]:'arrow')} Buka menu ${esc(tab?tab[2]:'')} ${ic('arrow')}</button><span class="hint2">Tekan Esc atau ✕ untuk menutup</span></footer>`;
+ countUp(ex)}
+
+/* ---------- PROYEKSI 2026–2030 ---------- */
+const PY=[2026,2027,2028,2029,2030];
+const mRM=(n='Reserve margin',lo=.15,hi=.30)=>S=>({n,v:PY.map((_,i)=>{const a=S.s[0].v[i],b=S.s[1].v[i],r=(a-b)/b;return [Math.round(r*100)+'%',r<lo?'w':r<hi?'m':'g']})});
+const mGr=(n='Pertumbuhan')=>S=>({n,v:PY.map((_,i)=>{const t=j=>S.s.filter(x=>!x.line).reduce((a,x)=>a+x.v[j],0);if(!i)return['basis','s'];const g=t(i)/t(i-1)-1;return[(g>=0?'+':'')+fmt(g*100,1)+'%',g>.15?'w':g>.06?'m':'g']})});
+const mInd=(n='Porsi industri')=>S=>({n,v:PY.map((_,i)=>{const b=S.s.filter(x=>!x.line),tot=b.reduce((a,x)=>a+x.v[i],0),ind=b.slice(1).reduce((a,x)=>a+x.v[i],0),r=ind/tot;return[Math.round(r*100)+'%',r<.15?'s':r<.4?'m':'g']})});
+const mArr=(n,arr)=>()=>({n,v:arr});
+const mCap=(n,ai,bi,u)=>S=>({n,v:PY.map((_,i)=>{const a=S.s[ai].v[i],b=S.s[bi].v[i];return[(a-b>=0?'+':'')+fmt(a-b,Math.abs(a-b)%1?1:0)+u,a>=b?'g':'w']})});
+const PJ={
+'bintan.kap':{t:'Daya pasok vs beban puncak sistem Batam–Bintan',u:'MW',v:'m',sum:'2030: 1.650 vs 1.228 MW',
+ sc:[{n:'Dasar · semua tepat waktu',s:[{n:'Daya pasok',c:C.ocean,v:[930,1250,1370,1520,1650]},{n:'Beban puncak',c:C.coral,line:1,v:[780,874,980,1100,1228]}]},
+  {n:'Proyek mundur 1–2 th',s:[{n:'Daya pasok',c:C.ocean,v:[930,1150,1250,1370,1370]},{n:'Beban puncak',c:C.coral,line:1,v:[780,874,980,1100,1228]}]},
+  {n:'Demand DC tinggi',s:[{n:'Daya pasok',c:C.ocean,v:[930,1250,1370,1520,1650]},{n:'Beban puncak',c:C.coral,line:1,v:[780,920,1080,1250,1400]}]}],
+ m:mRM('Cadangan (RM)'),
+ yr:[[['s','Pasok 930 MW, puncak 780 MW (Okt 2026)'],['w','Blackout 12 Okt: cadangan ada, proteksi gagal'],['s','Sewa MaxPower 50 MW berjalan']],
+  [['g','PLTMG Bintan 100 MW (wilus PLN Batam)'],['g','Sewa MaxPower naik s.d. 150 MW'],['w','Ramp DayOne & DC Batam: beban +±100 MW']],
+  [['g','PLTGU Batam #1 120 MW'],['s','PLTS Bintan 25 MW (tidak dihitung cadangan)'],['w','Beban DC terus naik']],
+  [['g','PLTGU Batam 3 · 150 MW (PJBTL Jul 2026)'],['w','Bila mundur: cadangan turun ke ±25%']],
+  [['g','PLTGU Batam 4 · 150 MW'],['s','PLTS Bintan +25 MW; GI Air Raja +60 MVA'],['w','Tanpa Batam 3&4: cadangan hanya ±12%']]],
+ why:[['g','Pipeline gas ±600 MW sudah berkontrak (EPC/PJBTL)'],['w','Beban tumbuh >10%/th karena data center'],['w','Satu proyek mundur → cadangan 10–15%'],['s','PLTS tidak menambah cadangan malam hari']],
+ note:'Pasok 2027 = target PLN Batam; 2028–2030 = pasok 2026 + proyek RUPTL/PJBTL sesuai COD. Beban 2027–2030 = estimasi penyusun dari tren DC.'},
+'bintan.dem':{t:'Beban puncak Bintan per segmen',u:'MW',v:'p',stack:1,sum:'2030: ±130 MW dasar · ±300 tinggi',
+ sc:[{n:'Dasar · 5,3%/th',s:[{n:'Rumah tangga, bisnis, publik',c:C.ocean,v:[93,98,103,108,114]},{n:'Industri PLN',c:C.violet,v:[12,13,14,15,16]}]},
+  {n:'Tinggi · anchor load masuk',s:[{n:'Rumah tangga, bisnis, publik',c:C.ocean,v:[93,98,103,108,114]},{n:'Industri PLN',c:C.violet,v:[12,13,14,15,16]},{n:'Industri baru KEK/DC',c:'#b9a6ff',v:[0,5,73,120,170]}]},
+  {n:'Rendah · 4%/th',s:[{n:'Rumah tangga, bisnis, publik',c:C.ocean,v:[93,97,100,104,107]},{n:'Industri PLN',c:C.violet,v:[12,12,13,13,13]}]}],
+ m:mInd('Porsi industri'),
+ yr:[[['s','±105 MW (estimasi dari 65,1 MW resmi 2016)'],['s','Industri besar captive: PLTU Galang Batang ±200 MW']],
+  [['g','MoU kampus DC AI SOS ±500 MW: persiapan'],['s','KEK Tanjung Sauh: GI beroperasi Nov 2026']],
+  [['g','Skenario tinggi: tahap awal DC/KEK masuk PLN (+±70 MW)'],['w','Butuh pasokan dedicated; grid sekarang tidak mampu']],
+  [['s','Pertumbuhan resort Lagoi & kota Tanjungpinang']],
+  [['s','Dasar ±130 MW; tinggi ±300 MW'],['g','Penjualan industri Kepri (tanpa Batam) 47 → 58 GWh'],['s','2031–32: KTT ±500 MW & BAI 1.500 MVA (RUPTL)']]],
+ why:[['s','Organik mengikuti pertumbuhan RUPTL ±5,3%/th'],['g','Industri: hub DC BBK (ESDM Okt 2026), KEK Galang Batang & Tanjung Sauh'],['w','MoU berbobot 10–20%; baru PJBTL 70–90%'],['w','Industri besar tetap captive sampai 500 kV/ISBB (2031–32)']],
+ note:'Pembagian segmen = estimasi penyusun; RUPTL tidak memecah beban per pulau.'},
+'bintan.ebt':{t:'PLTS yang melayani Bintan & porsi EBT',u:'MW',v:'n',sum:'2030: PLTS 50 MW · EBT ±5–10%',max:110,
+ sc:[{n:'Dasar · kuota RUPTL',s:[{n:'PLTS Bintan (kumulatif)',c:'#e0a100',v:[0,0,25,25,50]}],e:[3,3,4,5,7]},
+  {n:'Optimis · + PLTS atap/kawasan',s:[{n:'PLTS Bintan (kumulatif)',c:'#e0a100',v:[2,10,45,65,100]}],e:[3,4,6,8,10]}],
+ m:S=>({n:'Porsi EBT (energi)',v:S.e.map((x,i)=>[(i?'':'<')+x+'%',x<5?'w':x<10?'m':'g'])}),
+ yr:[[['w','Bauran Batam–Bintan hampir 100% fosil'],['s','PLTS atap kecil; tanpa net-metering']],
+  [['g','Lelang kuota PLTS mitra (wilus PLN Batam)'],['s','PLTS Dedieselisasi 15,6 MW untuk pulau kecil']],
+  [['g','PLTS Bintan 25 MW']],
+  [['s','Keputusan AC/DC & konstruksi ISBB']],
+  [['g','PLTS Bintan +25 MW → 50 MW'],['g','2031: ISBB 1.200 MW membawa EBT Sumatera']]],
+ why:[['g','Iradiasi 4,3–4,8 kWh/m²/hari: PLTS paling realistis'],['w','PLTS tidak dihitung cadangan; perlu BESS'],['w','Proyek GW berorientasi ekspor; terms belum final'],['g','Lompatan nyata baru 2031 via ISBB']],
+ note:'Porsi EBT = estimasi penyusun terhadap energi sistem Batam–Bintan.'},
+'bintan.tar':{t:'Tarif industri I-3/TM (LWBP)',u:'Rp/kWh',v:'p',sum:'2030: Rp1.115–1.355/kWh',max:1500,
+ sc:[{n:'Dasar · +3%/th mulai 2028',s:[{n:'Tarif I-3',c:C.ocean,v:[1114.74,1114.74,1148,1183,1218]}]},
+  {n:'Tetap · ditahan',s:[{n:'Tarif I-3',c:C.ocean,v:[1114.74,1114.74,1114.74,1114.74,1114.74]}]},
+  {n:'Naik · +5%/th mulai 2027',s:[{n:'Tarif I-3',c:C.ocean,v:[1114.74,1170,1229,1290,1355]}]}],
+ m:S=>({n:'vs 2026',v:S.s[0].v.map((x,i)=>{const g=x/S.s[0].v[0]-1;return[i?(g>0?'+':'')+fmt(g*100,1)+'%':'basis',g>.1?'w':g>0?'m':'g']})}),
+ yr:[[['g','I-3 Rp1.114,74; I-4 Rp996,74; ditahan Q4 2026']],
+  [['w','Asumsi kurs Rp16.959 & ICP US$96 menekan ke atas'],['s','Evaluasi tiap triwulan (Permen ESDM 7/2024)']],
+  [['s','Skenario dasar: penyesuaian bertahap ±3%/th']],
+  [['w','Biaya pasok naik bila porsi gas Batam bertambah']],
+  [['g','Tetap tarif nasional; selisih biaya ditutup kompensasi']]],
+ why:[['g','Tarif nasional: Bintan tidak ikut tarif Batam'],['w','Formula (kurs, ICP, inflasi) mendorong naik'],['s','Penetapan tetap keputusan pemerintah tiap triwulan'],['g','I-4 (≥30 MVA) ±11% lebih murah']],
+ note:'Skenario analisis penyusun, bukan keputusan pemerintah.'},
+'bintan.rel':{t:'Pasok lokal Bintan saat kabel Batam putus',u:'MW',v:'n',sum:'PLTMG di Bintan → bisa berdiri sendiri',
+ sc:[{n:'PLTMG 100 MW di Bintan',s:[{n:'Pasok lokal firm',c:C.leaf,v:[33,133,133,133,133]},{n:'Beban Bintan',c:C.coral,line:1,v:[105,111,117,123,130]}]},
+  {n:'PLTMG dibangun di Batam',s:[{n:'Pasok lokal firm',c:C.leaf,v:[33,33,33,33,33]},{n:'Beban Bintan',c:C.coral,line:1,v:[105,111,117,123,130]}]}],
+ m:S=>({n:'Beban terlayani saat kabel putus',v:PY.map((_,i)=>{const r=S.s[0].v[i]/S.s[1].v[i];return[Math.round(Math.min(r,1.5)*100)+'%',r<.5?'w':r<1.1?'m':'g']})}),
+ yr:[[['w','Blackout 15–16 jam; lokal hanya ±31% beban'],['g','GI Tanjung Sauh beroperasi 9 Nov 2026']],
+  [['g','PLTMG 100 MW: bila di Bintan, bisa islanding'],['s','BESS PLN Batam & black start PLTMG Sagulung']],
+  [['w','Tidak ada kabel 150 kV kedua']],
+  [['w','Beban naik; margin lokal menipis']],
+  [['g','GI Air Raja +60 MVA; SUTT 150 kV Lagoi'],['s','2031 rekonduktoring; 2032 500 kV (bersyarat)']]],
+ why:[['w','Satu koridor: N-1 belum terpenuhi'],['g','Pasok lokal ≥ beban = Bintan bisa berdiri sendiri'],['w','Lokasi PLTMG 100 MW belum dipublikasikan'],['s','Proteksi & skema islanding sama pentingnya dengan MW']],
+ note:'Pasok lokal firm = PLTD/PLTMG eksisting ±33 MW + PLTMG 100 MW bila dibangun di Pulau Bintan (estimasi penyusun).'},
+'bintan.int':{t:'Aliran puncak Batam → Bintan lewat satu koridor',u:'MW',v:'m',sum:'s.d. 2030 tetap 1 koridor',
+ sc:[{n:'PLTMG dibangun di Batam',s:[{n:'Aliran via kabel',c:C.coral,v:[72,78,84,90,97]}]},{n:'PLTMG di Bintan',s:[{n:'Aliran via kabel',c:C.coral,v:[72,35,40,45,50]}]}],
+ m:mArr('Jumlah koridor ke Bintan',[['1','w'],['1','w'],['1','w'],['1','w'],['1','w']]),
+ yr:[[['w','Koridor tunggal 150 kV (Tg Sauh–Ngenang), ±70 MW'],['g','GI Tanjung Sauh beroperasi']],
+  [['s','PLTMG 100 MW mengurangi aliran bila dibangun di Bintan']],
+  [['w','Hlm A-51 menulis ISBB 2028 (tidak konsisten)']],
+  [['s','Persiapan GI Rempang–Panaran (2031)']],
+  [['w','Masih 1 koridor; rating kabel tidak publik'],['g','2031 ISBB 1.200 MW; 2032 500 kV 162 kms ke Bintan']]],
+ why:[['w','Aliran naik mengikuti beban; kabel tetap satu'],['s','Rating kabel tidak dipublikasikan'],['g','ISBB + 500 kV menutup risiko setelah 2031–32'],['s','500 kV bersyarat kepastian demand (take-or-pay)']],
+ note:'Aliran = beban Bintan − pembangkit lokal yang beroperasi (estimasi penyusun).'},
+'karimun.kap':{t:'Kapasitas firm vs kebutuhan N-2',u:'MW',v:'n',sum:'2028: kabel +±54 MW',
+ sc:[{n:'Dasar · kabel 2028',s:[{n:'Kapasitas firm',c:'#c4700a',v:[40.6,43.6,97.6,97.6,97.6]},{n:'Kebutuhan N-2',c:C.coral,line:1,v:[50.1,51.4,54,55.9,58]}]},
+  {n:'Kabel mundur ke 2030',s:[{n:'Kapasitas firm',c:'#c4700a',v:[40.6,43.6,43.6,43.6,97.6]},{n:'Kebutuhan N-2',c:C.coral,line:1,v:[50.1,51.4,54,55.9,58]}]}],
+ m:mCap('Selisih vs N-2',0,1,' MW'),
+ yr:[[['w','Daya mampu 40,6 MW vs N-2 50,1 MW'],['s','PLTU 10,2 + PLTD 23,4 + sewa 7 MW']],
+  [['g','Biomassa 1 MW + tambahan PLTD/sewa ±2 MW'],['s','PLTS Pemkab 2,6 MW (tidak dihitung firm)']],
+  [['g','Kabel 150 kV + GI TBK 2×30 MVA (realistis)'],['s','Pembangkit lokal menjadi cadangan']],
+  [['s','Sistem tersambung Sumatera']],
+  [['g','Memenuhi N-2 (skenario dasar)'],['s','2032: GI TBK +60 MVA']]],
+ why:[['w','Sampai kabel masuk, tiap trip PLTU = padam bergilir'],['g','Kabel menambah ±54 MW sekaligus (≈1,5× beban)'],['w','COD kabel tertulis 2026 vs 2028: risiko mundur'],['s','Kabel tunggal: pembangkit lokal tetap perlu']],
+ note:'Kapasitas kabel = 2×30 MVA × 0,9. Kebutuhan N-2 = beban + 2 unit terbesar (2×7 MW).'},
+'karimun.dem':{t:'Beban puncak Karimun per segmen',u:'MW',v:'m',stack:1,sum:'2030: ±44 MW dasar · ±55 tinggi',max:62,
+ sc:[{n:'Dasar · ±4%/th',s:[{n:'Rumah tangga, bisnis, publik',c:'#e0a100',v:[31.1,32,34,35.5,37]},{n:'Industri PLN',c:C.violet,v:[5,5.4,6,6.4,7]}]},
+  {n:'Tinggi · genset beralih ke PLN',s:[{n:'Rumah tangga, bisnis, publik',c:'#e0a100',v:[31.1,32,34,35.5,37]},{n:'Industri PLN',c:C.violet,v:[5,5.4,6,6.4,7]},{n:'Demand tertahan & industri baru',c:'#b9a6ff',v:[0,0,5,9,11]}]},
+  {n:'Rendah · ±3%/th',s:[{n:'Rumah tangga, bisnis, publik',c:'#e0a100',v:[31.1,32,33,34.5,35.7]},{n:'Industri PLN',c:C.violet,v:[5,5.3,5.6,5.9,6.3]}]}],
+ m:mInd('Porsi industri'),
+ yr:[[['s','Puncak 36,1 MW (17 Nov 2026)'],['w','Padam bergilir menahan demand']],
+  [['w','Tidak ada ruang beban baru >2–3 MW']],
+  [['g','Kabel masuk: demand tertahan mulai dilayani'],['g','Industri FTZ (galangan, migas) beralih dari genset']],
+  [['s','Hub DC BBK menyebut Karimun (wacana)']],
+  [['s','Dasar ±44 MW; tinggi ±55 MW']]],
+ why:[['s','Historis 25,4 (2017) → 36,1 MW (2026): ±4%/th'],['g','Demand laten 5–10% dilepas setelah pasokan andal'],['s','Industri besar di Zona 1–2 swasta, di luar PLN'],['w','Beban besar baru menunggu kabel 2027–28']],
+ note:'Pembagian segmen = estimasi penyusun.'},
+'karimun.ebt':{t:'EBT lokal Karimun & porsi EBT',u:'MW',v:'m',sum:'2030: ±15 MW lokal · EBT ±20%',max:30,
+ sc:[{n:'Dasar · rencana + potensi RUPTL',s:[{n:'EBT lokal (kumulatif)',c:C.leaf,v:[5,8.6,8.6,11.1,15.1]}],e:[3,5,18,20,22]},
+  {n:'Optimis · + PLTS 10 MW & BESS',s:[{n:'EBT lokal (kumulatif)',c:C.leaf,v:[5,8.6,18.6,21.1,25.1]}],e:[3,5,20,23,26]}],
+ m:S=>({n:'Porsi EBT (energi)',v:S.e.map(x=>[x+'%',x<5?'w':x<15?'m':'g'])}),
+ yr:[[['s','PLTS KPP 5 MW (Zona 2) eksisting'],['w','Grid ±36 MW: serap PLTS 4–7 MW tanpa BESS']],
+  [['g','Pilot biomassa 1 MW (PLN EPI × KPP)'],['s','PLTS Pemkab 2,6 MW']],
+  [['g','Kabel masuk: bauran ikut Sumatera (EBT >30,5%)']],
+  [['s','Potensi PLTBm Kundur 2,5 MW (RUPTL)']],
+  [['s','Potensi PLTBm Tanjung Batu 2+2 MW'],['s','Pulau Belat 2 GW: orientasi ekspor']]],
+ why:[['w','Grid kecil membatasi PLTS tanpa BESS'],['g','Lompatan porsi EBT datang dari kabel Sumatera'],['s','Biomassa firm, tetapi skala kecil'],['s','Porsi EBT = estimasi penyusun']],
+ note:'Porsi EBT setelah 2028 = impor Sumatera (EBT >30,5%) × porsi impor + EBT lokal (estimasi).'},
+'karimun.tar':{t:'Tarif I-3 vs biaya pasok Karimun',u:'Rp/kWh',v:'m',sum:'Biaya pasok turun setelah kabel',max:4000,
+ sc:[{n:'Dasar · kabel 2028',s:[{n:'Biaya pasok (est.)',c:C.coral,v:[3500,3400,2000,1700,1700]},{n:'Tarif I-3',c:C.ocean,line:1,v:[1114.74,1114.74,1148,1183,1218]}]},
+  {n:'Kabel mundur ke 2030',s:[{n:'Biaya pasok (est.)',c:C.coral,v:[3500,3500,3500,3500,1800]},{n:'Tarif I-3',c:C.ocean,line:1,v:[1114.74,1114.74,1148,1183,1218]}]}],
+ m:S=>({n:'Selisih ditutup kompensasi',v:PY.map((_,i)=>{const g=S.s[0].v[i]-S.s[1].v[i];return['Rp'+fmt(g),g>1500?'w':g>500?'m':'g']})}),
+ yr:[[['w','BBM PLTD ±Rp3.000–4.000/kWh vs tarif Rp1.114,74'],['s','Zona 1–2: tarif B2B swasta']],
+  [['s','Tarif ditetapkan triwulanan; risiko naik']],
+  [['g','Kabel: biaya pasok turun tajam (energi Sumatera)']],
+  [['g','Kompensasi pemerintah berkurang']],
+  [['s','Pelanggan tetap membayar tarif nasional']]],
+ why:[['g','Pelanggan PLN tidak menanggung biaya diesel'],['w','PLN rugi tiap kWh diesel'],['g','Kabel terbayar dari penghematan BBM'],['s','Biaya pasok = estimasi penyusun']],
+ note:'Tarif = skenario dasar (+3%/th mulai 2028). Biaya pasok = estimasi penyusun.'},
+'karimun.rel':{t:'Cadangan Karimun vs kriteria N-2',u:'MW',v:'n',sum:'Kabel 2028 → memenuhi N-2',
+ sc:[{n:'Dasar · kabel 2028',s:[{n:'Cadangan',c:C.leaf,v:[4.5,6.2,57.6,55.7,53.6]},{n:'Kebutuhan N-2',c:C.coral,line:1,v:[14,14,14,14,14]}]},
+  {n:'Kabel mundur ke 2030',s:[{n:'Cadangan',c:C.leaf,v:[4.5,6.2,3.6,1.7,53.6]},{n:'Kebutuhan N-2',c:C.coral,line:1,v:[14,14,14,14,14]}]}],
+ m:S=>({n:'Status keandalan',v:S.s[0].v.map(x=>x<7?['Gagal N-1','w']:x<14?['N-1','m']:['N-2 ✓','g'])}),
+ yr:[[['w','4 gangguan besar: Mar, Mei, Jul, Okt'],['g','Daya mampu pulih 40,6 MW (Nov)']],
+  [['g','Prioritas: BESS 5–10 MW + UFLS bertahap'],['s','Otomasi penyulang (recloser, FDIR)']],
+  [['g','Kabel Sumatera: cadangan melonjak']],
+  [['w','Kabel tunggal: gangguan kabel = kembali ke pembangkit lokal']],
+  [['g','Memenuhi N-2 (skenario dasar)'],['s','2032: GI TBK +60 MVA']]],
+ why:[['w','Masalah utama di pembangkitan, bukan jaringan'],['g','BESS: perbaikan tercepat (6–12 bulan)'],['w','Bila kabel mundur ke 2030: 2028–29 krisis'],['s','Distribusi 20 kV tetap rawan gangguan lokal']],
+ note:'Cadangan = kapasitas firm − beban puncak (skenario dasar demand).'},
+'karimun.int':{t:'Kapasitas pasok dari Sumatera ke Karimun',u:'MW',v:'m',sum:'Realistis tersambung 2028',max:65,
+ sc:[{n:'Dasar · energize 2028',s:[{n:'Kapasitas kabel',c:C.ocean2,v:[0,0,54,54,54]},{n:'Beban Karimun',c:C.coral,line:1,v:[36.1,37.4,40,41.9,44]}]},
+  {n:'Mundur ke 2030',s:[{n:'Kapasitas kabel',c:C.ocean2,v:[0,0,0,0,54]},{n:'Beban Karimun',c:C.coral,line:1,v:[36.1,37.4,40,41.9,44]}]}],
+ m:S=>({n:'Status sistem',v:S.s[0].v.map(x=>x?['Tersambung','g']:['Isolated','w'])}),
+ yr:[[['s','RUPTL: 2026 "Committed" vs "masih perencanaan" (Bab V.11.2)'],['w','Realisasi transmisi nasional 2025 hanya 37%']],
+  [['s','SUTT Selat Panjang–Rangsang 120 kms']],
+  [['g','SKLT 70 + 14 kms & GI TBK 2×30 MVA (realistis)']],
+  [['s','Operasi; pembangkit lokal menjadi cadangan']],
+  [['s','Kabel tunggal; GI TBK +60 MVA pada 2032']]],
+ why:[['g','Mengakhiri status isolated'],['w','Kabel laut 70 km = jalur kritis'],['s','Total rute ±210 kms'],['g','Biaya terbayar dari penghematan BBM']],
+ note:'Kapasitas kabel = 2×30 MVA × 0,9 (estimasi); rating resmi belum dipublikasikan.'}};
+let pjS={si:0,y:4};
+function niceMax(v){const p=Math.pow(10,Math.floor(Math.log10(v)));const f=v/p;return (f<=1.2?1.2:f<=1.5?1.5:f<=2?2:f<=2.5?2.5:f<=3?3:f<=4?4:f<=5?5:f<=6?6:f<=8?8:10)*p}
+function pchart(P,si,sel){const S=P.sc[si],W=540,H=210,L=46,R=12,T=24,B=24,cw=(W-L-R)/5;
+ const bars=S.s.filter(x=>!x.line),lines=S.s.filter(x=>x.line);
+ const colTot=(sc,i)=>{const b=sc.s.filter(x=>!x.line);return P.stack?b.reduce((a,x)=>a+x.v[i],0):Math.max(...b.map(x=>x.v[i]))};
+ const mx=P.max||niceMax(Math.max(...P.sc.flatMap(sc=>PY.map((_,i)=>Math.max(colTot(sc,i),...sc.s.filter(x=>x.line).map(x=>x.v[i])))))*1.1);
+ const y=v=>T+(H-T-B)*(1-v/mx),cx=i=>L+cw*i+cw/2,d=v=>fmt(v,v%1&&v<100?1:0);
+ const nb=P.stack?1:bars.length,bw=Math.min(46,(cw-18)/nb);
+ let g=`<defs><pattern id="pjh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f4f8fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#e3ebf1" stroke-width="3"/></pattern></defs>`;
+ g+=`<rect x="${L}" y="${T-18}" width="${cw}" height="${H-T-B+18}" fill="#e9f6ee" rx="8"/><rect x="${L+cw}" y="${T-18}" width="${cw*4}" height="${H-T-B+18}" fill="url(#pjh)" rx="8"/>
+ <text x="${L+cw/2}" y="${T-6}" text-anchor="middle" class="bn e">EKSISTING</text><text x="${L+cw*3}" y="${T-6}" text-anchor="middle" class="bn p">PROYEKSI ${P.sc.length>1?'· '+esc(S.n.split(' · ')[0]).toUpperCase():''}</text>
+ <line x1="${L+cw}" x2="${L+cw}" y1="${T-18}" y2="${H-B}" stroke="#9fb3c4" stroke-dasharray="4 4"/>`;
+ [0,mx/2,mx].forEach(v=>{g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" class="gl"/><text x="${L-6}" y="${y(v)+3.5}" text-anchor="end">${d(v)}</text>`});
+ PY.forEach((yr,i)=>{const pr=i>0;g+=`<rect x="${L+cw*i+3}" y="${T-18}" width="${cw-6}" height="${H-T-B+18+B}" rx="8" class="col${i===sel?' on':''}"/>`;
+  if(P.stack){let acc=0;bars.forEach((s,k)=>{const v=s.v[i];if(!v)return;const y0=y(acc+v),h=y(acc)-y(acc+v);acc+=v;g+=`<rect class="pb${pr?' pr':''}" x="${cx(i)-bw/2}" y="${y0}" width="${bw}" height="${Math.max(h,0)}" fill="${s.c}" style="--d:${i*.08+k*.05}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u}</title></rect>`});
+   g+=`<text x="${cx(i)}" y="${y(acc)-5}" text-anchor="middle" class="lb">${d(acc)}</text>`}
+  else bars.forEach((s,k)=>{const v=s.v[i],x=cx(i)-nb*bw/2+k*bw;g+=`<rect class="pb${pr?' pr':''}" x="${x+1}" y="${y(v)}" width="${bw-2}" height="${Math.max(y(0)-y(v),0)}" fill="${s.c}" rx="3" style="--d:${i*.08}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u}</title></rect>${v?`<text x="${x+bw/2}" y="${y(v)-5}" text-anchor="middle" class="lb">${d(v)}</text>`:`<text x="${x+bw/2}" y="${y(0)-5}" text-anchor="middle" class="lb">0</text>`}`});
+  g+=`<text x="${cx(i)}" y="${H-6}" text-anchor="middle" class="yr${i===sel?' on':''}">${yr}</text>`});
+ lines.forEach(s=>{g+=`<polyline points="${PY.map((_,i)=>cx(i)+','+y(s.v[i])).join(' ')}" fill="none" stroke="${s.c}" stroke-width="2.6" stroke-dasharray="${'6 4'}" class="pl"/>`+PY.map((_,i)=>`<circle cx="${cx(i)}" cy="${y(s.v[i])}" r="4" fill="#fff" stroke="${s.c}" stroke-width="2.4"><title>${PY[i]} · ${esc(s.n)}: ${d(s.v[i])} ${P.u}</title></circle>`).join('')});
+ PY.forEach((_,i)=>{g+=`<rect x="${L+cw*i}" y="0" width="${cw}" height="${H}" fill="transparent" class="hit" data-py="${i}"><title>Klik untuk detail ${PY[i]}</title></rect>`});
+ return `<svg viewBox="0 0 ${W} ${H}" class="pjc" role="img" aria-label="${esc(P.t)}">${g}</svg>`}
+function pjRender(){const key=isl+'.'+topic,P=PJ[key];if(!P)return;const ex=$('#exp'),S=P.sc[pjS.si],M=P.m(S),i=pjS.y,pr=i>0;
+ ex.innerHTML=`<header><span class="ico">${ic('trend')}</span><div><small>Proyeksi 2026–2030 ${vpill(P.v)}</small><h4>${esc(P.t)}</h4></div><div class="pseg"><button type="button" data-pjx>Eksisting</button><button type="button" class="on">Proyeksi</button></div><button type="button" class="xx" aria-label="Tutup proyeksi">${ic('x')}</button></header>
+ ${P.sc.length>1?`<div class="psc">${P.sc.map((s,j)=>`<button type="button" data-psc="${j}" aria-pressed="${j===pjS.si}">${esc(s.n)}</button>`).join('')}</div>`:''}
+ <div class="pjw">${pchart(P,pjS.si,i)}<div class="pleg">${S.s.map(s=>`<span><i style="background:${s.c}${s.line?';height:3px;border-radius:2px':''}"></i>${esc(s.n)}</span>`).join('')}<span><i class="hx"></i>arsir = proyeksi</span><span class="u">${esc(P.u)}</span></div></div>
+ <div class="pms"><span class="mn">${esc(M.n)}</span>${M.v.map((v,j)=>`<button type="button" data-py="${j}" class="${v[1]}${j===i?' on':''}">${esc(v[0])}<small>${PY[j]}</small></button>`).join('')}</div>
+ <div class="pyd"><div class="yh"><b>${PY[i]}</b><span class="stb st-${pr?'F':'C'}" style="--sc:${ST[pr?'F':'C'][1]}">${pr?'Proyeksi':'Eksisting'}</span><span class="vals">${S.s.map(s=>`<em style="--c:${s.c}">${esc(s.n)} <b>${fmt(s.v[i],s.v[i]%1&&s.v[i]<100?1:0)}</b></em>`).join('')}</span></div>
+  <ul>${P.yr[i].map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul></div>
+ <div class="pwhy"><small>${ic('bulb')} Alasan analisa</small><ul>${P.why.map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul></div>
+ <p class="pnote">${ic('info')} ${esc(P.note)}</p>`}
+function openPJ(){const P=PJ[isl+'.'+topic];if(!P)return;const b=$('#body'),ex=$('#exp'),k=b.querySelector('.kp');pjS={si:0,y:4};
+ b.querySelectorAll('.kpi.on').forEach(x=>x.classList.remove('on'));ex.className='exp pjx';ex.style.top=k.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-k.offsetTop-8)+'px';ex.hidden=false;pjRender()}
+
 /* ---------- MAP ---------- */
 const map=L.map('map',{zoomSnap:.25,zoomControl:false,attributionControl:true,preferCanvas:false}).fitBounds([[0.6,103.15],[1.3,104.8]]);
 const land=L.geoJSON({type:'Feature',geometry:{type:'MultiPolygon',coordinates:LAND}},{style:{color:C.coast,weight:1,fillColor:C.sand,fillOpacity:1},interactive:false}).addTo(map);
@@ -1640,12 +2020,12 @@ function show(t){topic=t;const I=ISL[isl],T=I.T[t];
  $('#hint').innerHTML=ic('info')+' Garis penuh = eksisting · putus-putus = rencana · klik untuk detail';
  const b=$('#body');b.classList.toggle('insm',!!T.cards);
  if(T.cards){b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · Insight</small><h2>${esc(T.h)}</h2></div></div>
-  <div class="igrid">${T.cards.map((c,i)=>`<button type="button" class="icd ${c[6]}" data-go="${c[5]}" style="animation-delay:${i*.06}s"><span class="go">${ic('arrow')}</span><span class="qq"><span class="n">${i+1}</span>${ic(c[0])}${esc(c[1])}</span><b data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small>${stb((BADGE[isl+'.ins']||'')[i])}</b><p>${esc(c[4])}</p></button>`).join('')}</div>
-  <div class="inote">${ic('info')}<span>${esc(T.note)}</span></div><div class="src"><b>Sumber:</b> ${esc(T.src)}</div>`;
+  <div class="igrid">${T.cards.map((c,i)=>{const V=INSV[isl][i];return `<button type="button" class="icd v-${VTX[V.v][0]}" data-card="${i}" style="animation-delay:${i*.06}s" aria-label="Detail: ${esc(c[1])}"><span class="qq"><span class="n">${i+1}</span>${ic(c[0])}<span class="tt">${esc(c[1])}</span><span class="vd2" title="${VTX[V.v][2]}">${ic(VTX[V.v][1])}</span></span><span class="cb"><span class="mv">${V.z({})}</span><span class="cr"><b class="${c[2].length>6?'lv':''}" data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small></b>${stb((BADGE[isl+'.ins']||'')[i])}<span class="tl">${esc(V.t)}</span></span></span><span class="tap">${ic('info')}detail</span></button>`}).join('')}</div>
+  <div class="inote">${ic('info')}<span>${esc(T.note)}</span></div><div class="src"><b>Sumber:</b> ${esc(T.src)}</div><div class="exp" id="exp" hidden></div>`;
   countUp(b);fitIsl();setHash(isl+'-'+t);return}
- b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · ${esc(tabName[2])}</small><h2>${esc(T.h)}</h2></div></div>
-  <div class="kp" style="--n:${T.k.length}">${T.k.map((k,i)=>`<button type="button" class="kpi ${k[5]||''}" data-x="${i}" aria-label="Penjelasan ${esc(k[1])}"><span class="qi-i">${ic('info')}</span><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${stb((BADGE[isl+'.'+t]||'')[i])} ${esc(k[4])}</span></button>`).join('')}</div>
-  <div class="viz"><h3>${esc(T.v.t)}<span>${esc(T.v.s)}</span></h3><div class="cv">${T.v.f()}</div>${T.v.leg?legendHtml(T.v.leg):'<div></div>'}</div>
+ b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · ${esc(tabName[2])} ${VTOP[isl+'.'+t]?vpill(VTOP[isl+'.'+t]):''}</small><h2>${esc(T.h)}</h2></div></div>
+  <div class="kp" style="--n:${T.k.length}">${T.k.map((k,i)=>`<button type="button" class="kpi ${k[5]||''}" data-x="${i}" title="${esc(k[4])} · klik untuk penjelasan" aria-label="Penjelasan ${esc(k[1])}"><span class="qi-i">${ic('info')}</span><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${stb((BADGE[isl+'.'+t]||'')[i])}</span>${(()=>{const m=(MTR[isl+'.'+t]||[])[i];return m?`<span class="mtr" title="${esc(m[2])}"><i style="width:${Math.round(m[0]*100)}%;background:${m[1]}"></i></span>`:''})()}</button>`).join('')}</div>
+  <div class="viz"><h3><span class="vt">${esc(T.v.t)}<span>${esc(T.v.s)}</span></span>${PJ[isl+'.'+t]?`<span class="pseg"><button type="button" class="on">Eksisting</button><button type="button" data-pj>${ic('trend')}Proyeksi 2030</button></span>`:''}</h3><div class="cv">${T.v.f()}</div>${T.v.leg?legendHtml(T.v.leg):'<div></div>'}</div>
   <div class="ins" style="--n:${T.i.length}">${T.i.map(x=>`<div class="in ${x[1]}">${ic(x[0])}<span>${esc(x[2])}</span></div>`).join('')}</div>
   <div class="src"><b>Sumber:</b> ${esc(T.src)}</div><div class="exp" id="exp" hidden></div>`;
  countUp(b);fitIsl();setHash(isl+(t!=='ring'?'-'+t:''));}
@@ -1653,12 +2033,12 @@ function explain(i){const T=ISL[isl].T[topic],k=T.k[i],E=(EXPL[isl+'.'+topic]||[
  b.querySelectorAll('.kpi').forEach((x,j)=>x.classList.toggle('on',j===i));
  ex.style.top=viz.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-viz.offsetTop-12)+'px';ex.hidden=false;
  ex.innerHTML=`<header><span class="ico">${ic(k[0])}</span><div><small>Apa artinya? ${stb((BADGE[isl+'.'+topic]||'')[i])}</small><h4>${esc(k[1])}</h4></div><button type="button" class="xx" aria-label="Tutup penjelasan">${ic('x')}</button></header>
-  <div class="big ${k[5]||''}">${esc(k[2])}<small>${esc(k[3]||'')}</small><span>${esc(k[4])}</span></div><p>${esc(E[0])}</p>
+  <div class="big ${k[5]||''}">${esc(k[2])}<small>${esc(k[3]||'')}</small><span>${esc(k[4])}</span>${(()=>{const m=(MTR[isl+'.'+topic]||[])[i];return m?`<span class="mtr2"><span class="mtr"><i style="width:${Math.round(m[0]*100)}%;background:${m[1]}"></i></span><em>${esc(m[2])}</em></span>`:''})()}</div><p>${esc(E[0])}</p>
   <footer>${E[1]&&REG[E[1]]?`<button type="button" class="go" data-loc="${E[1]}">${ic('arrow')} Lihat di peta</button>`:'<span></span>'}<span class="hint2">Klik kotak angka lain untuk penjelasannya</span></footer>`;}
-function unexplain(){const ex=$('#exp');if(ex)ex.hidden=true;$('#body').querySelectorAll('.kpi.on').forEach(x=>x.classList.remove('on'))}
+function unexplain(){const ex=$('#exp');if(ex)ex.hidden=true;$('#body').querySelectorAll('.kpi.on,.icd.on').forEach(x=>x.classList.remove('on'))}
 function focusLoc(id){const r=REG[id];if(!r)return;setLayer(r.k,true);map.flyTo(r.ll,['isbb','karint','ext500'].includes(id)?8.6:11,{duration:.7});setTimeout(()=>{if(r.pop)r.pop();else if(r.l.openPopup)r.l.openPopup();else r.l.eachLayer&&r.l.eachLayer(x=>x.getPopup&&x.getPopup()&&x.openPopup())},800)}
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)show(b.dataset.t)});
-$('#body').addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
+$('#body').addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}if(e.target.closest('[data-pj]')){openPJ();return}if(e.target.closest('[data-pjx]')){unexplain();return}const ps=e.target.closest('[data-psc]');if(ps){pjS.si=+ps.dataset.psc;pjRender();return}const py=e.target.closest('[data-py]');if(py){pjS.y=+py.dataset.py;pjRender();return}const cd=e.target.closest('.icd[data-card]');if(cd){if(cd.classList.contains('on'))unexplain();else cardDetail(+cd.dataset.card);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#exp')&&!$('#exp').hidden&&$('#qa').hidden)unexplain()});
 $('#seg').addEventListener('click',e=>{const b=e.target.closest('[data-isl]');if(b&&b.dataset.isl!==isl)open(b.dataset.isl,topic)});
 $('#home').onclick=home;
