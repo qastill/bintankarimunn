@@ -1197,6 +1197,60 @@ mark{background:#ffe7a8;color:inherit;border-radius:3px;padding:0 1px}
 .exp.pjx h4{font-size:clamp(14px,2vh,17px);line-height:1.2}
 .exp.pjx .pnote{font-size:11px;font-weight:500;overflow:visible}
 .pjc{max-height:27vh}
+
+/* proyeksi v2 */
+.psc{align-items:center}.psc>span{font-size:11px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.phead{display:flex;gap:10px;align-items:flex-start;background:linear-gradient(135deg,#f3efff,#f8f6ff);border:1px solid #e1d9fd;border-radius:14px;padding:10px 12px}
+.phead>svg.i{width:22px;height:22px;color:#d48a00;flex:none;margin-top:1px}
+.phead p{margin:0;font-size:clamp(13px,1.9vh,15px);line-height:1.45;font-weight:600}
+.phead p em{font-style:normal;font-family:var(--fm);font-weight:800}
+.phead p small{display:block;font-size:11.5px;color:var(--mut);font-weight:600;margin-top:2px}
+.dlt{display:inline-block;font:800 11.5px var(--fm);padding:1px 7px;border-radius:999px;background:var(--soft);color:var(--mut)}
+.dlt.up{background:#ece7ff;color:#5b3fd6}.dlt.dn{background:#e6f5fa;color:var(--ocean)}
+.mc{display:inline-block;font:800 12px var(--fm);padding:1px 8px;border-radius:999px}
+.mc.g,i.mc.g{background:#e3f6ea;color:#16804a}.mc.w,i.mc.w{background:#fde7e4;color:#c23a2b}.mc.m,i.mc.m{background:#fff1d6;color:#a86a00}.mc.s,i.mc.s{background:var(--soft);color:var(--mut)}
+.pjc .pb,.pjc .pd{cursor:pointer}.pjc .pb:hover{filter:brightness(1.08);stroke:var(--ink);stroke-width:1.5}
+.pjc .pb.sel{stroke:#5b3fd6!important;stroke-width:3!important;stroke-dasharray:none!important;fill-opacity:.85}
+.pjc .pd:hover{r:7}
+.pleg button{border:0;background:none;padding:2px 4px;border-radius:6px;font:inherit;color:inherit;cursor:pointer;display:inline-flex;align-items:center}
+.pleg button:hover{background:var(--soft);color:var(--ink)}
+.pms .mn{gap:4px}.pms .mn svg.i{width:12px;height:12px}
+.pms button:hover{filter:brightness(.97);border-color:#c9bff7}
+.pyd .exh{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.pyd .exh>i{width:10px;align-self:stretch;border-radius:4px;flex:none}
+.pyd .exh small{display:flex;gap:6px;align-items:center;font-size:11px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.pyd .exh b{font:800 clamp(20px,3vh,26px) var(--fm);color:#3c2a9e;margin-right:8px}.pyd .exh b span{font-size:.5em;color:var(--mut)}
+.pyd .exh b.mt.g{color:#16804a}.pyd .exh b.mt.w{color:#c23a2b}.pyd .exh b.mt.m{color:#a86a00}.pyd .exh b.mt.s{color:var(--mut)}
+.pyd dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 10px;align-items:start}
+.pyd dt{display:flex;gap:5px;align-items:center;font-size:11px;font-weight:800;color:#5b3fd6;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;padding-top:2px}
+.pyd dt svg.i{width:13px;height:13px}
+.pyd dd{margin:0;font-size:clamp(12.5px,1.75vh,14px);font-weight:600;line-height:1.45}
+.pyd dd.fx{font-family:var(--fm);font-size:12.5px}
+.pyd .yl{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.pyd .yl li{background:none;padding:0;font-size:inherit}
+.ych{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.ych button{border:1px solid var(--line);background:#fff;border-left:4px solid var(--c);border-radius:8px;padding:4px 9px;font-size:12px;font-weight:600;color:var(--mut);cursor:pointer}
+.ych button b{font-family:var(--fm);color:var(--ink)}.ych button:hover{border-color:#c9bff7}
+.ych .mcb{border-left-width:1px}.ych .mcb.g{background:#e3f6ea}.ych .mcb.w{background:#fde7e4}.ych .mcb.m{background:#fff1d6}
+.tipx{margin:4px 0 0!important;font-size:11.5px!important;color:#5b3fd6;font-weight:700!important;display:flex;gap:5px;align-items:center}.tipx svg.i{width:13px;height:13px}
+details.pwhy{border:1px dashed var(--line);border-radius:12px;padding:6px 10px;background:#fbfcfd}
+details.pwhy summary{cursor:pointer;list-style:none;display:flex;gap:6px;align-items:center;font-size:12px;font-weight:800;color:var(--mut)}
+details.pwhy summary::-webkit-details-marker{display:none}
+details.pwhy summary svg.i{width:14px;height:14px;color:#d48a00}
+details.pwhy summary em{font-style:normal;margin-left:auto;font-size:11px;background:var(--soft);padding:1px 8px;border-radius:999px}
+details.pwhy[open] summary{margin-bottom:6px}details.pwhy .pnote{margin-top:6px!important}
+@media (max-width:900px){.pyd dl{grid-template-columns:1fr}}
+
+.exp.pjx{overflow:hidden!important;gap:7px!important}
+.exp.pjx>*{flex:none}
+.exp.pjx .pbot{flex:1 1 auto;min-height:110px;overflow:auto;display:flex;flex-direction:column;gap:7px;padding-right:2px}
+.exp.pjx .pbot .pyd{flex:none}
+.pjc{max-height:21vh!important}
+.psc button{padding:4px 10px;font-size:11.5px}
+.phead{padding:8px 12px}.phead p{font-size:clamp(12.5px,1.75vh,14px)}
+.pyd dl{grid-template-columns:minmax(0,1fr)!important;gap:2px 0!important}
+.pyd dd{margin-bottom:5px}
+.pms button.tx{font-size:10.5px;white-space:nowrap}
 </style>
 
 </head>
@@ -1748,7 +1802,7 @@ const PJ={
   [['s','Kabel tunggal; GI TBK +60 MVA pada 2032']]],
  why:[['g','Mengakhiri status isolated'],['w','Kabel laut 70 km = jalur kritis'],['s','Total rute ±210 kms'],['g','Biaya terbayar dari penghematan BBM']],
  note:'Kapasitas kabel = 2×30 MVA × 0,9 (estimasi); rating resmi belum dipublikasikan.'}};
-let pjS={si:0,y:4};
+let pjS={si:0,y:4,k:'year',sk:0};
 function niceMax(v){const p=Math.pow(10,Math.floor(Math.log10(v)));const f=v/p;return (f<=1.2?1.2:f<=1.5?1.5:f<=2?2:f<=2.5?2.5:f<=3?3:f<=4?4:f<=5?5:f<=6?6:f<=8?8:10)*p}
 function pchart(P,si,sel){const S=P.sc[si],W=540,H=210,L=46,R=12,T=24,B=24,cw=(W-L-R)/5;
  const bars=S.s.filter(x=>!x.line),lines=S.s.filter(x=>x.line);
@@ -1758,18 +1812,18 @@ function pchart(P,si,sel){const S=P.sc[si],W=540,H=210,L=46,R=12,T=24,B=24,cw=(W
  const nb=P.stack?1:bars.length,bw=Math.min(46,(cw-18)/nb);
  let g=`<defs><pattern id="pjh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f4f8fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#e3ebf1" stroke-width="3"/></pattern></defs>`;
  g+=`<rect x="${L}" y="${T-18}" width="${cw}" height="${H-T-B+18}" fill="#e9f6ee" rx="8"/><rect x="${L+cw}" y="${T-18}" width="${cw*4}" height="${H-T-B+18}" fill="url(#pjh)" rx="8"/>
- <text x="${L+cw/2}" y="${T-6}" text-anchor="middle" class="bn e">EKSISTING</text><text x="${L+cw*3}" y="${T-6}" text-anchor="middle" class="bn p">PROYEKSI ${P.sc.length>1?'· '+esc(S.n.split(' · ')[0]).toUpperCase():''}</text>
+ <text x="${L+cw/2}" y="${T-6}" text-anchor="middle" class="bn e">EKSISTING</text><text x="${L+cw*3}" y="${T-6}" text-anchor="middle" class="bn p">PERKIRAAN ${P.sc.length>1?'· '+esc(S.n.split(' · ')[0]).toUpperCase():''}</text>
  <line x1="${L+cw}" x2="${L+cw}" y1="${T-18}" y2="${H-B}" stroke="#9fb3c4" stroke-dasharray="4 4"/>`;
  [0,mx/2,mx].forEach(v=>{g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" class="gl"/><text x="${L-6}" y="${y(v)+3.5}" text-anchor="end">${d(v)}</text>`});
+ PY.forEach((_,i)=>{g+=`<rect x="${L+cw*i}" y="0" width="${cw}" height="${H}" fill="transparent" class="hit" data-py="${i}"><title>Klik untuk ringkasan ${PY[i]}</title></rect>`});
  PY.forEach((yr,i)=>{const pr=i>0;g+=`<rect x="${L+cw*i+3}" y="${T-18}" width="${cw-6}" height="${H-T-B+18+B}" rx="8" class="col${i===sel?' on':''}"/>`;
-  if(P.stack){let acc=0;bars.forEach((s,k)=>{const v=s.v[i];if(!v)return;const y0=y(acc+v),h=y(acc)-y(acc+v);acc+=v;g+=`<rect class="pb${pr?' pr':''}" x="${cx(i)-bw/2}" y="${y0}" width="${bw}" height="${Math.max(h,0)}" fill="${s.c}" style="--d:${i*.08+k*.05}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u}</title></rect>`});
+  if(P.stack){let acc=0;bars.forEach((s,k)=>{const v=s.v[i];if(!v)return;const y0=y(acc+v),h=y(acc)-y(acc+v);acc+=v;g+=`<rect class="pb${pr?' pr':''}${i===sel&&pjS.k==='bar'&&pjS.sk===bars.indexOf(s)?' sel':''}" data-pb="${S.s.indexOf(s)}" data-py="${i}" x="${cx(i)-bw/2}" y="${y0}" width="${bw}" height="${Math.max(h,0)}" fill="${s.c}" style="--d:${i*.08+k*.05}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u} — klik untuk penjelasan</title></rect>`});
    g+=`<text x="${cx(i)}" y="${y(acc)-5}" text-anchor="middle" class="lb">${d(acc)}</text>`}
-  else bars.forEach((s,k)=>{const v=s.v[i],x=cx(i)-nb*bw/2+k*bw;g+=`<rect class="pb${pr?' pr':''}" x="${x+1}" y="${y(v)}" width="${bw-2}" height="${Math.max(y(0)-y(v),0)}" fill="${s.c}" rx="3" style="--d:${i*.08}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u}</title></rect>${v?`<text x="${x+bw/2}" y="${y(v)-5}" text-anchor="middle" class="lb">${d(v)}</text>`:`<text x="${x+bw/2}" y="${y(0)-5}" text-anchor="middle" class="lb">0</text>`}`});
+  else bars.forEach((s,k)=>{const v=s.v[i],x=cx(i)-nb*bw/2+k*bw;g+=`<rect class="pb${pr?' pr':''}${i===sel&&pjS.k==='bar'&&pjS.sk===S.s.indexOf(s)?' sel':''}" data-pb="${S.s.indexOf(s)}" data-py="${i}" x="${x+1}" y="${y(v)}" width="${bw-2}" height="${Math.max(y(0)-y(v),0)}" fill="${s.c}" rx="3" style="--d:${i*.08}s"${pr?` stroke="${s.c}"`:''}><title>${yr} · ${esc(s.n)}: ${d(v)} ${P.u} — klik untuk penjelasan</title></rect>${v?`<text x="${x+bw/2}" y="${y(v)-5}" text-anchor="middle" class="lb">${d(v)}</text>`:`<text x="${x+bw/2}" y="${y(0)-5}" text-anchor="middle" class="lb">0</text>`}`});
   g+=`<text x="${cx(i)}" y="${H-6}" text-anchor="middle" class="yr${i===sel?' on':''}">${yr}</text>`});
- lines.forEach(s=>{g+=`<polyline points="${PY.map((_,i)=>cx(i)+','+y(s.v[i])).join(' ')}" fill="none" stroke="${s.c}" stroke-width="2.6" stroke-dasharray="${'6 4'}" class="pl"/>`+PY.map((_,i)=>`<circle cx="${cx(i)}" cy="${y(s.v[i])}" r="4" fill="#fff" stroke="${s.c}" stroke-width="2.4"><title>${PY[i]} · ${esc(s.n)}: ${d(s.v[i])} ${P.u}</title></circle>`).join('')});
- PY.forEach((_,i)=>{g+=`<rect x="${L+cw*i}" y="0" width="${cw}" height="${H}" fill="transparent" class="hit" data-py="${i}"><title>Klik untuk detail ${PY[i]}</title></rect>`});
+ lines.forEach(s=>{g+=`<polyline points="${PY.map((_,i)=>cx(i)+','+y(s.v[i])).join(' ')}" fill="none" stroke="${s.c}" stroke-width="2.6" stroke-dasharray="${'6 4'}" class="pl"/>`+PY.map((_,i)=>`<circle class="pd" data-pb="${S.s.indexOf(s)}" data-py="${i}" cx="${cx(i)}" cy="${y(s.v[i])}" r="5" fill="#fff" stroke="${s.c}" stroke-width="2.4"><title>${PY[i]} · ${esc(s.n)}: ${d(s.v[i])} ${P.u} — klik untuk penjelasan</title></circle>`).join('')});
  return `<svg viewBox="0 0 ${W} ${H}" class="pjc" role="img" aria-label="${esc(P.t)}">${g}</svg>`}
-function pjRender(){const key=isl+'.'+topic,P=PJ[key];if(!P)return;const ex=$('#exp'),S=P.sc[pjS.si],M=P.m(S),i=pjS.y,pr=i>0;
+let pjRender=function(){const key=isl+'.'+topic,P=PJ[key];if(!P)return;const ex=$('#exp'),S=P.sc[pjS.si],M=P.m(S),i=pjS.y,pr=i>0;
  ex.innerHTML=`<header><span class="ico">${ic('trend')}</span><div><small>Proyeksi 2026–2030 ${vpill(P.v)}</small><h4>${esc(P.t)}</h4></div><div class="pseg"><button type="button" data-pjx>Eksisting</button><button type="button" class="on">Proyeksi</button></div><button type="button" class="xx" aria-label="Tutup proyeksi">${ic('x')}</button></header>
  ${P.sc.length>1?`<div class="psc">${P.sc.map((s,j)=>`<button type="button" data-psc="${j}" aria-pressed="${j===pjS.si}">${esc(s.n)}</button>`).join('')}</div>`:''}
  <div class="pjw">${pchart(P,pjS.si,i)}<div class="pleg">${S.s.map(s=>`<span><i style="background:${s.c}${s.line?';height:3px;border-radius:2px':''}"></i>${esc(s.n)}</span>`).join('')}<span><i class="hx"></i>arsir = proyeksi</span><span class="u">${esc(P.u)}</span></div></div>
@@ -1777,9 +1831,85 @@ function pjRender(){const key=isl+'.'+topic,P=PJ[key];if(!P)return;const ex=$('#
  <div class="pyd"><div class="yh"><b>${PY[i]}</b><span class="stb st-${pr?'F':'C'}" style="--sc:${ST[pr?'F':'C'][1]}">${pr?'Proyeksi':'Eksisting'}</span><span class="vals">${S.s.map(s=>`<em style="--c:${s.c}">${esc(s.n)} <b>${fmt(s.v[i],s.v[i]%1&&s.v[i]<100?1:0)}</b></em>`).join('')}</span></div>
   <ul>${P.yr[i].map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul></div>
  <div class="pwhy"><small>${ic('bulb')} Alasan analisa</small><ul>${P.why.map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul></div>
- <p class="pnote">${ic('info')} ${esc(P.note)}</p>`}
-function openPJ(){const P=PJ[isl+'.'+topic];if(!P)return;const b=$('#body'),ex=$('#exp'),k=b.querySelector('.kp');pjS={si:0,y:4};
+ <p class="pnote">${ic('info')} ${esc(P.note)}</p>`};
+function openPJ(){const P=PJ[isl+'.'+topic];if(!P)return;const b=$('#body'),ex=$('#exp'),k=b.querySelector('.kp');pjS={si:0,y:4,k:'year',sk:0};
  b.querySelectorAll('.kpi.on').forEach(x=>x.classList.remove('on'));ex.className='exp pjx';ex.style.top=k.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-k.offsetTop-8)+'px';ex.hidden=false;pjRender()}
+
+/* --- proyeksi: bahasa sederhana + penjelasan tiap angka --- */
+const fN=v=>fmt(v,v%1&&Math.abs(v)<100?1:0);
+const SCN={
+'bintan.kap':[['Normal','Semua pembangkit baru (PLTMG Bintan, PLTGU Batam) selesai sesuai jadwal RUPTL.'],['Proyek terlambat','PLTMG, PLTGU Batam #1, dan Batam 3&4 mundur 1–2 tahun; hal yang sering terjadi.'],['Data center tumbuh cepat','Pembangkit tepat waktu, tetapi beban data center Batam naik lebih cepat (±1.400 MW pada 2030).']],
+'bintan.dem':[['Normal · 5,3%/th','Tumbuh mengikuti rata-rata RUPTL Kepri; belum ada industri besar baru yang membeli listrik dari PLN.'],['Ada data center & KEK masuk','Sebagian MoU data center dan kawasan industri benar-benar tersambung ke PLN mulai 2028.'],['Lambat · 4%/th','Ekonomi melambat dan tidak ada industri besar baru.']],
+'bintan.ebt':[['Normal · kuota RUPTL','Hanya PLTS yang tertulis di RUPTL: 25 MW (2028) + 25 MW (2030).'],['Optimis','Ditambah PLTS atap dan PLTS kawasan industri/data center.']],
+'bintan.tar':[['Naik pelan','Tarif ditahan 2027, lalu naik ±3% per tahun mulai 2028.'],['Ditahan','Pemerintah menahan tarif sampai 2030.'],['Naik cepat','Tarif naik ±5% per tahun mulai 2027 (kurs & harga minyak menekan).']],
+'bintan.rel':[['PLTMG di Pulau Bintan','PLTMG 100 MW (2027) dibangun di Pulau Bintan, sehingga Bintan punya pembangkit sendiri yang besar.'],['PLTMG di Batam','PLTMG 100 MW dibangun di Batam; Bintan tetap bergantung pada kabel.']],
+'bintan.int':[['PLTMG di Batam','Semua pembangkit baru di Batam; listrik Bintan tetap dikirim lewat kabel.'],['PLTMG di Pulau Bintan','PLTMG 100 MW di Bintan mengurangi listrik yang harus dikirim lewat kabel.']],
+'karimun.kap':[['Normal · kabel 2028','Kabel 150 kV dari Sumatera tersambung 2028 (perkiraan realistis).'],['Kabel terlambat','Kabel baru tersambung 2030; sampai itu Karimun mengandalkan diesel.']],
+'karimun.dem':[['Normal · ±4%/th','Tumbuh seperti 10 tahun terakhir.'],['Pengguna genset pindah ke PLN','Setelah kabel masuk (2028), industri yang selama ini pakai genset mulai membeli listrik PLN.'],['Lambat · ±3%/th','Pertumbuhan tertahan; tidak ada beban baru.']],
+'karimun.ebt':[['Normal · rencana RUPTL','Hanya proyek EBT yang tercatat di RUPTL dan Pemkab.'],['Optimis','Ditambah PLTS 10 MW dengan baterai setelah kabel masuk.']],
+'karimun.tar':[['Normal · kabel 2028','Biaya pasok turun mulai 2028 karena listrik Sumatera lebih murah dari diesel.'],['Kabel terlambat','Diesel tetap dipakai sampai 2030; biaya tetap tinggi.']],
+'karimun.rel':[['Normal · kabel 2028','Kabel Sumatera tersambung 2028.'],['Kabel terlambat','Kabel baru tersambung 2030.']],
+'karimun.int':[['Normal · tersambung 2028','Kabel 150 kV energize 2028 (perkiraan realistis).'],['Terlambat ke 2030','Kabel baru energize 2030.']]};
+Object.entries(SCN).forEach(([k,a])=>a.forEach((x,j)=>{if(PJ[k]&&PJ[k].sc[j]){PJ[k].sc[j].n=x[0];PJ[k].sc[j].d=x[1]}}));
+PJ['karimun.rel'].sc.forEach(s=>s.s[1].n='Cadangan minimum N-2');
+PJ['bintan.dem'].yr[4]=[['g','Penjualan industri Kepri (tanpa Batam) 47 → 58 GWh'],['s','Setelah 2030: KTT ±500 MW & BAI 1.500 MVA (RUPTL)']];
+PJ['karimun.dem'].yr[4]=[['s','Beban 2031–2032: GI TBK ditambah +60 MVA']];
+const SX={
+'Daya pasok':['Total listrik yang bisa disediakan semua pembangkit di sistem Batam–Bintan.','930 MW = data PLN Batam, Okt 2026.','Pasok tahun sebelumnya + pembangkit baru yang dijadwalkan masuk tahun itu.'],
+'Beban puncak':['Pemakaian listrik tertinggi dalam setahun di sistem Batam–Bintan, biasanya malam hari.','780 MW = puncak Okt 2026 (PLN Batam).','Naik terutama karena data center Batam yang terus bertambah (estimasi penyusun).'],
+'bintan|Rumah tangga, bisnis, publik':['Beban "biasa": rumah, toko, hotel, resort, kantor, dan fasilitas umum.','±93 MW = estimasi; sekitar 89% dari beban Bintan 105 MW.','Tumbuh mengikuti laju skenario yang dipilih.'],
+'karimun|Rumah tangga, bisnis, publik':['Beban "biasa": rumah, toko, kantor, dan fasilitas umum di Karimun.','±31 MW = estimasi; sekitar 86% dari beban 36,1 MW.','Tumbuh mengikuti laju skenario yang dipilih.'],
+'bintan|Industri PLN':['Pabrik dan kawasan yang membeli listrik dari PLN (bukan dari pembangkit sendiri).','±12 MW = estimasi. Industri besar seperti Galang Batang punya PLTU sendiri (±200 MW), jadi tidak dihitung di sini.','Naik pelan; RUPTL mencatat penjualan industri Kepri (tanpa Batam) 47 → 58 GWh.'],
+'karimun|Industri PLN':['Industri yang membeli listrik dari PLN di Zona 3.','±5 MW = estimasi. Industri besar FTZ (galangan, migas) dilayani pemasok swasta di Zona 1–2.','Naik pelan mengikuti pertumbuhan.'],
+'Industri baru KEK/DC':['Beban besar baru yang mungkin masuk ke PLN: data center dan kawasan industri (KEK).','0 di 2026: belum ada yang tersambung ke PLN.','Hanya muncul di skenario "Ada data center & KEK masuk". Dihitung bertahap dari MoU DC AI ±500 MW, KEK Tanjung Sauh, dan Galang Batang; MoU hanya diberi bobot sebagian.'],
+'Demand tertahan & industri baru':['Pelanggan yang selama ini memakai genset karena listrik PLN tidak andal, ditambah industri baru.','0 di 2026: belum bisa dilayani.','Mulai 2028 setelah kabel masuk, diasumsikan beralih ke PLN.'],
+'PLTS Bintan (kumulatif)':['Total kapasitas pembangkit tenaga surya yang melayani Bintan, dijumlah dari tahun ke tahun.','Hampir nol di 2026.','Kuota RUPTL: 25 MW (2028) + 25 MW (2030). Skenario optimis menambah PLTS atap/kawasan.'],
+'EBT lokal (kumulatif)':['Total pembangkit energi terbarukan di Karimun (surya + biomassa), dijumlah dari tahun ke tahun.','5 MW = PLTS milik KPP di Zona 2.','+PLTS Pemkab 2,6 & biomassa 1 MW (2027), PLTBm Kundur 2,5 MW (2029), Tanjung Batu 4 MW (2030).'],
+'Tarif I-3':['Harga listrik PLN untuk industri menengah (>200 kVA) di luar jam puncak, dalam Rp per kWh.','Rp1.114,74 = tarif resmi Q4 2026.','Tarif ditetapkan pemerintah tiap triwulan; angka 2027–2030 adalah skenario, bukan keputusan.'],
+'Pasok lokal firm':['Pembangkit yang berada di Pulau Bintan dan bisa diandalkan kapan saja (tidak termasuk surya).','±33 MW = PLTD/PLTMG yang ada sekarang.','Naik ke 133 MW hanya jika PLTMG 100 MW dibangun di Pulau Bintan.'],
+'Beban Bintan':['Pemakaian listrik tertinggi Bintan dalam setahun.','±105 MW (estimasi dari 65,1 MW resmi 2016).','Naik ±5,3% per tahun (skenario normal).'],
+'Aliran via kabel':['Listrik yang harus dikirim dari Batam ke Bintan lewat satu-satunya kabel laut saat jam puncak.','±72 MW = beban Bintan 105 − pembangkit lokal 33.','Naik bila beban Bintan naik; turun bila ada pembangkit besar baru di Bintan.'],
+'Kapasitas firm':['Pembangkit Karimun yang bisa diandalkan, ditambah pasokan kabel Sumatera setelah tersambung.','40,6 MW = daya mampu 17 Nov 2026 (Tribun Batam).','Naik ±54 MW sekaligus saat kabel Sumatera tersambung (2×30 MVA).'],
+'Kebutuhan N-2':['Kapasitas minimum menurut aturan PLN untuk pulau terisolasi: beban puncak + cadangan bila 2 mesin terbesar rusak bersamaan.','50,1 MW = beban 36,1 + 7 + 7 MW.','Ikut naik bersama beban (ditambah 14 MW tetap).'],
+'Cadangan':['Sisa kapasitas setelah beban puncak terpenuhi = kapasitas firm − beban puncak.','4,5 MW = 40,6 − 36,1.','Melonjak saat kabel Sumatera masuk.'],
+'Cadangan minimum N-2':['Cadangan yang disyaratkan PLN: cukup untuk kehilangan 2 mesin terbesar sekaligus (2 × 7 MW).','14 MW = 2 × PLTU 7 MW.','Tetap 14 MW selama mesin terbesar masih 7 MW.'],
+'Biaya pasok (est.)':['Perkiraan biaya PLN untuk menghasilkan 1 kWh listrik di Karimun.','±Rp3.500/kWh = biaya BBM diesel (estimasi).','Turun setelah kabel masuk karena listrik Sumatera jauh lebih murah dari diesel.'],
+'Kapasitas kabel':['Listrik maksimum yang bisa dikirim dari Sumatera lewat kabel baru.','0: Karimun belum tersambung.','±54 MW = 2×30 MVA × 0,9, mulai tahun kabel tersambung.'],
+'Beban Karimun':['Pemakaian listrik tertinggi Karimun dalam setahun.','36,1 MW (17 Nov 2026).','Naik ±4% per tahun (skenario normal).']};
+const sx=n=>SX[isl+'|'+n]||SX[n]||['','',''];
+const MX={
+'bintan.kap':['Cadangan = berapa persen kapasitas berlebih di atas beban puncak. Makin besar makin aman bila ada pembangkit rusak.','Merah di bawah 15% = rawan padam · kuning 15–30% · hijau 30% ke atas (mendekati ideal PLN ±35%).',(S,i)=>`(pasok ${fN(S.s[0].v[i])} − beban ${fN(S.s[1].v[i])}) ÷ beban ${fN(S.s[1].v[i])}`],
+'bintan.dem':['Berapa bagian beban puncak yang dipakai industri. Menunjukkan seberapa besar peran industri dalam kebutuhan listrik.','Abu-abu di bawah 15% = industri kecil · kuning 15–40% · hijau 40% ke atas = industri jadi penggerak utama.',(S,i)=>{const b=S.s,t=b.reduce((a,x)=>a+x.v[i],0),n=b.slice(1).reduce((a,x)=>a+x.v[i],0);return `industri ${fN(n)} MW ÷ total ${fN(t)} MW`}],
+'karimun.dem':['Berapa bagian beban puncak yang dipakai industri.','Abu-abu di bawah 15% · kuning 15–40% · hijau 40% ke atas.',(S,i)=>{const b=S.s,t=b.reduce((a,x)=>a+x.v[i],0),n=b.slice(1).reduce((a,x)=>a+x.v[i],0);return `industri ${fN(n)} MW ÷ total ${fN(t)} MW`}],
+'bintan.ebt':['Berapa persen listrik setahun yang berasal dari energi terbarukan.','Merah di bawah 5% · kuning 5–10% · hijau 10% ke atas.',()=>'estimasi penyusun: energi PLTS ÷ total energi sistem Batam–Bintan'],
+'karimun.ebt':['Berapa persen listrik setahun yang berasal dari energi terbarukan.','Merah di bawah 5% · kuning 5–15% · hijau 15% ke atas.',()=>'estimasi: impor Sumatera (EBT >30,5%) × porsi impor + EBT lokal'],
+'bintan.tar':['Perubahan tarif dibanding 2026.','Hijau = tidak naik · kuning naik sampai 10% · merah naik lebih dari 10%.',(S,i)=>`Rp${fN(S.s[0].v[i])} ÷ Rp1.114,74 − 1`],
+'bintan.rel':['Jika kabel dari Batam putus, berapa persen beban Bintan yang masih bisa dilayani pembangkit di pulau sendiri.','Merah di bawah 50% = padam besar · kuning 50–110% = pas-pasan · hijau di atas 110% = aman.',(S,i)=>`pasok lokal ${fN(S.s[0].v[i])} ÷ beban ${fN(S.s[1].v[i])} MW`],
+'bintan.int':['Jumlah jalur kabel yang memasok Bintan dari Batam. Satu jalur berarti jika kabel putus, Bintan padam.','Merah = hanya 1 jalur, tanpa cadangan.',()=>'Hanya kabel 150 kV Tanjung Sauh–Ngenang; kabel kedua tidak ada di RUPTL sampai 2030.'],
+'karimun.kap':['Selisih kapasitas firm dengan kebutuhan aturan N-2. Minus = belum memenuhi standar keandalan PLN.','Merah = kurang dari standar · hijau = memenuhi.',(S,i)=>`${fN(S.s[0].v[i])} − ${fN(S.s[1].v[i])} MW`],
+'karimun.tar':['Kerugian PLN per kWh di Karimun yang ditutup kompensasi pemerintah.','Merah di atas Rp1.500 · kuning Rp500–1.500 · hijau di bawah Rp500.',(S,i)=>`biaya ${fN(S.s[0].v[i])} − tarif ${fN(S.s[1].v[i])} Rp/kWh`],
+'karimun.rel':['Status keandalan: N-1 = tetap menyala bila 1 mesin terbesar rusak; N-2 = tetap menyala bila 2 mesin rusak.','Merah = gagal N-1 (padam bergilir saat 1 mesin trip) · kuning = N-1 · hijau = N-2.',(S,i)=>`cadangan ${fN(S.s[0].v[i])} MW; syarat N-1 = 7 MW, N-2 = 14 MW`],
+'karimun.int':['Apakah Karimun sudah tersambung ke jaringan Sumatera.','Merah = isolated (berdiri sendiri) · hijau = tersambung.',(S,i)=>`kapasitas kabel ${fN(S.s[0].v[i])} MW`]};
+function pjHead(P,S,M){const bars=S.s.filter(x=>!x.line);const tot=i=>P.stack?bars.reduce((a,x)=>a+x.v[i],0):bars[0].v[i];const a=tot(0),b=tot(4),dl=b-a;const nm=P.stack?'Total beban':bars[0].n;
+ const verb=Math.abs(dl)<0.05?'tetap':dl>0?'naik':'turun';return `<b>${esc(nm)}</b> ${verb} dari <em>${fN(a)}</em> (2026) ${verb==='tetap'?'':`menjadi <em>${fN(b)}</em> ${esc(P.u)} (2030)`} ${verb==='tetap'?'':`<span class="dlt ${dl>0?'up':'dn'}">${dl>0?'+':''}${fN(dl)}</span>`}. ${esc(M.n)} 2030: <span class="mc ${M.v[4][1]}">${esc(M.v[4][0])}</span>`}
+function pjEx(P,S,M){const i=pjS.y,pr=i>0,u=P.u,badge=`<span class="stb st-${pr?'F':'C'}" style="--sc:${ST[pr?'F':'C'][1]}">${pr?'Perkiraan':'Eksisting'}</span>`;const yrl=`<ul class="yl">${P.yr[i].map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul>`;
+ if(pjS.k==='bar'){const s=S.s[pjS.sk],X=sx(s.n),v=s.v[i],pv=i?s.v[i-1]:null,dl=pv==null?0:v-pv;
+  return `<div class="exh"><i style="background:${s.c}"></i><div><small>${esc(s.n)} · ${PY[i]} ${badge}</small><b>${fN(v)} <span>${esc(u)}</span></b>${pv!=null?`<span class="dlt ${dl>0?'up':dl<0?'dn':''}">${Math.abs(dl)<.05?'sama dengan '+PY[i-1]:(dl>0?'+':'')+fN(dl)+' dari '+PY[i-1]}</span>`:''}</div></div>
+  <dl><dt>${ic('info')}Apa artinya?</dt><dd>${esc(X[0])}</dd><dt>${ic('bulb')}${pr?'Kenapa angkanya segini?':'Dari mana angkanya?'}</dt><dd>${esc(pr?X[2]+' Skenario "'+S.n+'": '+S.d:X[1])}</dd><dt>${ic('cal')}Yang terjadi di ${PY[i]}</dt><dd>${yrl}</dd></dl>`}
+ if(pjS.k==='metric'){const m=M.v[i],X=MX[isl+'.'+topic]||['','',()=>''];
+  return `<div class="exh"><i class="mc ${m[1]}"></i><div><small>${esc(M.n)} · ${PY[i]} ${badge}</small><b class="mt ${m[1]}">${esc(m[0])}</b></div></div>
+  <dl><dt>${ic('info')}Apa artinya?</dt><dd>${esc(X[0])}</dd><dt>${ic('bulb')}Cara menghitung</dt><dd class="fx">${esc(X[2](S,i))} = <b>${esc(m[0])}</b></dd><dt>${ic('shield')}Arti warnanya</dt><dd>${esc(X[1])}</dd></dl>`}
+ return `<div class="exh"><i style="background:#7a5af5"></i><div><small>Ringkasan ${PY[i]} ${badge}</small><b>${PY[i]}</b></div></div>
+  <div class="ych">${S.s.map((s,k)=>`<button type="button" data-pb="${k}" data-py="${i}" style="--c:${s.c}">${esc(s.n)} <b>${fN(s.v[i])}</b></button>`).join('')}<button type="button" data-pm="${i}" class="mcb ${M.v[i][1]}">${esc(M.n)} <b>${esc(M.v[i][0])}</b></button></div>
+  <dl><dt>${ic('cal')}Yang terjadi di ${PY[i]}</dt><dd>${yrl}</dd></dl><p class="tipx">${ic('info')} Klik batang, titik, atau angka mana pun untuk penjelasan.</p>`}
+pjRender=function(){const key=isl+'.'+topic,P=PJ[key];if(!P)return;const ex=$('#exp'),S=P.sc[pjS.si],M=P.m(S),i=pjS.y;
+ ex.innerHTML=`<header><div><small>Proyeksi 2026–2030 ${vpill(P.v)}</small><h4>${esc(P.t)}</h4></div><div class="pseg"><button type="button" data-pjx>Eksisting</button><button type="button" class="on">Proyeksi</button></div><button type="button" class="xx" aria-label="Tutup proyeksi">${ic('x')}</button></header>
+ ${P.sc.length>1?`<div class="psc"><span>Skenario:</span>${P.sc.map((s,j)=>`<button type="button" data-psc="${j}" aria-pressed="${j===pjS.si}" title="${esc(s.d)}">${esc(s.n)}</button>`).join('')}</div>`:''}
+ <div class="phead">${ic('bulb')}<p>${pjHead(P,S,M)}<small>${esc(S.d||'')}</small></p></div>
+ <div class="pjw">${pchart(P,pjS.si,i)}<div class="pleg">${S.s.map((s,k)=>`<button type="button" data-pb="${k}" data-py="${i}"><i style="background:${s.c}${s.line?';height:3px;border-radius:2px':''}"></i>${esc(s.n)}</button>`).join('')}<span><i class="hx"></i>putus-putus = perkiraan</span><span class="u">${esc(P.u)}</span></div></div>
+ <div class="pms"><span class="mn">${esc(M.n)} ${ic('info')}</span>${M.v.map((v,j)=>`<button type="button" data-pm="${j}" class="${v[1]}${v[0].length>6?' tx':''}${j===i&&pjS.k==='metric'?' on':''}" title="Klik: apa artinya & cara hitung">${esc(v[0])}<small>${PY[j]}</small></button>`).join('')}</div>
+ <div class="pbot"><div class="pyd">${pjEx(P,S,M)}</div>
+ <details class="pwhy"><summary>${ic('bulb')} Kenapa proyeksinya begini? <em>${P.why.length} alasan</em></summary><ul>${P.why.map(x=>`<li class="${x[0]}">${ic(x[0]==='g'?'check':x[0]==='w'?'alert':'info')}<span>${esc(x[1])}</span></li>`).join('')}</ul><p class="pnote">${ic('info')} ${esc(P.note)}</p></details></div>`;const pb=ex.querySelector('.pbot');if(pb)pb.scrollTop=0};
 
 /* ---------- MAP ---------- */
 const map=L.map('map',{zoomSnap:.25,zoomControl:false,attributionControl:true,preferCanvas:false}).fitBounds([[0.6,103.15],[1.3,104.8]]);
@@ -2038,7 +2168,7 @@ function explain(i){const T=ISL[isl].T[topic],k=T.k[i],E=(EXPL[isl+'.'+topic]||[
 function unexplain(){const ex=$('#exp');if(ex)ex.hidden=true;$('#body').querySelectorAll('.kpi.on,.icd.on').forEach(x=>x.classList.remove('on'))}
 function focusLoc(id){const r=REG[id];if(!r)return;setLayer(r.k,true);map.flyTo(r.ll,['isbb','karint','ext500'].includes(id)?8.6:11,{duration:.7});setTimeout(()=>{if(r.pop)r.pop();else if(r.l.openPopup)r.l.openPopup();else r.l.eachLayer&&r.l.eachLayer(x=>x.getPopup&&x.getPopup()&&x.openPopup())},800)}
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)show(b.dataset.t)});
-$('#body').addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}if(e.target.closest('[data-pj]')){openPJ();return}if(e.target.closest('[data-pjx]')){unexplain();return}const ps=e.target.closest('[data-psc]');if(ps){pjS.si=+ps.dataset.psc;pjRender();return}const py=e.target.closest('[data-py]');if(py){pjS.y=+py.dataset.py;pjRender();return}const cd=e.target.closest('.icd[data-card]');if(cd){if(cd.classList.contains('on'))unexplain();else cardDetail(+cd.dataset.card);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
+$('#body').addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}if(e.target.closest('[data-pj]')){openPJ();return}if(e.target.closest('[data-pjx]')){unexplain();return}const ps=e.target.closest('[data-psc]');if(ps){pjS.si=+ps.dataset.psc;pjS.k='year';pjRender();return}const pb=e.target.closest('[data-pb]');if(pb){pjS.y=+pb.dataset.py;pjS.k='bar';pjS.sk=+pb.dataset.pb;pjRender();return}const pm=e.target.closest('[data-pm]');if(pm){pjS.y=+pm.dataset.pm;pjS.k='metric';pjRender();return}const py=e.target.closest('[data-py]');if(py){pjS.y=+py.dataset.py;pjS.k='year';pjRender();return}const cd=e.target.closest('.icd[data-card]');if(cd){if(cd.classList.contains('on'))unexplain();else cardDetail(+cd.dataset.card);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#exp')&&!$('#exp').hidden&&$('#qa').hidden)unexplain()});
 $('#seg').addEventListener('click',e=>{const b=e.target.closest('[data-isl]');if(b&&b.dataset.isl!==isl)open(b.dataset.isl,topic)});
 $('#home').onclick=home;
