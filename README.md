@@ -1,11 +1,12 @@
-# Grid Brief · Bintan–Karimun
+# Bintan & Karimun Power Systems
 
-Dashboard satu layar untuk persiapan wawancara expert tentang kelistrikan Bintan dan Karimun (Kepulauan Riau).
+One-screen interactive dashboard on the power systems of Bintan and Karimun (Riau Islands, Indonesia): capacity, demand, renewables, industrial tariff, T&D reliability, Batam–Bintan interconnection, and 2026–2030 projections with scenarios.
 
-- `index.html` — presentasi satu layar tanpa scroll: halaman awal memilih Bintan atau Karimun, lalu per pulau ada peta beranimasi (kabel, SUTT, GI, pembangkit bisa diklik) dan 7 tab infografis (ringkasan, kapasitas, demand, EBT, tarif, keandalan, interkoneksi). Tanya-jawab 100 butir di pojok kanan atas, bisa dicari dengan kata kunci dan difilter per jenis pertanyaan serta wilayah.
-- `QA-100-Bintan-Karimun.md` — 100 pertanyaan dan jawaban yang sama dalam format teks untuk dibaca atau dicetak.
-- `peta-kelistrikan-kepri.html` — peta Kepri versi sebelumnya (sumber data aset GI, pembangkit, dan jalur 150 kV).
+- `index.html` — **English client version.** Landing page splits Bintan and Karimun; each island has an interactive map (cables, lines, substations, plants, planned and potential projects) and 8 tabs (Overview, Insights, Capacity, Demand, Renewables, Tariff, Reliability, Interconnect). Each topic has a **2026–2030 projection** with scenarios: every scenario shows its rationale and the data behind it, and every bar or number can be clicked for an explanation. A 100-item Q&A (investor view) sits top right.
+- `id.html` — the same dashboard in Bahasa Indonesia.
+- `QA-100-Bintan-Karimun-EN.md` / `QA-100-Bintan-Karimun.md` — the 100 Q&A as text (English / Indonesian).
+- `peta-kelistrikan-kepri.html` — earlier Riau Islands asset map.
 
-Data: RUPTL PT PLN (Persero) 2025–2034 (Kepmen ESDM 188.K/2025) Lampiran A4, Bab V, Lampiran E; PLN Batam; Ombudsman Kepri; media s.d. 25 Nov 2026. Angka berlabel "estimasi" adalah analisis penyusun, bukan data resmi.
+Data: RUPTL PT PLN (Persero) 2025–2034 (MEMR Decree 188.K/2025), Annex A4, Ch. V, Annex E; PLN Batam; Ombudsman Riau Islands; media to 25 Nov 2026. Figures marked "estimate" are our analysis, not official data.
 
-Buka `index.html` langsung di browser. Tidak perlu build.
+Open `index.html` directly in a browser. No build step.
