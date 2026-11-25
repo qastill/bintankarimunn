@@ -1360,6 +1360,22 @@ details.pwhy[open] summary{margin-bottom:6px}details.pwhy .pnote{margin-top:6px!
 .trg li.on{background:#f3efff!important}.trg li.w{background:#fdf1ef!important}
 .trg li .stb{display:inline-block!important;width:auto!important;font-size:9px!important;line-height:1.5!important;padding:0 6px!important;margin-left:6px}
 .exp p.gro,.ppop p.gro{font-size:12.5px!important;line-height:1.4!important;font-weight:600!important;margin:8px 0 0!important}
+
+.systg{display:inline-flex;background:#eef3f7;border-radius:999px;padding:2px;gap:2px;margin-right:8px;flex:none}
+.systg button{border:0;background:none;border-radius:999px;padding:4px 10px;font:800 11px var(--f);color:var(--mut);cursor:pointer;text-transform:none;letter-spacing:0}
+.systg button.on{background:var(--ink);color:#fff}
+
+/* outlook */
+.okp .kpi{cursor:pointer}.okp .kpi .s{font-size:11px}
+.olbot{display:grid;gap:6px}
+.olr{display:grid;grid-template-columns:auto repeat(5,minmax(0,1fr));gap:5px;align-items:stretch}
+.olr .mn{font-size:10.5px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;padding-right:4px}
+.olr button{border:2px solid transparent;border-radius:10px;padding:4px;font:800 13px var(--fm);display:grid;justify-items:center;cursor:pointer}
+.olr button small{font:700 9.5px var(--f);opacity:.75}
+.olr button.g{background:#e3f6ea;color:#16804a}.olr button.w{background:#fde7e4;color:#c23a2b}.olr button.m{background:#fff1d6;color:#a86a00}
+.olr button:hover{border-color:#c9bff7}
+.olg{font-size:10.5px!important;gap:2px 10px!important}.olg .lh{font-weight:800;color:#2b5fa8;text-transform:uppercase;font-size:10px;letter-spacing:.05em}.olg .lh.d{color:#b8432f;margin-left:6px}
+.olg i{width:9px!important;height:9px!important;margin-right:4px!important}
 .lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:var(--mut);text-decoration:none;margin-right:8px}.lang:hover{color:var(--ink)}</style>
 </head>
 <body>
@@ -1917,7 +1933,7 @@ function niceMax(v){const p=Math.pow(10,Math.floor(Math.log10(v)));const f=v/p;r
 function pchart(P,si,sel){const S=P.sc[si],W=540,H=290,L=46,R=12,T=24,B=24,cw=(W-L-R)/5;
  const bars=S.s.filter(x=>!x.line),lines=S.s.filter(x=>x.line);
  const colTot=(sc,i)=>{const b=sc.s.filter(x=>!x.line);return P.stack?b.reduce((a,x)=>a+x.v[i],0):Math.max(...b.map(x=>x.v[i]))};
- const mx=P.max||niceMax(Math.max(...P.sc.flatMap(sc=>PY.map((_,i)=>Math.max(colTot(sc,i),...sc.s.filter(x=>x.line).map(x=>x.v[i])))))*1.1);
+ const mx=S.max||P.max||niceMax(Math.max(...P.sc.flatMap(sc=>PY.map((_,i)=>Math.max(colTot(sc,i),...sc.s.filter(x=>x.line).map(x=>x.v[i])))))*1.1);
  const y=v=>T+(H-T-B)*(1-v/mx),cx=i=>L+cw*i+cw/2,d=v=>fmt(v,v%1&&v<100?1:0);
  const nb=P.stack?1:bars.length,bw=Math.min(46,(cw-18)/nb);
  let g=`<defs><pattern id="pjh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#f4f8fb"/><line x1="0" y1="0" x2="0" y2="6" stroke="#e3ebf1" stroke-width="3"/></pattern></defs>`;
@@ -2252,6 +2268,75 @@ const PJMIX={'bintan.kap':(si,i)=>{const o=SB['bintan.kap'],dl={'Rented gas engi
 PMIX['bintan.kap']=(si,i)=>PJMIX['bintan.kap'](si,i).filter(x=>x[1]);
 PMIX['karimun.kap']=(si,i)=>PJMIX['karimun.kap'](si,i).filter(x=>x[1]);
 
+/* ---------- BINTAN ONLY (no Batam) ---------- */
+let sysMode='s';
+SB['bintan.kapb']={t:'Bintan only: local plants vs Bintan load',s:'MW · no supply from Batam',cats:['2026','2027','2028','2029','2030'],fut:1,max:320,ticks:[0,100,200,300],unit:'MW',totLab:'firm MW',
+ segs:[{n:'Diesel · Air Raja & Suka Berenang',c:C.coral,v:[24,24,24,24,24],x:'Diesel plants in Tanjungpinang, ≈30 MW installed, ≈24 MW firm. Expensive (≈IDR 3,000–4,000/kWh) and used today only as backup.',b:'PLN UP3 Tanjungpinang; our estimate of firm output.'},
+  {n:'Gas engines · Kuala Lobam',c:C.ocean2,v:[9,9,9,9,9],x:'9 MW gas engines in north Bintan, fuelled by CNG trucked/shipped from Panaran (Batam).',b:'PLN data.'},
+  {n:'NEW Bintan gas engines (if sited on Bintan)',c:'#5fc3dd',v:[0,100,100,100,100],x:'The RUPTL 100 MW gas-engine plant (2027). Counted here only if it is built on Bintan island; its site is not yet published. A further 50 MW follows in 2031.',b:'RUPTL 2025–2034, Annex A4 (via PLN Batam).'},
+  {n:'NEW Bintan solar',c:'#e0a100',nf:1,v:[0,0,25,25,50],x:'25 MW (2028) + 25 MW (2030). Zero output at the evening peak, so it does not help Bintan stand alone at night.',b:'RUPTL 2025–2034.'}],
+ lines:[{n:'Bintan peak load (base)',c:C.coral,v:[105,111,117,123,130],x:'Bintan’s own peak: ≈105 MW in 2026 (our estimate from 65.1 MW official in 2016), +5.3%/yr.'},
+  {n:'Bintan peak with data centers (high)',c:C.violet,v:[105,116,190,243,300],x:'If announced data-center / SEZ projects connect (SOS AI campus, Tanjung Sauh, DCI). No local plant can serve this without Batam or new generation.'}],
+ yr:[[['w','Local firm supply 33 MW vs peak 105 MW: only ≈31% of load'],['w','Why the 12 Oct 2026 blackout lasted 15–16 hrs: Bintan could not run on its own'],['s','Galang Batang has ≈200 MW of coal, but it is captive to BAI and not on the PLN grid']],
+  [['g','+100 MW gas engines if sited on Bintan → 133 MW firm'],['g','Bintan could then island: reserve ≈20%'],['w','If the plant is built on Batam, Bintan stays at 33 MW']],
+  [['s','133 MW vs 117 MW: reserve ≈14%'],['s','+25 MW solar (daytime only)']],
+  [['w','133 MW vs 123 MW: reserve ≈8%']],
+  [['w','133 MW vs 130 MW: reserve ≈2% — no room for data centers'],['s','Next 50 MW gas-engine block only in 2031'],['w','High case (≈300 MW) needs Batam, ISBB/500 kV or a dedicated plant']]]};
+TG['bintan.kapb']={0:{t:[['g_ar','2026','E','Air Raja & Suka Berenang diesel','≈30 MW installed, local backup.','Counted at ≈24 MW firm.']],i:[]},
+ 1:{t:[['g_lob','2026','E','Kuala Lobam gas engines','9 MW, CNG from Panaran.','Counted in full.']],i:[]},
+ 2:{t:[['p_mg','2027','R','Bintan gas-engine plant (PLN Batam licence area)','100 MW (2027) + 50 MW (2031); developer must bring demand (take-or-pay).','Counted only in this “sited on Bintan” view.'],['gb','2026','E','Galang Batang captive coal (BAI)','≈200 MW on Bintan, serving the alumina refinery.','Not counted: not on the PLN grid (would need a supply deal).']],i:['i_pltmg']},
+ 3:{t:[['re_bin','2028','R','Bintan solar PV','25 + 25 MW.','Shown, not firm.']],i:[]},
+ L0:{t:[],i:['i_cable']},
+ L1:{t:[['l_sos','2028','M','SOS AI data-center campus','≈500 MW MoU (Sep 2026).','Drives the high case.'],['l_dci','2028','M','DCI Indonesia data center','>1,000 MW announced (2023).','Low weight.'],['l_tsauh','2027','K','Tanjung Sauh SEZ','New load near the cable corridor.','Small PLN draw.']],i:['i_air']}};
+BRK['bintan.kap']=(ci,kk)=>sbDetail(sysMode==='o'?'bintan.kapb':'bintan.kap',ci,kk);
+function sysToggle(){if(!(isl==='bintan'&&topic==='kap'))return;const vt=$('#body .viz h3 .vt');if(!vt)return;
+ const o=SB[sysMode==='o'?'bintan.kapb':'bintan.kap'];
+ vt.insertAdjacentHTML('afterbegin',`<span class="systg"><button type="button" data-sys="s" class="${sysMode==='s'?'on':''}">Batam–Bintan system</button><button type="button" data-sys="o" class="${sysMode==='o'?'on':''}">Bintan only · no Batam</button></span>`);
+ if(sysMode==='o'){vt.querySelector('.systg').nextSibling.textContent=o.t;const sp=vt.querySelector('span:not(.systg):not(.cka)');if(sp)sp.textContent=o.s;$('#body .viz .cv').innerHTML=sbars(o);const lg=$('#body .viz .leg');if(lg)lg.outerHTML=legendHtml(sbLeg(o))}}
+// projection: add island-mode scenario
+PJ['bintan.kap'].sc.push({max:160,n:'Bintan only (island mode)',d:'No supply from Batam: only plants on Bintan island serve Bintan’s own peak. Assumes the 100 MW gas-engine plant is built on Bintan.',data:['Local firm supply today ≈33 MW (diesel 24 + gas engines 9)','Bintan peak ≈105 MW (2026) → ≈130 MW (2030)','RUPTL: 100 MW gas engines 2027, +50 MW 2031 (site TBC)','If sited on Batam: Bintan alone stays at 33 MW (≈25% of 2030 load)'],s:[{n:'Supply capacity',c:C.ocean,v:[33,133,133,133,133]},{n:'Peak load',c:C.coral,line:1,v:[105,111,117,123,130]}]});
+{const _pm=PJMIX['bintan.kap'];PJMIX['bintan.kap']=(si,i)=>si===3?[['Bintan local diesel & gas',33,'#8fa3b5'],['NEW Bintan gas engines (PLTMG)',[0,100,100,100,100][i],'#5fc3dd']]:_pm(si,i);PMIX['bintan.kap']=(si,i)=>PJMIX['bintan.kap'](si,i).filter(x=>x[1])}
+
+/* ---------- OUTLOOK 2026–2030: capacity vs demand (Insights tab) ---------- */
+const DPAL=['#f08a7e','#f6b4ab','#fbd9d4','#b8432f'];
+function subSpec(src,years,nk){const o=SB[src],ix=years.map(y=>o.cats.indexOf(y));const c=JSON.parse(JSON.stringify(o));c.cats=years;c.fut=1;
+ c.segs=o.segs.map((g,k)=>Object.assign({},g,{v:ix.map(i=>g.v[i]),c:g.up?'#b9a6ff':(DPAL[k]||g.c),dark:k===2}));c.yr=ix.map(i=>(o.yr||[])[i]||[]);c.lines=[];SB[nk]=c;TG[nk]=TG[src];return c}
+subSpec('bintan.dem',['2026','2027','2028','2029','2030'],'o.bintan.dem');
+subSpec('karimun.dem',['2026','2027','2028','2029','2030'],'o.karimun.dem');
+SB['bintan.sysdem']={t:'Batam–Bintan peak load',cats:['2026','2027','2028','2029','2030'],fut:1,unit:'MW',totLab:'peak MW',
+ segs:[{n:'Batam (excl. data centers)',c:DPAL[0],v:[635,660,685,710,735],x:'Batam homes, industry (shipyards, electronics estates), commerce and Batam port/airport. Grows ≈3–4%/yr.',b:'PLN Batam peak 780 MW (Oct 2026); split is our estimate.'},
+  {n:'Batam data centers',c:'#b9a6ff',v:[40,103,178,267,363],x:'Data centers with signed supply contracts on Batam, ramping in phases: DayOne (Kabil) 511 MVA and Altiva (Nongsa) 690 MVA.',b:'Supply contracts Apr & Jul 2026; ramp is our estimate.'},
+  {n:'Bintan',c:'#b8432f',v:[105,111,117,123,130],x:'Bintan’s own peak (households, business & resorts, public, industry). Base case +5.3%/yr.',b:'Our estimate from 65.1 MW official (2016).'},{n:'New Bintan data centers & SEZ',c:'#b9a6ff',up:1,v:[0,5,73,120,170],x:'Upside if announced Bintan projects connect: SOS AI campus, Tanjung Sauh SEZ, DCI. Weighted, not certain.',b:'MoU / announcements 2023–2026; our weighting.'}],
+ yr:[[['s','Peak 780 MW (PLN Batam, Oct 2026)']],[['w','DayOne ramp-up adds ≈60 MW of data-center load']],[['w','Altiva (Nongsa) starts ramping']],[['w','Data centers ≈25% of system peak']],[['w','Data centers ≈30% of system peak (≈363 MW)']]]};
+TG['bintan.sysdem']={0:{g:'≈+3–4%/yr.',t:[],i:[]},1:{g:'Not organic: phased data-center ramp under signed supply contracts.',t:[['kabil','2026','K','DayOne data center, Kabil','Supply contract 511 MVA (Apr 2026).','Ramps 2026–27.'],['nongsa','2027','K','Altiva data center, Nongsa','Supply contract 690 MVA (Jul 2026).','Ramps 2027–30.']],i:['i_air']},2:{g:'≈+5.3%/yr (see Bintan demand for the full breakdown).',t:[],i:[]}};TG['bintan.sysdem'][3]=TG['bintan.dem'][4];
+function olKeys(){return isl==='karimun'?['karimun.kap','o.karimun.dem']:sysMode==='o'?['bintan.kapb','o.bintan.dem']:['bintan.kap','bintan.sysdem']}
+function olYear(i){const [sk,dk]=olKeys(),S=SB[sk],D=SB[dk];const sup=S.segs.filter(g=>!g.nf&&!g.up).reduce((a,g)=>a+g.v[i],0),dem=D.segs.filter(g=>!g.up).reduce((a,g)=>a+g.v[i],0),up=D.segs.filter(g=>g.up).reduce((a,g)=>a+g.v[i],0);
+ const rm=(sup-dem)/dem,rh=up?(sup-dem-up)/(dem+up):null;return {sup,dem,up,rm,rh}}
+const rmCls=r=>r<0?'w':r<.15?'w':r<.3?'m':'g',rmTxt=r=>(r>=0?'+':'')+Math.round(r*100)+'%';
+function pairs(){const [sk,dk]=olKeys(),S=SB[sk],D=SB[dk],n=S.cats.length;const tot=i=>{const y=olYear(i);return Math.max(S.segs.reduce((a,g)=>a+g.v[i],0),y.dem+y.up)};
+ const mxv=niceMax(Math.max(...S.cats.map((_,i)=>tot(i)))*1.08),m={l:44,r:10,t:26,b:34},w=W-m.l-m.r,h=H-m.t-m.b,gw=w/n,bw=Math.min(34,gw*.3),Y=v=>m.t+h-(v/mxv)*h,X=i=>m.l+i*gw+gw/2;let s=`<defs><pattern id="olh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#fff" stroke-width="2.4" opacity=".75"/></pattern></defs>`;
+ const xf=m.l+gw;s+=`<rect x="${xf}" y="${m.t-18}" width="${W-m.r-xf}" height="${h+18}" fill="#f3f0ff" rx="6"/><text x="${xf+6}" y="${m.t-6}" style="font-family:var(--f);font-weight:800;font-size:9.5px;fill:#7a5af5;letter-spacing:.06em">PROJECTION ⇢</text><text x="${m.l+4}" y="${m.t-6}" style="font-family:var(--f);font-weight:800;font-size:9.5px;fill:#16804a;letter-spacing:.06em">EXISTING</text>`;
+ [0,mxv/2,mxv].forEach(t=>s+=`<line class="gl" x1="${m.l}" x2="${W-m.r}" y1="${Y(t)}" y2="${Y(t)}"/><text x="${m.l-6}" y="${Y(t)+3.5}" text-anchor="end">${fmt(t)}</text>`);
+ const stackBar=(spec,i,x,pref)=>{let acc=0,firm=0,ex=0;spec.segs.forEach((g,k)=>{const v=g.v[i];if(!v)return;const y0=Y(acc),y1=Y(acc+v);acc+=v;const hat=g.up||g.nf;if(hat)ex+=v;else firm+=v;
+   s+=`<rect class="gb" data-ck="${i}|${pref}${k}" x="${x}" y="${y1}" width="${bw}" height="${Math.max(y0-y1,.5)}" fill="${g.c}" style="animation-delay:${i*.08+k*.03}s" ${hat?`fill-opacity=".4" stroke="${g.c}" stroke-dasharray="4 3" stroke-width="1.4"`:i>0?'fill-opacity=".85" stroke="#fff" stroke-width="1"':'stroke="#fff" stroke-width="1"'}><title>${esc(spec.cats[i])} · ${esc(g.n)}: ${fmt(v,v%1?1:0)} MW — click</title></rect>${hat?`<rect x="${x}" y="${y1}" width="${bw}" height="${Math.max(y0-y1,.5)}" fill="url(#olh)" pointer-events="none"/>`:''}`});
+  s+=`<text class="lb fd" x="${x+bw/2}" y="${Y(acc)-5}" text-anchor="middle" style="font-size:10px">${fmt(firm,firm%1?1:0)}${ex?`<tspan style="fill:#7a5af5"> +${fmt(ex,ex%1?1:0)}</tspan>`:''}</text>`};
+ S.cats.forEach((c,i)=>{const xs=X(i)-bw-3,xd=X(i)+3;stackBar(S,i,xs,'S');stackBar(D,i,xd,'D');
+  s+=`<text x="${xs+bw/2}" y="${m.t+h+11}" text-anchor="middle" style="font-size:9.5px;font-weight:800;fill:#2b5fa8">S</text><text x="${xd+bw/2}" y="${m.t+h+11}" text-anchor="middle" style="font-size:9.5px;font-weight:800;fill:#b8432f">D</text><text x="${X(i)}" y="${m.t+h+26}" text-anchor="middle" style="fill:var(--ink);font-weight:800;font-size:12px">${esc(c)}</text>`});
+ s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${m.t+h}" y2="${m.t+h}" stroke="#c9d6df"/><text x="${m.l-6}" y="10" text-anchor="end" style="font-weight:700">MW</text>`;return svg(s)}
+function olDetail(ci,kk){const [sk,dk]=olKeys();if(typeof kk==='string'&&kk[0]==='S')return sbDetail(sk,ci,+kk.slice(1));if(typeof kk==='string'&&kk[0]==='D')return sbDetail(dk,ci,+kk.slice(1));
+ const S=SB[sk],D=SB[dk],y=olYear(ci),cat=S.cats[ci];const verdict=y.rm<0?'Deficit: local supply cannot meet peak demand.':y.rm<.15?'Tight: below a safe reserve; one plant trip can cause outages.':y.rm<.3?'Adequate, but below PLN’s ≈35% optimum.':'Comfortable reserve.';
+ const notes=[].concat((S.yr&&S.yr[ci])||[],(D.yr&&D.yr[ci])||[]);
+ return {t:cat+' outlook · '+(isl==='karimun'?'Karimun':sysMode==='o'?'Bintan only':'Batam–Bintan system'),v:fN(y.sup)+' MW vs '+fN(y.dem)+' MW',txt:verdict+' Reserve '+rmTxt(y.rm)+'.'+(y.up?' If the upside load arrives (+'+fN(y.up)+' MW): reserve '+rmTxt(y.rh)+'.':'')+(isl==='karimun'?' PLN’s N-2 rule needs peak + 14 MW.':''),st:ci?'F':'C',mix:[['Firm supply',y.sup,'#2b5fa8'],['Peak demand',y.dem,'#b8432f']].concat(y.up?[['Upside demand',y.up,'#b9a6ff']]:[]),u:'MW',mixC:rmTxt(y.rm),mixS:'reserve',notes}}
+BRK['bintan.ins']=(ci,kk)=>olDetail(ci,kk);BRK['karimun.ins']=(ci,kk)=>olDetail(ci,kk);
+function olLegend(){const [sk,dk]=olKeys(),S=SB[sk],D=SB[dk];return `<div class="leg olg"><span class="lh">S = Supply</span>${S.segs.map(g=>`<span><i style="background:${g.c}${g.nf?';opacity:.45':''}"></i>${esc(g.n.replace('NEW ','+ '))}</span>`).join('')}<span class="lh d">D = Demand</span>${D.segs.map(g=>`<span><i style="background:${g.c}${g.up?';opacity:.45':''}"></i>${esc(g.n)}</span>`).join('')}</div>`}
+function renderOutlook(b,I,tabName){const n=5,ys=[0,1,2,3,4].map(olYear),cats=SB[olKeys()[0]].cats;let tight=0;ys.forEach((y,i)=>{if(y.rm<ys[tight].rm)tight=i});const last=ys[4];
+ const tile=(i,lab,val,sub,c)=>`<button type="button" class="kpi ${c}" data-ck="${i}|Y"><span class="t">${lab}</span><b>${val}</b><span class="s">${sub}</span></button>`;
+ b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>Capacity vs demand · 2026–2030</small><h2>${esc(I.name)} outlook</h2></div></div>
+ <div class="kp okp" style="--n:4">${tile(0,'2026 reserve',rmTxt(ys[0].rm),fN(ys[0].sup)+' vs '+fN(ys[0].dem)+' MW',ys[0].rm<.15?'hot':'')}${tile(4,'2030 reserve',rmTxt(last.rm),fN(last.sup)+' vs '+fN(last.dem)+' MW',last.rm<.15?'hot':last.rm>=.3?'ok':'')}${tile(tight,'Tightest year',cats[tight],'reserve '+rmTxt(ys[tight].rm),'hot')}${tile(4,'2030 high case',last.up?rmTxt(last.rh):'—',last.up?'with +'+fN(last.up)+' MW upside':'no upside case',last.up&&last.rh<.15?'hot':'sun')}</div>
+ <div class="viz"><h3><span class="vt">${isl==='bintan'?`<span class="systg"><button type="button" data-sys="s" class="${sysMode==='s'?'on':''}">Batam–Bintan system</button><button type="button" data-sys="o" class="${sysMode==='o'?'on':''}">Bintan only · no Batam</button></span>`:''}Supply vs demand by year<em class="cka">${ic('info')}click any bar, year or tile</em></span></h3><div class="cv">${pairs()}</div>
+ <div class="olbot"><div class="olr"><span class="mn">Reserve</span>${ys.map((y,i)=>`<button type="button" data-ck="${i}|Y" class="${rmCls(y.rm)}">${rmTxt(y.rm)}<small>${cats[i]}</small></button>`).join('')}</div>${olLegend()}</div></div>
+ <div class="src"><b>Source:</b> RUPTL 2025–2034 · PLN Batam · supply contracts 2026 · our estimates for splits and ramps</div><div class="exp" id="exp" hidden></div>`}
+
 /* ---------- MAP ---------- */
 const map=L.map('map',{zoomSnap:.25,zoomControl:false,attributionControl:true,preferCanvas:false}).fitBounds([[0.6,103.15],[1.3,104.8]]);
 const land=L.geoJSON({type:'Feature',geometry:{type:'MultiPolygon',coordinates:LAND}},{style:{color:C.coast,weight:1,fillColor:C.sand,fillOpacity:1},interactive:false}).addTo(map);
@@ -2490,15 +2575,12 @@ function show(t){topic=t;const I=ISL[isl],T=I.T[t];
  $('#mtitle').innerHTML=`<span class="ic">${ic(tabName[1])}</span><span><b>${esc(I.name)} · ${esc(tabName[2])}</b><span>${esc(I.tag)}</span></span>`;
  $('#hint').innerHTML=ic('info')+' Solid line = existing · dashed = planned · click for details';
  const b=$('#body');b.classList.toggle('insm',!!T.cards);
- if(T.cards){b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>Answers to the study questions</small><h2>${esc(I.name)} insights</h2></div></div>
-  <div class="igrid">${T.cards.map((c,i)=>{const V=INSV[isl][i];return `<button type="button" class="icd v-${VTX[V.v][0]}" data-card="${i}" style="animation-delay:${i*.06}s" aria-label="Details: ${esc(c[1])}"><span class="qq"><span class="n">${i+1}</span>${ic(c[0])}<span class="tt">${esc(c[1])}</span><span class="vd2" title="${VTX[V.v][2]}">${ic(VTX[V.v][1])}</span></span><span class="cb"><span class="mv">${V.z({})}</span><span class="cr"><b class="${c[2].length>6?'lv':''}" data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small></b>${stb((BADGE[isl+'.ins']||'')[i])}<span class="tl">${esc(V.t)}</span></span></span><span class="tap">${ic('info')}details</span></button>`}).join('')}</div>
-  <div class="inote">${ic('info')}<span>${esc(T.note)}</span></div><div class="src"><b>Source:</b> ${esc(T.src)}</div><div class="exp" id="exp" hidden></div>`;
-  countUp(b);fitIsl();setHash(isl+'-'+t);return}
+ if(t==='ins'){renderOutlook(b,I,tabName);countUp(b);fitIsl();setHash(isl+'-'+t);return}
  b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${VTOP[isl+'.'+t]?vpill(VTOP[isl+'.'+t]).replace('vpl','vpl v0'):''}</small><h2>${esc(I.name+' '+(t==='ring'?'overview':tabName[2].toLowerCase()))}</h2></div></div>
   <div class="kp" style="--n:${T.k.length}">${T.k.map((k,i)=>`<button type="button" class="kpi ${k[5]||''}" data-x="${i}" title="${esc(k[4])} · click for explanation" aria-label="Explain ${esc(k[1])}"><span class="qi-i">${ic('info')}</span><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${stb((BADGE[isl+'.'+t]||'')[i])}</span>${(()=>{const m=(MTR[isl+'.'+t]||[])[i];return m?`<span class="mtr" title="${esc(m[2])}"><i style="width:${Math.round(m[0]*100)}%;background:${m[1]}"></i></span>`:''})()}</button>`).join('')}</div>
   <div class="viz"><h3><span class="vt">${esc(T.v.t)}<span>${esc(T.v.s)}</span><em class="cka">${ic('info')}click chart for breakdown</em></span>${PJ[isl+'.'+t]?`<span class="pseg"><button type="button" class="on">Existing</button><button type="button" data-pj>${ic('trend')}Projection 2030</button></span>`:''}</h3><div class="cv">${T.v.f()}</div>${T.v.leg?legendHtml(T.v.leg):'<div></div>'}</div>
   <div class="src"><b>Source:</b> ${esc(T.src)}</div><div class="exp" id="exp" hidden></div>`;
- countUp(b);fitIsl();setHash(isl+(t!=='ring'?'-'+t:''));}
+ sysToggle();countUp(b);fitIsl();setHash(isl+(t!=='ring'?'-'+t:''));}
 function explain(i){const T=ISL[isl].T[topic],k=T.k[i],E=(EXPL[isl+'.'+topic]||[])[i];if(!k||!E)return;const b=$('#body'),ex=$('#exp'),viz=b.querySelector('.viz');
  b.querySelectorAll('.kpi').forEach((x,j)=>x.classList.toggle('on',j===i));
  ex.style.top=viz.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-viz.offsetTop-12)+'px';ex.style.height='';ex.hidden=false;
@@ -2508,7 +2590,7 @@ function explain(i){const T=ISL[isl].T[topic],k=T.k[i],E=(EXPL[isl+'.'+topic]||[
 function unexplain(){const ex=$('#exp');if(ex)ex.hidden=true;$('#body').querySelectorAll('.kpi.on,.icd.on,.cv .sel').forEach(x=>x.classList.remove('on'))}
 function focusLoc(id){const r=REG[id];if(!r)return;setLayer(r.k,true);map.flyTo(r.ll,['isbb','karint','ext500'].includes(id)?8.6:11,{duration:.7});setTimeout(()=>{if(r.pop)r.pop();else if(r.l.openPopup)r.l.openPopup();else r.l.eachLayer&&r.l.eachLayer(x=>x.getPopup&&x.getPopup()&&x.openPopup())},800)}
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)show(b.dataset.t)});
-$('#body').addEventListener('click',e=>{const ck=e.target.closest('.cv [data-ck]');if(ck){const [a,c]=ck.dataset.ck.split('|');chartDetail(+a,isNaN(+c)?c:+c,ck);return}const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}if(e.target.closest('[data-pj]')){openPJ();return}const pw=e.target.closest('[data-pjw]');if(pw){pjS.k=pjS.k===pw.dataset.pjw?'none':pw.dataset.pjw;pjRender();return}if(e.target.closest('[data-ppx]')){pjS.k='none';pjRender();return}if(e.target.closest('[data-pjx]')){unexplain();return}const ps=e.target.closest('[data-psc]');if(ps){pjS.si=+ps.dataset.psc;pjS.k='none';pjRender();return}const pb=e.target.closest('[data-pb]');if(pb){pjS.y=+pb.dataset.py;pjS.k='bar';pjS.sk=+pb.dataset.pb;pjRender();return}const pm=e.target.closest('[data-pm]');if(pm){pjS.y=+pm.dataset.pm;pjS.k='metric';pjRender();return}const py=e.target.closest('[data-py]');if(py){pjS.y=+py.dataset.py;pjS.k='year';pjRender();return}const cd=e.target.closest('.icd[data-card]');if(cd){if(cd.classList.contains('on'))unexplain();else cardDetail(+cd.dataset.card);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
+$('#body').addEventListener('click',e=>{const sy=e.target.closest('[data-sys]');if(sy){sysMode=sy.dataset.sys;show(topic);return}const ck=e.target.closest('.cv [data-ck], .olr [data-ck], .okp [data-ck]');if(ck){const [a,c]=ck.dataset.ck.split('|');chartDetail(+a,isNaN(+c)?c:+c,ck);return}const b=e.target.closest('[data-go]');if(b){show(b.dataset.go);return}if(e.target.closest('[data-pj]')){openPJ();return}const pw=e.target.closest('[data-pjw]');if(pw){pjS.k=pjS.k===pw.dataset.pjw?'none':pw.dataset.pjw;pjRender();return}if(e.target.closest('[data-ppx]')){pjS.k='none';pjRender();return}if(e.target.closest('[data-pjx]')){unexplain();return}const ps=e.target.closest('[data-psc]');if(ps){pjS.si=+ps.dataset.psc;pjS.k='none';pjRender();return}const pb=e.target.closest('[data-pb]');if(pb){pjS.y=+pb.dataset.py;pjS.k='bar';pjS.sk=+pb.dataset.pb;pjRender();return}const pm=e.target.closest('[data-pm]');if(pm){pjS.y=+pm.dataset.pm;pjS.k='metric';pjRender();return}const py=e.target.closest('[data-py]');if(py){pjS.y=+py.dataset.py;pjS.k='year';pjRender();return}const cd=e.target.closest('.icd[data-card]');if(cd){if(cd.classList.contains('on'))unexplain();else cardDetail(+cd.dataset.card);return}const k=e.target.closest('.kpi[data-x]');if(k){if(k.classList.contains('on'))unexplain();else explain(+k.dataset.x);return}if(e.target.closest('.xx')){unexplain();return}const g=e.target.closest('.exp [data-loc]');if(g)focusLoc(g.dataset.loc)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#exp')&&!$('#exp').hidden&&$('#qa').hidden)unexplain()});
 $('#seg').addEventListener('click',e=>{const b=e.target.closest('[data-isl]');if(b&&b.dataset.isl!==isl)open(b.dataset.isl,topic)});
 $('#home').onclick=home;
