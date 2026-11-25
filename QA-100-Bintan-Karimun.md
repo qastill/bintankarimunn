@@ -5,7 +5,7 @@ Data publik s.d. 25 Nov 2026 dan RUPTL PT PLN (Persero) 2025–2034 (Kepmen ESDM
 
 ## Struktur & pemain
 
-### 1. Who actually supplies electricity in Bintan and Karimun, and how is that different from Batam?
+### 1. Siapa sebenarnya yang memasok listrik di Bintan dan Karimun, dan apa bedanya dengan Batam?
 
 *Umum · Data*
 
@@ -17,7 +17,7 @@ Ada tiga lapis. (1) Bintan (Kota Tanjungpinang + Kab. Bintan) dan Karimun Zona 3
 
 Sumber: RUPTL 2025–2034 Bab I; detik Finance 2019; PLN Batam/InfoPublik Okt 2026
 
-### 2. Is Karimun connected to any larger grid?
+### 2. Apakah Karimun sudah tersambung ke jaringan listrik yang lebih besar?
 
 *Karimun · Data*
 
@@ -29,7 +29,7 @@ Belum. Sistem Tanjung Balai Karimun (TBK) masih isolated, ±40 MW kapasitas eksi
 
 Sumber: RUPTL 2025–2034 Lampiran A4, V.11.2, Lampiran E
 
-### 3. What are the main sub-systems in the Riau Islands we should keep in mind?
+### 3. Apa saja subsistem kelistrikan utama di Kepulauan Riau yang perlu diperhatikan?
 
 *Umum · Data*
 
@@ -41,7 +41,7 @@ Pertama, sistem Batam–Bintan: interkoneksi 150 kV, dioperasikan PLN Batam, ±7
 
 Sumber: RUPTL Tabel A4.3; Ombudsman Kepri Jan 2026
 
-### 4. Which planning document governs new capacity for Bintan and Karimun?
+### 4. Dokumen perencanaan apa yang mengatur penambahan kapasitas di Bintan dan Karimun?
 
 *Umum · Data*
 
@@ -53,7 +53,7 @@ RUPTL PT PLN (Persero) 2025–2034 (Kepmen ESDM, 26 Mei 2025), Lampiran A4 Provi
 
 Sumber: RUPTL 2025–2034 (Kepmen); ESDM Mei 2023
 
-### 5. What are the headline national numbers in RUPTL 2025–2034?
+### 5. Apa angka-angka utama nasional dalam RUPTL 2025–2034?
 
 *Umum · Data*
 
@@ -63,7 +63,7 @@ Pertumbuhan kebutuhan rata-rata 5,3%/tahun. Tambahan pembangkit 69.512 MW: EBT 4
 
 Sumber: RUPTL 2025–2034, Diktum KEDUA
 
-### 6. How electrified is the Riau Islands province, and how big is the distribution network?
+### 6. Seberapa tinggi rasio elektrifikasi Kepulauan Riau, dan seberapa besar jaringan distribusinya?
 
 *Bintan · Data*
 
@@ -73,7 +73,7 @@ Rasio elektrifikasi Kepri 99,99% (RE PLN 99,49%), dengan target RE PLN 100% pada
 
 Sumber: RUPTL Tabel A4.5, A4.22
 
-### 7. Why does Karimun have three separate electricity business areas?
+### 7. Mengapa Karimun memiliki tiga wilayah usaha listrik yang terpisah?
 
 *Karimun · Data*
 
@@ -85,7 +85,7 @@ Berdasarkan regulasi wilayah usaha dan rekomendasi Pemda, Karimun dibagi tiga: Z
 
 Sumber: detik Finance 2019; Kontan 2015
 
-### 8. In one minute, what is your overall assessment of the power situation in Bintan and Karimun?
+### 8. Dalam satu menit, bagaimana penilaian Anda tentang kondisi kelistrikan Bintan dan Karimun?
 
 *Umum · Analisis*
 
@@ -100,7 +100,7 @@ Sumber: PLN Batam; ESDM Kepri Okt 2026; Tribun Batam Nov 2026
 
 ## Kapasitas & cadangan
 
-### 9. What is Karimun's current installed vs dependable capacity and peak load?
+### 9. Berapa kapasitas terpasang, daya mampu, dan beban puncak Karimun saat ini?
 
 *Karimun · Data*
 
@@ -112,7 +112,7 @@ Data publik terakhir (17 Nov 2026): daya mampu 40,6 MW vs beban puncak 36,1 MW, 
 
 Sumber: Tribun Batam 17 Nov 2026; Kepri Headline Mei 2026; detik 2019
 
-### 10. Does Karimun meet PLN's own reserve criteria?
+### 10. Apakah Karimun memenuhi kriteria cadangan daya PLN sendiri?
 
 *Karimun · Data*
 
@@ -124,7 +124,7 @@ Tidak. RUPTL 2025–2034 (II.2.2) menetapkan sistem isolated direncanakan secara
 
 Sumber: RUPTL 2025–2034 Bab II.2.2; perhitungan penyusun
 
-### 11. What generation is physically located on Bintan island?
+### 11. Pembangkit apa saja yang secara fisik berada di Pulau Bintan?
 
 *Bintan · Data*
 
@@ -135,7 +135,7 @@ Untuk grid PLN hanya tersisa sedikit: PLTD Air Raja dan Suka Berenang (UP3 Tanju
 
 Sumber: Briefing RUPTL/ESDM 2018; IQPlus Okt 2026; Jawapos 2023
 
-### 12. What is Bintan's peak demand and how much of it depends on Batam?
+### 12. Berapa beban puncak Bintan dan seberapa besar bagiannya yang bergantung pada Batam?
 
 *Bintan · Analisis*
 
@@ -146,7 +146,7 @@ Angka resmi terakhir yang publik: beban puncak Bintan 65,1 MW (2016), saat inter
 
 Sumber: Setkab 2016; ESDM Kepri Okt 2026; estimasi penyusun
 
-### 13. What is the supply-demand balance of the Batam–Bintan interconnected system?
+### 13. Bagaimana neraca daya sistem interkoneksi Batam–Bintan?
 
 *Bintan · Data*
 
@@ -158,7 +158,7 @@ Tiga titik data. Des 2025 (siaga Nataru, Ombudsman): daya mampu 844,2 MW, cadang
 
 Sumber: Ombudsman Kepri Des 2025; InfoPublik Okt 2026; IJECBE 2025
 
-### 14. What is the generation mix supplying Bintan via Batam?
+### 14. Seperti apa bauran pembangkit yang memasok Bintan melalui Batam?
 
 *Bintan · Data*
 
@@ -169,7 +169,7 @@ Didominasi gas: PLTGU Panaran (±164 MW, Mitra Energi Batam), PLTGU Tanjung Unca
 
 Sumber: OSM/peta-kelistrikan; Medco; Petromindo; Mongabay Des 2024
 
-### 15. How does PLN define reserve margin, and what is "optimal"?
+### 15. Bagaimana PLN mendefinisikan reserve margin, dan berapa yang dianggap optimal?
 
 *Umum · Data*
 
@@ -181,7 +181,7 @@ RUPTL mendefinisikan RM sebagai cadangan daya pembangkit terhadap beban puncak (
 
 Sumber: RUPTL 2025–2034 Bab II.2
 
-### 16. How much firm capacity does Karimun need by 2030?
+### 16. Berapa kapasitas firm yang dibutuhkan Karimun hingga 2030?
 
 *Karimun · Analisis*
 
@@ -191,7 +191,7 @@ Tergantung kabel Sumatera. Tanpa kabel: beban ±44 MW (2030) × kriteria isolate
 
 Sumber: RUPTL II.2.2 & A4; estimasi penyusun
 
-### 17. What happened to Karimun's supply during 2026?
+### 17. Apa yang terjadi pada pasokan listrik Karimun sepanjang 2026?
 
 *Karimun · Data*
 
@@ -201,7 +201,7 @@ Kronologi 2026: 26 Mar–13 Apr pemeliharaan PLTU unit 1 (18 hari) dengan padam 
 
 Sumber: Warta Kepri; Kepri Headline; Ulasan; Tribun Batam 2026
 
-### 18. Why is a 2×7 MW coal plant a problem for a 36 MW system?
+### 18. Mengapa PLTU 2×7 MW menjadi masalah bagi sistem 36 MW?
 
 *Umum · Data*
 
@@ -212,7 +212,7 @@ Dari sisi prinsip dasar: unit terbesar 7 MW = ±19% beban puncak. Ketika satu un
 
 Sumber: Analisis penyusun; laporan gangguan 2026
 
-### 19. What would a "secure" Bintan supply look like in N-1 terms?
+### 19. Seperti apa pasokan Bintan yang "aman" menurut kriteria N-1?
 
 *Bintan · Analisis*
 
@@ -223,7 +223,7 @@ N-1 berarti Bintan bertahan saat kehilangan satu elemen terbesar, yaitu koridor 
 
 Sumber: RUPTL II.3.1, hlm A-52; analisis penyusun
 
-### 20. What new capacity is coming to the Batam–Bintan system 2025–2030?
+### 20. Kapasitas baru apa yang akan masuk ke sistem Batam–Bintan pada 2025–2030?
 
 *Bintan · Data*
 
@@ -234,7 +234,7 @@ Sisi Batam: Medco add-on Tanjung Uncang +39 MW (COD Nov 2025). Amandemen sewa Ma
 
 Sumber: Bisnis Okt 2025; RRI Jul 2026; RUPTL hlm A-52; Listrik Indonesia Nov 2026
 
-### 21. Will Batam–Bintan reserve margin hold up to 2030?
+### 21. Apakah reserve margin Batam–Bintan akan bertahan hingga 2030?
 
 *Bintan · Analisis*
 
@@ -245,7 +245,7 @@ Ketat. Dengan beban tumbuh 12%/tahun (konservatif dibanding >15% aktual), puncak
 
 Sumber: Estimasi penyusun; ESDM Okt 2026; PLN Batam
 
-### 22. What does RUPTL 2025–2034 show for the Riau Islands capacity balance?
+### 22. Apa yang ditunjukkan RUPTL 2025–2034 tentang neraca daya Kepulauan Riau?
 
 *Umum · Data*
 
@@ -256,7 +256,7 @@ RUPTL hanya menyajikan "Kepulauan Riau tanpa Batam". Eksisting (Tabel A4.3): 293
 
 Sumber: RUPTL Tabel A4.3, A4.8
 
-### 23. What is the cost of keeping Karimun on diesel?
+### 23. Berapa biaya mempertahankan Karimun dengan pembangkit diesel?
 
 *Karimun · Analisis*
 
@@ -267,7 +267,7 @@ PLTD BBM mengonsumsi ±0,25–0,28 liter/kWh. Pada harga solar industri, biaya b
 
 Sumber: Estimasi penyusun; RUPTL II.2.5
 
-### 24. How did Bintan cope during the October 2026 blackout?
+### 24. Bagaimana kondisi Bintan saat blackout Oktober 2026?
 
 *Bintan · Data*
 
@@ -278,7 +278,7 @@ Gangguan mulai 06.37 WIB, 12 Okt 2026, di sistem Batam (indikasi awal hewan liar
 
 Sumber: Bloomberg Technoz; Listrik Indonesia 23 Okt 2026; Jakarta Post; RCTI+
 
-### 25. Is load shedding in Karimun a generation or network problem?
+### 25. Apakah padam bergilir di Karimun masalah pembangkitan atau jaringan?
 
 *Karimun · Analisis*
 
@@ -291,7 +291,7 @@ Sumber: Analisis dari log gangguan publik 2022–2026
 
 ## Demand & industri
 
-### 26. What is your demand forecast for Bintan to 2030?
+### 26. Bagaimana proyeksi kebutuhan listrik Bintan hingga 2030?
 
 *Bintan · Analisis*
 
@@ -302,7 +302,7 @@ RUPTL tidak memisahkan Bintan. Angka resminya Kepri tanpa Batam: 189 MW (2025) k
 
 Sumber: RUPTL Tabel A4.8, Lampiran E; estimasi penyusun
 
-### 27. What is your demand forecast for Karimun to 2030?
+### 27. Bagaimana proyeksi kebutuhan listrik Karimun hingga 2030?
 
 *Karimun · Analisis*
 
@@ -312,7 +312,7 @@ Organik ±4–6%/tahun (historis 2019→2026: 28,2→36,1 MW ≈3,6%/tahun, tert
 
 Sumber: detik 2017/2019; Tribun Nov 2026; estimasi
 
-### 28. What are the key industrial demand anchors in Bintan?
+### 28. Apa saja beban industri utama (anchor load) di Bintan?
 
 *Bintan · Data*
 
@@ -324,7 +324,7 @@ Sumber: detik 2017/2019; Tribun Nov 2026; estimasi
 
 Sumber: VOI/Alcircle 2022; Petromindo Jan 2026; Bisnis 2026; detik 2017
 
-### 29. How big is the data-centre wave and does it reach Bintan and Karimun?
+### 29. Seberapa besar gelombang data center, dan apakah menjangkau Bintan dan Karimun?
 
 *Umum · Data*
 
@@ -336,7 +336,7 @@ Batam sudah menjadi hub: kapasitas data center tersedia/committed/dalam pengemba
 
 Sumber: ESDM 19 Okt 2026; Katadata; Bisnis 21–22 Okt 2026; Jakarta Post Apr 2026
 
-### 30. Can the Bintan grid serve a 100–500 MW data centre?
+### 30. Apakah jaringan Bintan mampu melayani data center 100–500 MW?
 
 *Bintan · Analisis*
 
@@ -347,7 +347,7 @@ Tidak dengan jaringan sekarang. Total trafo GI di Bintan 310 MVA (RUPTL A4.4), b
 
 Sumber: Analisis penyusun; RUPTL GI table
 
-### 31. What drives industrial demand in Karimun?
+### 31. Apa pendorong kebutuhan listrik industri di Karimun?
 
 *Karimun · Data*
 
@@ -358,7 +358,7 @@ Karimun adalah FTZ (BBK). Penggerak industrinya galangan kapal dan fabrikasi off
 
 Sumber: detik 2019; Bisnis Okt 2026; laporan Belat 2026
 
-### 32. What share of demand in Bintan and Karimun is industrial?
+### 32. Berapa porsi kebutuhan industri dari total kebutuhan listrik di Bintan dan Karimun?
 
 *Umum · Data*
 
@@ -369,7 +369,7 @@ Di buku PLN sangat kecil. RUPTL Tabel A4.6: penjualan industri Kepri tanpa Batam
 
 Sumber: RUPTL Tabel A4.6; perhitungan penyusun
 
-### 33. Will Bintan Alumina move from captive coal to PLN?
+### 33. Apakah Bintan Alumina akan beralih dari PLTU captive ke PLN?
 
 *Bintan · Data*
 
@@ -380,7 +380,7 @@ Ada niat, tetapi skemanya belum final, dan RUPTL sendiri tidak konsisten. Lampir
 
 Sumber: RUPTL Lampiran E, Tabel A4.10; VOI/Alcircle 2022
 
-### 34. What about KEK Tanjung Sauh?
+### 34. Bagaimana dengan KEK Tanjung Sauh?
 
 *Bintan · Data*
 
@@ -391,7 +391,7 @@ KEK Tanjung Sauh (PP 24/2024, PSN, Panbil Group) berada di antara Batam dan Bint
 
 Sumber: PP 24/2024; Listrik Indonesia 19 Nov 2026; MoU Jul 2026
 
-### 35. How would you build a demand forecast for these islands from first principles?
+### 35. Bagaimana menyusun proyeksi kebutuhan listrik pulau-pulau ini dari prinsip dasar?
 
 *Umum · Analisis*
 
@@ -402,7 +402,7 @@ Pisahkan menjadi tiga blok. (1) Organik: jumlah pelanggan × konsumsi per pelang
 
 Sumber: Metodologi umum perencanaan PLN/konsultan
 
-### 36. How is Lagoi/Bintan Resorts supplied?
+### 36. Bagaimana pasokan listrik kawasan Lagoi/Bintan Resorts?
 
 *Bintan · Data*
 
@@ -412,7 +412,7 @@ Kawasan wisata Lagoi (Bintan Resorts) dan kawasan industri Lobam memiliki utilit
 
 Sumber: detik Finance 2017
 
-### 37. What is the biggest uncertainty in the demand outlook?
+### 37. Apa ketidakpastian terbesar dalam proyeksi kebutuhan listrik?
 
 *Umum · Analisis*
 
@@ -422,7 +422,7 @@ Timing dan konversi anchor load. Pengumuman (MoU, wacana >1 GW) jauh lebih banya
 
 Sumber: Bisnis 22 Okt 2026; analisis penyusun
 
-### 38. What is behind the jump from 241 MW to 980 MW in 2031?
+### 38. Apa penyebab lonjakan dari 241 MW ke 980 MW pada 2031?
 
 *Bintan · Data*
 
@@ -433,7 +433,7 @@ Beban puncak Kepri tanpa Batam naik dari 241 MW (2030) ke 980 MW (2031), dan pen
 
 Sumber: RUPTL Tabel A4.6, A4.8, V.11.2
 
-### 39. Does the regulatory framework allow PLN to build specifically for industrial demand?
+### 39. Apakah regulasi mengizinkan PLN membangun khusus untuk kebutuhan industri?
 
 *Bintan · Data*
 
@@ -443,7 +443,7 @@ Ya. Diktum KETIGA Kepmen RUPTL 2025–2034: untuk konsumen industri hilirisasi, 
 
 Sumber: RUPTL 2025–2034, Diktum KETIGA
 
-### 40. Is there suppressed demand in Karimun and Bintan?
+### 40. Apakah ada kebutuhan listrik yang tertahan (suppressed demand) di Karimun dan Bintan?
 
 *Umum · Analisis*
 
@@ -453,7 +453,7 @@ Ya, terutama di Karimun. Indikatornya: padam bergilir berulang, industri dan UMK
 
 Sumber: Analisis penyusun
 
-### 41. What are the preconditions for Bintan/Karimun to actually become a data-centre hub?
+### 41. Apa prasyarat agar Bintan/Karimun benar-benar menjadi hub data center?
 
 *Umum · Data*
 
@@ -464,7 +464,7 @@ Yang disebut asosiasi dan pengamat (Okt 2026): (1) listrik andal dengan redundan
 
 Sumber: Bisnis 21–22 Okt 2026
 
-### 42. Give me a base, low and high demand scenario for 2030.
+### 42. Bagaimana skenario dasar, rendah, dan tinggi kebutuhan listrik pada 2030?
 
 *Umum · Analisis*
 
@@ -477,7 +477,7 @@ Sumber: RUPTL A4.8; estimasi penyusun
 
 ## Proyek & RUPTL
 
-### 43. Which generation projects does RUPTL 2025–2034 list for Karimun?
+### 43. Proyek pembangkit apa saja yang tercantum di RUPTL 2025–2034 untuk Karimun?
 
 *Karimun · Data*
 
@@ -489,7 +489,7 @@ Strategi RUPTL untuk Karimun bukan pembangkit lokal besar, tetapi interkoneksi 1
 
 Sumber: RUPTL Lampiran A4, E; Listrik Indonesia Apr 2026; Kepri Headline 2026
 
-### 44. Which projects does RUPTL list for Bintan / Tanjungpinang?
+### 44. Proyek apa saja yang tercantum di RUPTL untuk Bintan/Tanjungpinang?
 
 *Bintan · Data*
 
@@ -500,7 +500,7 @@ Pembangkit lewat kerja sama wilus PLN Batam: PLTMG 100 MW (2027) + 50 MW (2031),
 
 Sumber: RUPTL 2025–2034 Lampiran A4
 
-### 45. What is in PLN Batam's RUPTL that affects Bintan?
+### 45. Apa isi RUPTL PLN Batam yang berpengaruh ke Bintan?
 
 *Bintan · Data*
 
@@ -511,7 +511,7 @@ RUPTL PLN Batam 2023–2032 (Mei 2023) menambah pasokan 860 MW, termasuk 400 MW 
 
 Sumber: RUPTL 2025–2034 hlm A-52; ESDM Mei 2023
 
-### 46. What is the status of PLTGU Batam #1 and Batam 3 & 4?
+### 46. Bagaimana status PLTGU Batam #1 serta Batam 3 & 4?
 
 *Bintan · Data*
 
@@ -521,7 +521,7 @@ PLTGU Batam #1 / "Batam Bintan 1" 120 MW: milik PLN Batam, EPC PTPP, nilai ±Rp3
 
 Sumber: Kontan; RRI Jul 2026; PTPP
 
-### 47. What transmission projects are underway around Bintan?
+### 47. Proyek transmisi apa yang sedang berjalan di sekitar Bintan?
 
 *Bintan · Data*
 
@@ -531,7 +531,7 @@ GI 150 kV Tanjung Sauh energize 9 Nov 2026, disebut PLN Batam sebagai tonggak pe
 
 Sumber: Listrik Indonesia 19 Nov 2026; RUPTL GI table
 
-### 48. What short-term fixes has PLN deployed in Karimun?
+### 48. Langkah jangka pendek apa yang sudah dilakukan PLN di Karimun?
 
 *Karimun · Data*
 
@@ -541,7 +541,7 @@ Sumber: Listrik Indonesia 19 Nov 2026; RUPTL GI table
 
 Sumber: Kepri Headline; Warta Kepri Jul 2026; Ombudsman Kepri
 
-### 49. What is the Pulau Belat project?
+### 49. Apa itu proyek Pulau Belat?
 
 *Karimun · Data*
 
@@ -552,7 +552,7 @@ Penjajakan PLTS + BESS skala besar (hingga ±2 GW pembangkit) di Pulau Belat, Ka
 
 Sumber: Laporan Jan 2026 (Gotion × Oriens)
 
-### 50. Which projects are most at risk of delay?
+### 50. Proyek mana yang paling berisiko terlambat?
 
 *Umum · Analisis*
 
@@ -562,7 +562,7 @@ Sumber: Laporan Jan 2026 (Gotion × Oriens)
 
 Sumber: Kontan 2023; laporan Mar 2026; analisis
 
-### 51. What is PLN EPI doing in Karimun?
+### 51. Apa yang dikerjakan PLN EPI di Karimun?
 
 *Karimun · Data*
 
@@ -572,7 +572,7 @@ PLN Energi Primer Indonesia (EPI) bersama PT Karimun Power Plant memulai pilot d
 
 Sumber: Listrik Indonesia; Metro TV 2026
 
-### 52. Where are the entry points for IPPs and developers?
+### 52. Di mana peluang masuk bagi IPP dan pengembang?
 
 *Bintan · Data*
 
@@ -582,7 +582,7 @@ Sumber: Listrik Indonesia; Metro TV 2026
 
 Sumber: RUPTL Lampiran A4
 
-### 53. What does the RUPTL say about dedieselisation for islands like these?
+### 53. Apa kata RUPTL tentang dedieselisasi untuk pulau-pulau seperti ini?
 
 *Umum · Data*
 
@@ -592,7 +592,7 @@ RUPTL 2025–2034 II.2.5 membagi Program Dedieselisasi menjadi tiga pola: (1) ko
 
 Sumber: RUPTL 2025–2034 Bab II.2.5
 
-### 54. If you were PLN, what would you prioritise for Karimun in the next 24 months?
+### 54. Jika Anda PLN, apa prioritas untuk Karimun dalam 24 bulan ke depan?
 
 *Karimun · Analisis*
 
@@ -600,7 +600,7 @@ Pertama, amankan jembatan sampai kabel Sumatera masuk (2027–28). Langkahnya: B
 
 Sumber: Rekomendasi penyusun berbasis RUPTL A4
 
-### 55. How credible are the RUPTL timelines given execution track record?
+### 55. Seberapa kredibel jadwal RUPTL mengingat rekam jejak pelaksanaannya?
 
 *Umum · Data*
 
@@ -611,7 +611,7 @@ Perlu didiskon. Realisasi tambahan transmisi nasional 2025 hanya ±37% dari targ
 
 Sumber: Kontan Jul 2026; RUPTL
 
-### 56. What internal inconsistencies in the RUPTL should a reader be aware of?
+### 56. Inkonsistensi internal apa dalam RUPTL yang perlu diketahui pembaca?
 
 *Umum · Data*
 
@@ -622,7 +622,7 @@ Sumber: RUPTL A4, V.11.2, Lampiran E
 
 ## Energi terbarukan
 
-### 57. What is the renewable share in Bintan and Karimun today?
+### 57. Berapa porsi energi terbarukan di Bintan dan Karimun saat ini?
 
 *Umum · Data*
 
@@ -633,7 +633,7 @@ Sangat rendah. Pasokan Batam–Bintan praktis 100% fosil (gas + batubara Tanjung
 
 Sumber: Mongabay Des 2024; OSM; PLN NP
 
-### 58. What renewable resource is realistic here?
+### 58. Sumber energi terbarukan apa yang realistis di sini?
 
 *Umum · Data*
 
@@ -643,7 +643,7 @@ Surya adalah sumber utama: iradiasi ekuator ±4,3–4,8 kWh/m²/hari dan tersedi
 
 Sumber: Mongabay 2024; Global Solar Atlas (umum)
 
-### 59. What are the renewable plans for the region?
+### 59. Apa saja rencana energi terbarukan untuk kawasan ini?
 
 *Bintan · Data*
 
@@ -654,7 +654,7 @@ Sampai 2030, EBT lokal Kepri tanpa Batam hanya ±40 MW (33,5 MW PLTS + 6,4 MW PL
 
 Sumber: RUPTL Tabel A4.13, A4.15
 
-### 60. Which Singapore-export solar projects are located in the Riau Islands?
+### 60. Proyek PLTS ekspor ke Singapura mana saja yang berlokasi di Kepulauan Riau?
 
 *Umum · Data*
 
@@ -665,7 +665,7 @@ Yang publik: Vena Energy (dengan Shell) PLTS+BESS ±2 GW di Kepri, target konstr
 
 Sumber: EMA; pv magazine Okt 2025; Enerdata; ESDM; laporan Mar 2026
 
-### 61. What are the main hindrances to renewables here?
+### 61. Apa hambatan utama energi terbarukan di sini?
 
 *Karimun · Data*
 
@@ -676,7 +676,7 @@ Sumber: EMA; pv magazine Okt 2025; Enerdata; ESDM; laporan Mar 2026
 
 Sumber: RUPTL Bab II; Perpres 112/2022; laporan 2026
 
-### 62. How much solar can Karimun absorb?
+### 62. Berapa banyak PLTS yang dapat diserap sistem Karimun?
 
 *Karimun · Analisis*
 
@@ -686,7 +686,7 @@ Aturan praktis untuk sistem isolated tanpa penyimpanan: penetrasi PV instan ±10
 
 Sumber: Praktik umum hybrid isolated
 
-### 63. Does solar help Karimun's reliability problem?
+### 63. Apakah PLTS membantu masalah keandalan Karimun?
 
 *Karimun · Data*
 
@@ -696,7 +696,7 @@ Tidak langsung. Menurut RUPTL, EBT intermiten tidak masuk perhitungan cadangan k
 
 Sumber: RUPTL II.2.2; Warta Kepri Jul 2026
 
-### 64. How do rooftop and captive solar rules affect industrial users here?
+### 64. Bagaimana aturan PLTS atap dan captive memengaruhi pengguna industri di sini?
 
 *Umum · Data*
 
@@ -706,7 +706,7 @@ Pelanggan PLN di Bintan/Karimun mengikuti aturan PLTS atap nasional (Permen ESDM
 
 Sumber: Permen ESDM 2/2024
 
-### 65. What renewable potential does the RUPTL identify for the Riau Islands?
+### 65. Potensi energi terbarukan apa yang diidentifikasi RUPTL untuk Kepulauan Riau?
 
 *Umum · Data*
 
@@ -716,7 +716,7 @@ Potensi tambahan yang tercatat di RUPTL: PLTS komunal tersebar 24 MW; PLTBm Natu
 
 Sumber: RUPTL Lampiran A4
 
-### 66. What are the political-economy issues with exporting green power to Singapore?
+### 66. Apa isu ekonomi-politik ekspor listrik hijau ke Singapura?
 
 *Umum · Data*
 
@@ -726,7 +726,7 @@ Ada empat. (1) Prioritas domestik: pemerintah ingin listrik hijau juga menarik i
 
 Sumber: ESDM 2026; Antara; JOM
 
-### 67. What role will battery storage play?
+### 67. Apa peran penyimpanan energi baterai (BESS)?
 
 *Umum · Analisis*
 
@@ -737,7 +737,7 @@ Besar dan cepat. Tiga fungsi: (1) Keandalan: respons frekuensi dan cadangan puta
 
 Sumber: RUPTL; Listrik Indonesia Okt 2026
 
-### 68. Why are biomass and syngas being tried in Karimun?
+### 68. Mengapa biomassa dan syngas diuji coba di Karimun?
 
 *Karimun · Data*
 
@@ -747,7 +747,7 @@ Karena bisa menghasilkan daya firm (bukan intermiten) dan menggantikan BBM di si
 
 Sumber: Listrik Indonesia 2026
 
-### 69. What is the realistic RE share for Bintan and Karimun by 2030?
+### 69. Berapa porsi energi terbarukan yang realistis di Bintan dan Karimun pada 2030?
 
 *Umum · Analisis*
 
@@ -760,7 +760,7 @@ Sumber: RUPTL A4.15, Bab V; estimasi penyusun
 
 ## Tarif
 
-### 70. What is the industrial tariff for PLN customers in Bintan and Karimun?
+### 70. Berapa tarif industri bagi pelanggan PLN di Bintan dan Karimun?
 
 *Umum · Data*
 
@@ -771,7 +771,7 @@ Bintan dan Karimun Zona 3 adalah wilayah PLN Persero, jadi tarifnya nasional. Q4
 
 Sumber: Metro TV 29 Okt 2026; Permen ESDM 7/2024
 
-### 71. How does that compare with Batam?
+### 71. Bagaimana perbandingannya dengan Batam?
 
 *Bintan · Data*
 
@@ -782,7 +782,7 @@ PT PLN Batam menetapkan tarif terpisah lewat ESDM dan tidak menerima subsidi mau
 
 Sumber: ESDM Jun 2025; Pasardana 2022
 
-### 72. What tariff do industrial users in Karimun Zones 1–2 or captive estates pay?
+### 72. Berapa tarif yang dibayar pengguna industri di Zona 1–2 Karimun atau kawasan captive?
 
 *Karimun · Data*
 
@@ -790,7 +790,7 @@ Tarif di wilayah usaha non-PLN (SDU, KPP, kawasan Lagoi/Lobam, KEK) ditetapkan m
 
 Sumber: Kerangka UU 30/2009 jo. perubahan; praktik wilayah usaha
 
-### 73. Is the regulated tariff cost-reflective for these islands?
+### 73. Apakah tarif yang diatur pemerintah mencerminkan biaya pasokan di pulau-pulau ini?
 
 *Karimun · Analisis*
 
@@ -800,7 +800,7 @@ Tidak. Tarif seragam nasional (~Rp1.115/kWh I-3) jauh di bawah biaya pokok penye
 
 Sumber: Analisis penyusun
 
-### 74. How does the time-of-use structure work for I-3 industry?
+### 74. Bagaimana struktur tarif waktu beban puncak untuk industri I-3?
 
 *Umum · Data*
 
@@ -810,7 +810,7 @@ Pelanggan I-3/TM membayar tarif LWBP Rp1.114,74/kWh di luar jam puncak dan WBP =
 
 Sumber: Lampiran Permen ESDM tarif tenaga listrik
 
-### 75. Will tariffs rise in 2027?
+### 75. Apakah tarif listrik akan naik pada 2027?
 
 *Umum · Data*
 
@@ -820,7 +820,7 @@ Ada risiko. Tarif dievaluasi tiap triwulan dari kurs, ICP, inflasi, dan HBA (Per
 
 Sumber: Bloomberg Technoz; Metro TV Okt 2026
 
-### 76. What incentives exist for large industrial or data-centre customers?
+### 76. Insentif apa yang tersedia bagi pelanggan industri besar atau data center?
 
 *Bintan · Data*
 
@@ -828,7 +828,7 @@ Opsi yang ada: (1) tarif I-4 untuk ≥30 MVA (Rp996,74). (2) Layanan premium dan
 
 Sumber: PLN; RUPTL Diktum KETIGA
 
-### 77. What is the all-in cost of self-generation vs PLN for an industrial user in Karimun?
+### 77. Berapa biaya total pembangkit sendiri dibanding listrik PLN bagi industri di Karimun?
 
 *Karimun · Analisis*
 
@@ -838,7 +838,7 @@ Genset diesel sendiri: bahan bakar ±Rp3.000–4.000/kWh + O&M + capex, jadi ±R
 
 Sumber: Estimasi penyusun
 
-### 78. How should we think about the tariff a data centre in Bintan would pay?
+### 78. Bagaimana memperkirakan tarif yang akan dibayar data center di Bintan?
 
 *Bintan · Analisis*
 
@@ -849,7 +849,7 @@ Sumber: Estimasi penyusun
 
 ## Keandalan T&D
 
-### 79. What are the main constraints on transmission reliability in Bintan?
+### 79. Apa kendala utama keandalan transmisi di Bintan?
 
 *Bintan · Data*
 
@@ -860,7 +860,7 @@ Pertama, satu koridor 150 kV dari Batam: PLTU Tanjung Kasam → Pulau Tanjung Sa
 
 Sumber: ESDM 2013; detik 2016; IJECBE 2025; laporan Okt 2026
 
-### 80. What are the distribution reliability issues in Karimun and Tanjungpinang?
+### 80. Apa masalah keandalan distribusi di Karimun dan Tanjungpinang?
 
 *Karimun · Data*
 
@@ -870,7 +870,7 @@ Distribusi 20 kV saluran udara panjang di daerah berbukit dan pesisir: gangguan 
 
 Sumber: Ombudsman Kepri 2026; laporan gangguan
 
-### 81. Do you have SAIDI/SAIFI figures for Bintan and Karimun?
+### 81. Apakah ada angka SAIDI/SAIFI untuk Bintan dan Karimun?
 
 *Umum · Data*
 
@@ -881,7 +881,7 @@ Tidak ada angka per UP3/UID di RUPTL maupun publik. Yang tersedia nasional (RUPT
 
 Sumber: RUPTL Tabel 4.51; laporan gangguan
 
-### 82. How loaded are the Bintan substations?
+### 82. Seberapa tinggi pembebanan gardu induk di Bintan?
 
 *Bintan · Data*
 
@@ -892,7 +892,7 @@ RUPTL Tabel A4.4: GI 150/20 kV di Bintan Ngenang 10, Tanjung Uban 60, Sri Bintan
 
 Sumber: RUPTL Tabel A4.4 & tabel transmisi A4
 
-### 83. What investments are planned to fix Bintan's reliability?
+### 83. Investasi apa yang direncanakan untuk memperbaiki keandalan Bintan?
 
 *Bintan · Data*
 
@@ -902,7 +902,7 @@ Sudah berjalan: GI Tanjung Sauh (9 Nov 2026) untuk konektivitas dan fleksibilita
 
 Sumber: Listrik Indonesia Nov 2026; RUPTL A4; Kontan Jul 2026
 
-### 84. What is the single most effective reliability investment for Bintan?
+### 84. Apa satu investasi keandalan paling efektif untuk Bintan?
 
 *Bintan · Analisis*
 
@@ -910,7 +910,7 @@ Dari prinsip dasar: hilangkan single point of failure. Dua jalur setara: (a) sir
 
 Sumber: Rekomendasi penyusun
 
-### 85. What does PLN's planning standard say about single-circuit supply?
+### 85. Apa kata standar perencanaan PLN tentang pasokan sirkit tunggal?
 
 *Bintan · Data*
 
@@ -920,7 +920,7 @@ RUPTL 2025–2034 II.3.1: transmisi dan GI direncanakan dengan kontingensi N-1 s
 
 Sumber: RUPTL 2025–2034 II.3.1
 
-### 86. What would you invest in for Karimun distribution and network?
+### 86. Investasi apa yang Anda sarankan untuk distribusi dan jaringan Karimun?
 
 *Karimun · Analisis*
 
@@ -928,7 +928,7 @@ Setelah kapasitas firm: (1) BESS + skema UFLS bertahap supaya gangguan pembangki
 
 Sumber: Rekomendasi penyusun
 
-### 87. What caused the October 2026 blackout?
+### 87. Apa penyebab blackout Oktober 2026?
 
 *Bintan · Data*
 
@@ -936,7 +936,7 @@ Penyebab resmi belum final per 23 Okt 2026 (ESDM masih mengumpulkan data). Indik
 
 Sumber: Bloomberg Technoz; Listrik Indonesia 23 Okt 2026; w.media
 
-### 88. How exposed are subsea cables in this area?
+### 88. Seberapa rentan kabel laut di kawasan ini?
 
 *Bintan · Analisis*
 
@@ -946,7 +946,7 @@ Selat di sekitar Batam–Bintan adalah salah satu jalur pelayaran tersibuk di du
 
 Sumber: ESDM 2013; analisis
 
-### 89. Is the data-centre boom a reliability risk for residential users?
+### 89. Apakah ledakan data center berisiko bagi keandalan pelanggan rumah tangga?
 
 *Bintan · Analisis*
 
@@ -954,7 +954,7 @@ Bisa, bila pembangkitan tidak mengikuti. Data center mengambil kapasitas firm be
 
 Sumber: Analisis penyusun
 
-### 90. What KPIs would you track to judge reliability progress?
+### 90. Indikator kinerja (KPI) apa yang dipantau untuk menilai kemajuan keandalan?
 
 *Umum · Analisis*
 
@@ -965,7 +965,7 @@ Sumber: Praktik perencanaan
 
 ## Interkoneksi
 
-### 91. Describe the Batam–Bintan interconnection.
+### 91. Jelaskan interkoneksi Batam–Bintan.
 
 *Bintan · Data*
 
@@ -976,7 +976,7 @@ Kontrak 21 Mar 2013. Koridor barat: PLTU Tanjung Kasam (Batam) → Pulau Tanjung
 
 Sumber: ESDM 2013; Setkab 2016; detik 2016; RUPTL A4
 
-### 92. What is the transfer capacity of the Batam–Bintan link?
+### 92. Berapa kapasitas transfer interkoneksi Batam–Bintan?
 
 *Bintan · Data*
 
@@ -986,7 +986,7 @@ Tidak dipublikasikan, termasuk di RUPTL. Rating termal dan jumlah sirkit kabel l
 
 Sumber: RUPTL A4; Setkab 2016
 
-### 93. Is there a plan to connect Sumatra to Batam and Bintan?
+### 93. Apakah ada rencana menyambungkan Sumatera ke Batam dan Bintan?
 
 *Bintan · Data*
 
@@ -997,7 +997,7 @@ Ya, Interkoneksi Sumatera–Batam (ISBB). Peranap → LP Sungai Guntung OHL HVDC
 
 Sumber: RUPTL 2025–2034 Bab V.5.7, V.11.2, Lampiran A4/E
 
-### 94. When will Karimun be interconnected, realistically?
+### 94. Kapan Karimun realistis tersambung interkoneksi?
 
 *Karimun · Data*
 
@@ -1008,7 +1008,7 @@ RUPTL sudah merencanakannya: 150 kV Sumatera → Selat Panjang → Pulau Rangsan
 
 Sumber: RUPTL A4, V.11.2, Lampiran E; Kontan Jul 2026
 
-### 95. How has the interconnection changed Bintan since 2016?
+### 95. Bagaimana interkoneksi mengubah Bintan sejak 2016?
 
 *Bintan · Data*
 
@@ -1018,7 +1018,7 @@ Positifnya: menggantikan PLTD/PLTMG sewa, menghemat ±Rp11,46 miliar/bulan, memu
 
 Sumber: Setkab 2016; RUPTL hlm A-52; Jawapos 2023
 
-### 96. What reinforcement of the Batam–Bintan link does the RUPTL contemplate?
+### 96. Penguatan interkoneksi Batam–Bintan apa yang direncanakan RUPTL?
 
 *Bintan · Data*
 
@@ -1028,7 +1028,7 @@ Tidak ada kabel laut 150 kV kedua dalam RUPTL. Yang ada adalah ekstensi 500 kV k
 
 Sumber: RUPTL Lampiran A4, V.11.2
 
-### 97. How does the ASEAN Power Grid / Singapore link fit in?
+### 97. Bagaimana posisi ASEAN Power Grid dan interkoneksi ke Singapura?
 
 *Umum · Data*
 
@@ -1039,7 +1039,7 @@ ISBB membuka koridor Sumatera–(Batam)–Singapura dengan opsi ekspor 0,6–1,1
 
 Sumber: RUPTL V.11.2; EMA; Enerdata
 
-### 98. Who pays for connecting new loads in Bintan, and what is the commercial friction?
+### 98. Siapa yang membiayai penyambungan beban baru di Bintan, dan apa ganjalan komersialnya?
 
 *Bintan · Data*
 
@@ -1049,7 +1049,7 @@ RUPTL menyebut PLN membuka connection hub di Bintan selama ada kesepakatan "shar
 
 Sumber: RUPTL Lampiran A4
 
-### 99. If you could change one thing in the RUPTL for Bintan and Karimun, what would it be?
+### 99. Jika bisa mengubah satu hal dalam RUPTL untuk Bintan dan Karimun, apa itu?
 
 *Umum · Analisis*
 
@@ -1057,7 +1057,7 @@ Memperlakukan keandalan sebagai kebutuhan eksplisit, bukan sisa dari neraca ener
 
 Sumber: Pendapat penyusun
 
-### 100. What should an investor or consultant watch over the next 12 months?
+### 100. Apa yang perlu dipantau investor atau konsultan dalam 12 bulan ke depan?
 
 *Umum · Analisis*
 
