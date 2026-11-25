@@ -1381,6 +1381,24 @@ details.pwhy[open] summary{margin-bottom:6px}details.pwhy .pnote{margin-top:6px!
 .cv .cn:hover circle{stroke-width:4}.cv .cb:hover rect:first-child{fill:rgba(122,90,245,.06)}
 .pms2{margin-top:-2px}
 .cv g.sel text,.cv g.sel rect{stroke:none!important}.cv g.cn.sel>circle{stroke:#5b3fd6!important;stroke-width:4!important;stroke-dasharray:none!important}.cv g.cb.sel rect:first-child{fill:rgba(122,90,245,.08)}.cv g.exr.sel text,.cv g.exr.sel rect{stroke:none!important}.cv g.exr.sel rect:first-child{fill:rgba(122,90,245,.08)}
+
+/* existing donut (HTML) */
+.cv>.exd{position:absolute;inset:0;display:grid;grid-template-columns:minmax(120px,40%) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:6px 14px;align-items:center}
+.exdw{display:grid;place-items:center;min-height:0;height:100%}.exdn{width:100%;height:100%;max-height:230px}
+.exdn .sg{animation:dn 1.1s cubic-bezier(.2,.8,.2,1) both}.exdn .sg:hover{stroke-width:34}
+.exdn text{font-family:var(--fm);fill:var(--mut)}.exdn .lb{fill:var(--ink);font-weight:800}
+.exl{display:grid;gap:5px;align-content:center;min-width:0;max-height:100%;overflow:auto}
+.exrow{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:9px;align-items:center;border:1px solid var(--line);background:#fff;border-radius:11px;padding:6px 10px 6px 6px;text-align:left;cursor:pointer;border-left:4px solid var(--c);transition:background .15s,box-shadow .15s}
+.exrow:hover,.exrow.sel{background:#f6f3ff;box-shadow:0 2px 8px rgba(91,63,214,.12)}
+.exi{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 16%,#fff);color:var(--c)}.exi svg{width:18px;height:18px}
+.exn{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.25}.exn small{display:block;font:600 11px var(--fm);color:var(--mut)}
+.exrow>b{font:800 14px var(--fm);color:var(--ink)}
+.exref{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;align-items:center;border-top:1px dashed var(--line);padding-top:8px}
+.exrt{font-size:10.5px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-right:2px}
+.exref .rf{display:inline-flex;gap:6px;align-items:center;border:1px dashed var(--c);background:#fff;color:var(--c);border-radius:999px;padding:4px 10px 4px 5px;font-size:12px;font-weight:700;cursor:pointer}
+.exref .rf[disabled]{cursor:default}
+.exref .rf b{font-family:var(--fm);font-weight:800}.rfi{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,#fff)}.rfi svg{width:12px;height:12px}
+.exref .rf:not([disabled]):hover,.exref .rf.sel{background:color-mix(in srgb,var(--c) 10%,#fff)}
 .lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:var(--mut);text-decoration:none;margin-right:8px}.lang:hover{color:var(--ink)}</style>
 </head>
 <body>
@@ -2343,15 +2361,17 @@ function renderOutlook(b,I,tabName){const n=5,ys=[0,1,2,3,4].map(olYear),cats=SB
  <div class="src"><b>Source:</b> RUPTL 2025–2034 · PLN Batam · supply contracts 2026 · our estimates for splits and ramps</div><div class="exp" id="exp" hidden></div>`}
 
 /* ---------- EXISTING VIEW: 2026 only (projections live behind the Projection button) ---------- */
+function segIcon(n){const x=n.toLowerCase();const M=(k)=>MI[k]||IP[k]||'';
+ if(/coal/.test(x))return M('pltu');if(/ccgt|combined|gas plants|gas \(/.test(x))return M('turbine');if(/gas engine|rented gas|maxpower/.test(x))return M('engine');if(/diesel|genset/.test(x))return M('drum');
+ if(/^gas$|gas share|^gas/.test(x))return IP.flame;if(/solar/.test(x))return M('solar');if(/biomass|renew/.test(x))return M('leaf');if(/cable|sumatra/.test(x))return IP.cable;if(/local plants/.test(x))return M('engine');
+ if(/household/.test(x))return IP.home;if(/resort|business/.test(x))return M('resort');if(/public/.test(x))return IP.users;if(/data center|sez/.test(x))return M('server');if(/industry|genset users/.test(x))return M('factory');return IP.bolt}
 function exdonut(o,ci,extra){const segs=o.segs.map((g,k)=>[g,k]).filter(([g])=>g.v[ci]>0&&!g.up);const tot=segs.reduce((a,[g])=>a+g.v[ci],0);
- const r=Math.min(H*.36,78),cx=r+26,cy=H/2,CF=2*Math.PI*r;let acc=0,s='';
- s+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#edf2f6" stroke-width="30"/>`;
- segs.forEach(([g,k],q)=>{const l=CF*g.v[ci]/tot,st=acc;acc+=l;s+=`<circle class="sg" data-ck="${ci}|${k}" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${g.c}" stroke-width="30" stroke-dasharray="${Math.max(l-1.5,.5)} ${CF}" stroke-dashoffset="${-st}" transform="rotate(-90 ${cx} ${cy})" style="animation-delay:${.1+q*.08}s;cursor:pointer"${g.nf?' opacity=".5"':''}><title>${esc(g.n)}: ${fmt(g.v[ci],g.v[ci]%1?1:0)} ${o.unit} — click</title></circle>`});
- s+=`<text x="${cx}" y="${cy-2}" text-anchor="middle" class="lb" style="font-size:22px">${fmt(tot,tot%1?1:0)}${o.unit==='%'?'%':''}</text><text x="${cx}" y="${cy+14}" text-anchor="middle" style="font-size:10px;font-family:var(--f);font-weight:700">${o.unit==='%'?'of energy':o.unit+' · 2026'}</text>`;
- const lx=cx+r+30,rows=segs.length+(extra?extra.length+1:0),rh=Math.min(24,(H-16)/Math.max(rows,1));let y=Math.max(14,cy-rows*rh/2)+rh/2;
- segs.forEach(([g,k])=>{const v=g.v[ci],pc=Math.round(v/tot*100);s+=`<g class="exr" data-ck="${ci}|${k}" style="cursor:pointer"><rect x="${lx-6}" y="${y-rh/2+1}" width="${W-lx}" height="${rh-2}" rx="6" fill="transparent"/><rect x="${lx}" y="${y-5}" width="10" height="10" rx="3" fill="${g.c}"${g.nf?' opacity=".5"':''}/><text x="${lx+16}" y="${y+4}" style="font-family:var(--f);font-weight:700;font-size:11px;fill:var(--ink)">${esc((n=>n.length>24?n.slice(0,23)+'…':n)(g.n.replace('NEW ','')))}</text><text x="${W-8}" y="${y+4}" text-anchor="end" style="font-size:11px"><tspan class="lb">${o.unit==='%'?'':fmt(v,v%1?1:0)}</tspan>${o.unit==='%'?'':' · '}${pc}%</text></g>`;y+=rh});
- if(extra){y+=rh*.3;extra.forEach(e=>{s+=`<g class="exr" ${e[3]?`data-ck="${ci}|${e[3]}"`:''} style="cursor:${e[3]?'pointer':'default'}"><line x1="${lx}" x2="${lx+10}" y1="${y}" y2="${y}" stroke="${e[2]}" stroke-width="3" stroke-dasharray="4 2"/><text x="${lx+16}" y="${y+4}" style="font-family:var(--f);font-weight:700;font-size:11px;fill:${e[2]}">${esc(e[0])}</text><text x="${W-8}" y="${y+4}" text-anchor="end" class="lb" style="font-size:11px;fill:${e[2]}">${esc(e[1])}</text></g>`;y+=rh})}
- return svg(s)}
+ const r=70,cx=100,cy=100,CF=2*Math.PI*r;let acc=0,d=`<svg viewBox="0 0 200 200" class="exdn"><circle cx="100" cy="100" r="${r}" fill="none" stroke="#edf2f6" stroke-width="30"/>`;
+ segs.forEach(([g,k],q)=>{const l=CF*g.v[ci]/tot,st=acc;acc+=l;d+=`<circle class="sg" data-ck="${ci}|${k}" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${g.c}" stroke-width="30" stroke-dasharray="${Math.max(l-1.5,.5)} ${CF}" stroke-dashoffset="${-st}" transform="rotate(-90 ${cx} ${cy})" style="animation-delay:${.1+q*.08}s;cursor:pointer"${g.nf?' opacity=".5"':''}><title>${esc(g.n)}: ${fmt(g.v[ci],g.v[ci]%1?1:0)} ${o.unit}</title></circle>`});
+ d+=`<text x="100" y="100" text-anchor="middle" class="lb" style="font-size:30px">${fmt(tot,tot%1?1:0)}${o.unit==='%'?'%':''}</text><text x="100" y="122" text-anchor="middle" style="font-size:12px;font-family:var(--f);font-weight:700">${o.unit==='%'?'of energy':o.unit+' · 2026'}</text></svg>`;
+ const rows=segs.map(([g,k])=>{const v=g.v[ci],pc=Math.round(v/tot*100);return `<button type="button" class="exrow" data-ck="${ci}|${k}" style="--c:${g.c}"><span class="exi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${segIcon(g.n)}</svg></span><span class="exn">${esc(g.n.replace('NEW ',''))}${o.unit==='%'?'':`<small>${fmt(v,v%1?1:0)} ${o.unit}</small>`}</span><b>${pc}%</b></button>`}).join('');
+ const refs=extra?`<div class="exref"><span class="exrt">Compared with</span>${extra.map(e=>`<button type="button" class="rf" ${e[3]?`data-ck="${ci}|${e[3]}"`:'disabled'} style="--c:${e[2]}"><span class="rfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${/reserve|gap/i.test(e[0])?IP.shield:/peak|load/i.test(e[0])?IP.users:/growth/i.test(e[0])?IP.trend:/requirement/i.test(e[0])?IP.alert:IP.cal}</svg></span><span>${esc(e[0])}</span><b>${esc(e[1])}</b></button>`).join('')}</div>`:'';
+ return `<div class="exd"><div class="exdw">${d}</div><div class="exl">${rows}</div>${refs}</div>`}
 SB['karimun.ebt0']={cats:['2026'],unit:'MW',totLab:'MW',segs:[{n:'Coal · TBK',c:C.navy,v:[10.2],x:'PLN coal plant, 2×7 MW (10.2 MW dependable).',b:'Tribun Batam, Nov 2026.'},{n:'Diesel · Bukit Carok',c:'#e07b39',v:[23.4],x:'PLN diesel units, old and new (2026).',b:'Our estimate from the 40.6 MW total.'},{n:'Rented gensets',c:'#f7c86a',v:[7],x:'Rented diesel gensets.',b:'Tribun Batam, Nov 2026.'},{n:'Solar · KPP (private Zone 2)',c:C.leaf,v:[5],x:'The only renewable plant on Karimun: 5 MW solar owned by Karimun Power Plant in the private Zone 2 licence area. Not part of PLN’s Zone 3 system.',b:'Existing.',st:'E'}],yr:[[['w','PLN Zone 3 has no renewable plant yet'],['s','Regency solar 2.6 MW and biomass 1 MW are still planned (see Projection)']]]};
 TG['karimun.ebt0']={0:{t:[['g_tbk','2026','E','TBK coal plant','2×7 MW.','']],i:[]},1:{t:[['g_bc','2026','E','Bukit Carok diesel','Old + new units.','']],i:[]},3:{t:[['re_kpp','2026','E','Karimun Power Plant solar','5 MW, Zone 2.','']],i:['i_frag']}};
 const EXV={
