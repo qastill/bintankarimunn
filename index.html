@@ -834,6 +834,10 @@ svg.i{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;st
 .icd .go{position:absolute;right:10px;top:10px;color:var(--mut)}
 .inote{display:flex;gap:10px;align-items:flex-start;background:#fff7e6;border:1px solid #f6dfae;border-radius:14px;padding:8px 12px;font-size:clamp(11px,1.45vh,12.5px);font-weight:600;line-height:1.35}
 .inote svg{color:#c4700a;margin-top:1px}
+.stb{display:inline-block;font:800 9.5px/1.5 var(--f);letter-spacing:.05em;text-transform:uppercase;padding:0 6px;border-radius:999px;color:var(--sc);background:#fff;border:1.5px solid var(--sc);white-space:nowrap;vertical-align:1px;margin-right:2px}
+.stb.st-R,.stb.st-K,.stb.st-F{border-style:dashed}.stb.st-M,.stb.st-P{border-style:dotted}
+.icd b .stb{font-family:var(--f);letter-spacing:.05em;margin-left:4px;align-self:center}
+.exp small .stb{margin-left:6px}
 .src{font-size:10.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .src b{font-weight:700}
 
@@ -846,7 +850,9 @@ svg.i{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;st
 .legend{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:16px;background:rgba(255,255,255,.96);border-radius:16px;box-shadow:var(--sh);padding:8px 10px;width:min(250px,calc(100% - 32px));max-height:calc(100% - 120px);overflow:auto}
 .legend header{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);margin-bottom:4px}
 .legend header button{border:0;background:var(--soft);border-radius:8px;padding:2px 8px;font-size:11px;font-weight:700;color:var(--mut)}
-.legend.min .lrow{display:none}
+.legend.min .lrow,.legend.min .skey{display:none}
+.skey{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:11px;font-weight:700;color:var(--ink);padding:4px 4px 6px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.skey span{display:flex;align-items:center;gap:5px}.skey svg{width:24px;height:10px}
 .lrow{display:grid;grid-template-columns:26px minmax(0,1fr) auto;align-items:center;gap:8px;width:100%;border:0;background:none;padding:3px 4px;border-radius:8px;text-align:left;font-size:12px;font-weight:600;line-height:1.25}
 .lrow:hover{background:var(--soft)}
 .lrow[aria-pressed="false"]{opacity:.38}
@@ -856,7 +862,16 @@ svg.i{width:1.15em;height:1.15em;stroke:currentColor;fill:none;stroke-width:2;st
 .sw{width:28px;height:16px}
 .zoomb{position:absolute;right:16px;top:16px;display:flex;flex-direction:column;gap:6px}
 .zoomb button{width:36px;height:36px;border-radius:10px;border:0;background:rgba(255,255,255,.96);box-shadow:var(--sh);font-weight:800;font-size:16px;display:grid;place-items:center}
-.basebtn{font-size:10px!important;font-weight:800!important}
+.basebtn{padding:4px!important}
+.bsw{display:inline-block;width:100%;height:100%;border-radius:7px;border:1px solid rgba(13,34,56,.15)}
+.zoomb{align-items:flex-end}
+.bmenu{position:absolute;right:46px;top:150px;background:#fff;border-radius:14px;box-shadow:var(--sh);padding:8px;width:230px;display:grid;gap:2px;z-index:5}
+.bmenu b{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);padding:2px 6px 4px}
+.bopt{display:grid!important;grid-template-columns:34px 1fr;gap:10px;align-items:center;width:auto!important;height:auto!important;border:0;background:none!important;box-shadow:none!important;border-radius:10px!important;padding:6px!important;text-align:left;font-size:13px!important;font-weight:700!important}
+.bopt .bsw{width:34px;height:26px}
+.bopt>span:last-child{text-align:left;justify-self:start}
+.bopt small{display:block;font-size:10.5px;color:var(--mut);font-weight:600}
+.bopt:hover{background:var(--soft)!important}.bopt[aria-pressed="true"]{background:#e6f5fa!important;color:var(--ocean)}
 .hint{position:absolute;right:16px;bottom:16px;background:rgba(13,34,56,.85);color:#fff;border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:600;display:flex;gap:6px;align-items:center}
 
 /* leaflet popups & labels */
@@ -1060,14 +1075,26 @@ const W=420,H=230;
 function bars(o){ // cats, series[{n,v,c}], max, ticks, unit, refs[{v,n,c}], vlab
   const m={l:38,r:10,t:22,b:o.sub?34:22},w=W-m.l-m.r,h=H-m.t-m.b,n=o.cats.length,gw=w/n,k=o.series.length,bw=Math.min(o.bw||34,(gw-14)/k);
   const Y=v=>m.t+h-(v/o.max)*h;let s='';
+  if(o.fut!=null){const xf=m.l+o.fut*gw;s+=`<rect x="${xf}" y="${m.t-14}" width="${W-m.r-xf}" height="${h+14}" fill="#f1f5fb" rx="6"/><text x="${xf+6}" y="${m.t-3}" style="font-family:var(--f);font-weight:800;font-size:9.5px;fill:#2b5fa8;letter-spacing:.05em">${esc(o.futLabel||'RENCANA / PROYEKSI')} ⇢</text>`}
   (o.ticks||[0,o.max/2,o.max]).forEach(t=>s+=`<line class="gl" x1="${m.l}" x2="${W-m.r}" y1="${Y(t)}" y2="${Y(t)}"/><text x="${m.l-6}" y="${Y(t)+3.5}" text-anchor="end">${fmt(t)}</text>`);
   o.cats.forEach((c,i)=>{const x0=m.l+i*gw+(gw-bw*k)/2;
     o.series.forEach((se,j)=>{const v=se.v[i];if(v==null)return;const x=x0+j*bw,y=Y(v),d=(i*k+j)*.06;
-      s+=`<rect class="gb" style="animation-delay:${d}s" x="${x+1}" y="${y}" width="${bw-3}" height="${m.t+h-y}" rx="4" fill="${se.c}"><title>${esc(se.n)} · ${esc(c)}: ${fmt(v,v%1?1:0)} ${o.unit}</title></rect>`;
+      const fu=o.fut!=null&&i>=o.fut;s+=`<rect class="gb" style="animation-delay:${d}s" x="${x+1}" y="${y}" width="${bw-3}" height="${m.t+h-y}" rx="4" fill="${se.c}" ${fu?`fill-opacity=".28" stroke="${se.c}" stroke-width="2" stroke-dasharray="5 3"`:''}><title>${fu?'[rencana/proyeksi] ':''}${esc(se.n)} · ${esc(c)}: ${fmt(v,v%1?1:0)} ${o.unit}</title></rect>`;
       if(o.vlab)s+=`<text class="lb fd" x="${x+bw/2-1}" y="${y-5}" text-anchor="middle" style="font-size:10px">${fmt(v,v%1?1:0)}</text>`});
     s+=`<text x="${m.l+i*gw+gw/2}" y="${m.t+h+14}" text-anchor="middle" style="fill:var(--ink);font-weight:700">${esc(c)}</text>`;
     if(o.sub&&o.sub[i])s+=`<text x="${m.l+i*gw+gw/2}" y="${m.t+h+27}" text-anchor="middle" style="font-size:9.5px">${esc(o.sub[i])}</text>`});
   (o.refs||[]).forEach(r=>s+=`<line class="fd" x1="${m.l}" x2="${W-m.r}" y1="${Y(r.v)}" y2="${Y(r.v)}" stroke="${r.c}" stroke-width="2" stroke-dasharray="6 5"/><text class="fd" x="${W-m.r}" y="${Y(r.v)-6}" text-anchor="end" style="fill:${r.c};font-weight:700">${esc(r.n)}</text>`);
+  s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${m.t+h}" y2="${m.t+h}" stroke="#c9d6df"/><text x="${m.l-6}" y="10" text-anchor="end" style="font-weight:700">${esc(o.unit)}</text>`;
+  return svg(s);
+}
+function stack(o){ // cats[{n,sub,segs[{n,v,c,dash}]}], max, ticks, unit
+  const m={l:38,r:10,t:22,b:34},w=W-m.l-m.r,h=H-m.t-m.b,n=o.cats.length,gw=w/n,bw=Math.min(70,gw*.55),Y=v=>m.t+h-(v/o.max)*h;let s='';
+  (o.ticks||[0,o.max/2,o.max]).forEach(t=>s+=`<line class="gl" x1="${m.l}" x2="${W-m.r}" y1="${Y(t)}" y2="${Y(t)}"/><text x="${m.l-6}" y="${Y(t)+3.5}" text-anchor="end">${fmt(t)}</text>`);
+  o.cats.forEach((c,i)=>{const x=m.l+i*gw+(gw-bw)/2;let acc=0;
+    c.segs.forEach((g,j)=>{const y0=Y(acc),y1=Y(acc+g.v);acc+=g.v;
+      s+=`<rect class="gb" style="animation-delay:${i*.15+j*.12}s" x="${x}" y="${y1}" width="${bw}" height="${y0-y1}" fill="${g.c}" ${g.dash?'fill-opacity=".55" stroke="#5d7084" stroke-dasharray="4 3"':'stroke="#fff"'} stroke-width="1.5"><title>${esc(g.n)}: ${fmt(g.v,g.v%1?1:0)} ${o.unit}</title></rect>`;
+      if(y0-y1>13)s+=`<text class="fd" x="${x+bw/2}" y="${(y0+y1)/2+3.5}" text-anchor="middle" style="fill:${g.c==='#f7c86a'||g.c==='#f4b3ab'||g.c==='#b9c6d2'?'#0d2238':'#fff'};font-weight:700;font-size:9.5px">${esc(g.n.split(' ')[0])} ${fmt(g.v,g.v%1?1:0)}</text>`});
+    s+=`<text class="lb fd" x="${x+bw/2}" y="${Y(acc)-6}" text-anchor="middle" style="font-size:12px">${fmt(acc,acc%1?1:0)}</text><text x="${x+bw/2}" y="${m.t+h+14}" text-anchor="middle" style="fill:var(--ink);font-weight:700;font-family:var(--f)">${esc(c.n)}</text><text x="${x+bw/2}" y="${m.t+h+27}" text-anchor="middle" style="font-size:9.5px">${esc(c.sub||'')}</text>`});
   s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${m.t+h}" y2="${m.t+h}" stroke="#c9d6df"/><text x="${m.l-6}" y="10" text-anchor="end" style="font-weight:700">${esc(o.unit)}</text>`;
   return svg(s);
 }
@@ -1086,11 +1113,12 @@ function lines(o){ // xs, series[{n,v,c,dash,area}], max, ticks, unit, marks[{i,
   s+=`<line x1="${m.l}" x2="${m.l+w}" y1="${m.t+h}" y2="${m.t+h}" stroke="#c9d6df"/><text x="${m.l-6}" y="10" text-anchor="end" style="font-weight:700">${esc(o.unit)}</text>`;
   return svg(s);
 }
-function hbars(rows,max,unit){ // rows[{l,v,c,lo,hi,t}]
+function hbars(rows,max,unit){ // rows[{l,v,c,lo,hi,t,st}]
   const m={l:150,r:78,t:6,b:6},rh=(H-m.t-m.b)/rows.length,w=W-m.l-m.r,X=v=>m.l+v/max*w;let s='';
-  rows.forEach((r,i)=>{const y=m.t+i*rh+rh*.2,bh=Math.min(22,rh*.6),x0=r.lo!=null?X(r.lo):m.l,x1=r.lo!=null?X(r.hi):X(r.v);
-    s+=`<text x="${m.l-10}" y="${y+bh/2+4}" text-anchor="end" style="fill:var(--ink);font-family:var(--f);font-weight:700;font-size:11.5px">${esc(r.l)}</text><rect x="${m.l}" y="${y}" width="${w}" height="${bh}" rx="${bh/2}" fill="#eef3f7"/>`;
-    s+=`<rect class="gx" style="animation-delay:${i*.08}s" x="${x0}" y="${y}" width="${Math.max(4,x1-x0)}" height="${bh}" rx="${bh/2}" fill="${r.c}"><title>${esc(r.l)}: ${esc(r.t||fmt(r.v)+' '+unit)}</title></rect>`;
+  rows.forEach((r,i)=>{const y=m.t+i*rh+rh*.2,bh=Math.min(22,rh*.6),x0=r.lo!=null?X(r.lo):m.l,x1=r.lo!=null?X(r.hi):X(r.v),sc=r.st&&ST[r.st];
+    s+=`<text x="${m.l-10}" y="${y+bh/2+(sc?-1:4)}" text-anchor="end" style="fill:var(--ink);font-family:var(--f);font-weight:700;font-size:11.5px">${esc(r.l)}</text>${sc?`<text x="${m.l-10}" y="${y+bh/2+11}" text-anchor="end" style="fill:${sc[1]};font-family:var(--f);font-weight:800;font-size:9px;letter-spacing:.05em">${sc[0].toUpperCase()}</text>`:''}<rect x="${m.l}" y="${y}" width="${w}" height="${bh}" rx="${bh/2}" fill="#eef3f7"/>`;
+    const sty=!r.st||r.st==='E'||r.st==='C'||r.st==='T'?'':(r.st==='R'||r.st==='K'||r.st==='F')?`fill-opacity=".3" stroke="${r.c}" stroke-width="2" stroke-dasharray="5 3"`:`fill-opacity=".12" stroke="${r.c}" stroke-width="2" stroke-dasharray="1.5 3"`;
+    s+=`<rect class="gx" style="animation-delay:${i*.08}s" x="${x0}" y="${y}" width="${Math.max(4,x1-x0)}" height="${bh}" rx="${bh/2}" fill="${r.c}" ${sty}><title>${esc(r.l)}: ${esc(r.t||fmt(r.v)+' '+unit)}</title></rect>`;
     s+=`<text class="lb fd" x="${W-m.r+8}" y="${y+bh/2+4}">${esc(r.t||fmt(r.v,r.v%1?1:0)+' '+unit)}</text>`});
   return svg(s);
 }
@@ -1107,7 +1135,8 @@ function gauge(o){ // v,max,label,sub,c, mark{v,t}
 }
 function timeline(items){ // [{y,t,c,ic}]
   const m={l:24,r:24},w=W-m.l-m.r,n=items.length,X=i=>m.l+(n===1?w/2:i/(n-1)*w),cy=H/2;let s=`<line class="dl" pathLength="1" x1="${m.l}" x2="${W-m.r}" y1="${cy}" y2="${cy}" stroke="#c9d6df" stroke-width="3"/>`;
-  items.forEach((it,i)=>{const up=i%2===0,x=X(i);s+=`<g class="fd" style="animation-delay:${.3+i*.12}s"><line x1="${x}" x2="${x}" y1="${cy}" y2="${up?cy-36:cy+36}" stroke="${it.c}" stroke-width="2"/><circle cx="${x}" cy="${cy}" r="9" fill="#fff" stroke="${it.c}" stroke-width="3"/>
+  const fi=items.findIndex(it=>it.f);if(fi>0)s+=`<line x1="${(X(fi-1)+X(fi))/2}" x2="${W-m.r}" y1="${cy}" y2="${cy}" stroke="#fff" stroke-width="4" stroke-dasharray="6 5"/><text x="${(X(fi-1)+X(fi))/2+4}" y="${cy-8}" style="font-family:var(--f);font-weight:800;font-size:9px;fill:#2b5fa8;letter-spacing:.05em">RENCANA ⇢</text>`;
+  items.forEach((it,i)=>{const up=i%2===0,x=X(i);s+=`<g class="fd" style="animation-delay:${.3+i*.12}s"><line x1="${x}" x2="${x}" y1="${cy}" y2="${up?cy-36:cy+36}" stroke="${it.c}" stroke-width="2" ${it.f?'stroke-dasharray="3 3"':''}/><circle cx="${x}" cy="${cy}" r="9" fill="${it.f?'#fff':it.c}" stroke="${it.c}" stroke-width="3" ${it.f?'stroke-dasharray="4 3"':''}/>
    <text x="${x}" y="${up?cy-70:cy+56}" text-anchor="middle" class="lb" style="fill:${it.c};font-size:12px">${esc(it.y)}</text>${wrap(it.t,x,up?cy-56:cy+70,15)}</g>`});
   return svg(s);
 }
@@ -1126,6 +1155,11 @@ function flow(o){ // nodes[{x,y,t,v,c,ic,r}], links[{a,b,c,w,t,dash}]
 }
 const legendHtml=items=>'<div class="leg">'+items.map(([n,c,d])=>`<span><i style="background:${c};${d?'height:3px;vertical-align:3px;width:14px':''}"></i>${esc(n)}</span>`).join('')+'</div>';
 
+/* ---------- STATUS ---------- */
+const ST={E:['Eksisting','#1f8f5f'],C:['Kondisi 2026','#0e7c9b'],R:['Rencana','#2b5fa8'],K:['Kontrak','#3b82c4'],M:['MoU / wacana','#7a5af5'],P:['Potensi','#5d7084'],F:['Proyeksi','#c4700a'],Q:['Kebutuhan','#d9483a'],T:['Tarif berlaku','#1f8f5f']};
+const stb=c=>c&&ST[c]?`<span class="stb st-${c}" style="--sc:${ST[c][1]}">${ST[c][0]}</span>`:'';
+const BADGE={'bintan.ring':'CCEE','bintan.kap':'RRRC','bintan.dem':'CFRM','bintan.ebt':'RCR','bintan.tar':'TTT','bintan.rel':'CCE','bintan.int':'ERR',
+ 'karimun.ring':'CCCR','karimun.kap':'CEEQ','karimun.dem':'CFE','karimun.ebt':'RMM','karimun.tar':'TFE','karimun.rel':'CCC','karimun.int':'RRR','bintan.ins':'CFRCRT','karimun.ins':'CFRCRT'};
 /* ---------- ISLAND CONTENT ---------- */
 const EXPL={
 'bintan.ring':[
@@ -1160,14 +1194,15 @@ const EXPL={
  ['ISBB = Interkoneksi Sumatera–Batam: kabel HVDC Peranap → Sungai Guntung (darat 360 kms) → Rempang (laut 156 kms), konverter 1.500 MW. Transfer 1.200 MW mulai 2031; bisa melayani hingga ±3 GW beban Batam–Bintan.','isbb'],
  ['Ekstensi 500 kV dari Rempang melalui Ngenang ke GITET Bintan (500/150 kV, 250 MVA) dan GITET KTT BAI/data center, total 162 kms. Hanya dibangun bila permintaan besar sudah pasti. Inilah calon jalur kedua yang sesungguhnya ke Bintan.','ext500']],
 'karimun.ring':[
- ['Daya mampu = kapasitas yang benar-benar bisa dibangkitkan setelah penurunan kemampuan mesin (derating), per 17 Nov 2026. Berasal dari PLTU TBK 2×7 MW, PLTD Bukit Carok, mesin baru 6 MW, dan genset sewa.','sys_k'],
+ ['Daya mampu = kapasitas yang benar-benar bisa dibangkitkan setelah penurunan kemampuan mesin (derating), per 17 Nov 2026. Rinciannya: PLTU TBK ±10,2 MW + PLTD Bukit Carok lama ±17,4 MW + PLTD baru 6 MW + genset sewa 7 MW = 40,6 MW. Lihat tab Kapasitas untuk grafiknya.','sys_k'],
  ['Beban puncak sistem Tanjung Balai Karimun (zona PLN), umumnya terjadi 17.30–22.00. Naik dari 25,4 MW (2017) dan 28,2 MW (2019).','sys_k'],
  ['Cadangan = 40,6 − 36,1 = 4,5 MW. Unit terbesar (PLTU 7 MW) lebih besar dari cadangan, sehingga jika satu unit trip beban tidak terpenuhi dan terjadi padam bergilir. RUPTL mensyaratkan sistem isolated tahan kehilangan dua unit terbesar (N-2) dengan cadangan ≥35%.',null],
  ['RUPTL merencanakan kabel 150 kV Sumatera → Selat Panjang → Pulau Rangsang → GI Tanjung Balai Karimun (±210 kms). Tabel RUPTL menulis 2026, Lampiran E menulis 2028; dengan kabel laut 70 km sebagai jalur kritis, perkiraan realistis 2027–2028.','karint']],
 'karimun.kap':[
- ['PLTU batubara Tanjung Sebatak, 2 unit × 7 MW; daya mampu bersih (DMN) 10,2 MW. Satu unit ≈ 20% beban puncak, dan unit 2 berulang kali gangguan (2022, Mei dan Jul 2026).','g_tbk'],
- ['PLTD Bukit Carok mendapat mesin baru 6 MW (2026) ditambah genset sewa 7 MW (kontrak Jun 2026). Diesel cepat dipasang tetapi mahal karena bahan bakar solar.','g_bc'],
- ['Kriteria RUPTL untuk sistem isolated: cadangan harus lebih besar dari unit terbesar pertama dan kedua (N-2). Beban 36,1 + 7 + 7 = 50,1 MW. Daya mampu sekarang 40,6 MW, jadi kurang ±9,5 MW.',null]],
+ ['Daya mampu total sistem Karimun (Zona 3 PLN) per 17 Nov 2026 adalah 40,6 MW, dari empat sumber: PLTU TBK ±10,2 MW, PLTD Bukit Carok lama ±17,4 MW, PLTD baru 6 MW (2026), dan genset sewa 7 MW (kontrak Jun 2026). Angka PLTD lama dihitung dari selisih (estimasi). Beban puncak 36,1 MW, jadi cadangan hanya 4,5 MW.','sys_k'],
+ ['PLTU batubara Tanjung Sebatak: 2 unit × 7 MW terpasang, tetapi daya mampu bersihnya (DMN, RUPTL Tabel A4.3) hanya 10,2 MW, atau ±5 MW per unit. Unit 2 berulang kali gangguan (2022, Mei dan Jul 2026), dan setiap gangguan langsung berujung padam bergilir.','g_tbk'],
+ ['Sisa daya mampu datang dari diesel: PLTD Bukit Carok lama (25 MW terpasang ditambah 17 mesin 1 MW pada 2017, kini ±17,4 MW setelah penurunan kemampuan), mesin PLTD baru 6 MW (2026), dan genset sewa 7 MW (PLN Nusa Daya). Diesel cepat dipasang, tetapi biaya bahan bakarnya ±3× tarif.','g_bc'],
+ ['Kriteria RUPTL untuk sistem isolated: cadangan harus lebih besar dari unit terbesar pertama dan kedua (N-2), dengan cadangan minimal 35%. Beban 36,1 + 7 + 7 = 50,1 MW. Daya mampu sekarang 40,6 MW, jadi kurang ±9,5 MW.',null]],
 'karimun.dem':[
  ['Beban puncak sistem PLN Karimun per Nov 2026. Naik dari 25,4 MW (2017) dan 28,2 MW (2019), atau ±3,6% per tahun.','sys_k'],
  ['Skenario dasar ±5% per tahun. Pertumbuhan historis rendah karena pasokan terbatas; bila keandalan pulih, permintaan yang tertahan (pelanggan yang memakai genset) akan muncul. Skenario tinggi ±55 MW.',null],
@@ -1210,15 +1245,15 @@ bintan:{name:'Bintan',cls:'b',color:C.ocean,bounds:[[0.8,103.95],[1.22,104.72]],
   i:[['alert','w','Satu koridor = single point of failure'],['users','','Operator Batam, ritel PLN Persero'],['cal','g','PLTMG 100 MW (2027) via PLN Batam']],src:'PLN Batam Okt 2026 · Setkab 2016 · ESDM Kepri Okt 2026 · RUPTL 2025–2034'},
  kap:{h:'Kapasitas baru Bintan dicatat lewat kerja sama wilus PLN Batam',lay:['gen','plan','gi','tx','corr'],
   k:[['flame','PLTMG Bintan','100+50','MW','2027 + 2031 · via PLN Batam','ok'],['sun','PLTS Bintan','25+25','MW','2028 + 2030','sun'],['plant','Batam 2027','1.250','MW','target pasok PLN Batam'],['bolt','Cadangan 2026','±19','%','930 vs 780 MW']],
-  v:{t:'Sistem Batam–Bintan: pasok vs beban puncak',s:'MW',f:()=>bars({cats:['Des 2025','Okt 2026','2027','2030'],sub:['','','target','estimasi'],series:[{n:'Daya mampu/pasok',v:[844.2,930,1250,1650],c:C.ocean},{n:'Beban puncak',v:[755,780,874,1228],c:C.coral}],max:1800,ticks:[0,600,1200,1800],unit:'MW',vlab:1}),leg:[['Pasok',C.ocean],['Beban puncak',C.coral]]},
+  v:{t:'Sistem Batam–Bintan: pasok vs beban puncak',s:'MW',f:()=>bars({fut:2,futLabel:'TARGET / PROYEKSI',cats:['Des 2025','Okt 2026','2027','2030'],sub:['eksisting','eksisting','target','estimasi'],series:[{n:'Daya mampu/pasok',v:[844.2,930,1250,1650],c:C.ocean},{n:'Beban puncak',v:[755,780,874,1228],c:C.coral}],max:1800,ticks:[0,600,1200,1800],unit:'MW',vlab:1}),leg:[['Pasok',C.ocean],['Beban puncak',C.coral]]},
   i:[['plant','','Batam: PLTGU #1 120 MW (2028), Batam 3&4 2×150 MW'],['flame','','MaxPower 50→150 MW sewa; BESS direncanakan'],['info','w','Lokasi PLTMG 100 MW belum dipublikasikan']],src:'RUPTL hlm A-52 · PLN Batam · Ombudsman Des 2025 · Bisnis Okt 2025 · RRI Jul 2026'},
  dem:{h:'Organik ±5%/th; lonjakan datang dari KEK dan data center',lay:['load','sys','gi','tx'],
   k:[['users','Bintan 2026','±105','MW','est. dari 65,1 MW (2016)'],['trend','Bintan 2030','±130','MW','skenario dasar'],['factory','BAI / DC','1.500','MVA','Galang Batang, 2032 (low conf.)','sun'],['server','AI campus','±500','MW','MoU SOS, Sep 2026','sun']],
-  v:{t:'Beban puncak Bintan, skenario',s:'MW · estimasi',f:()=>lines({xs:['2016','2018','2020','2022','2024','2026','2028','2030'],series:[{n:'Tinggi (anchor load)',v:[null,null,null,null,null,105,190,300],c:C.violet,dash:1},{n:'Dasar 5,3%/th',v:[65.1,72,80,88,96,105,117,130],c:C.ocean,area:1,dots:0},{n:'Rendah 4%/th',v:[null,null,null,null,null,105,113,120],c:C.mut,dash:1}],max:320,ticks:[0,100,200,300],unit:'MW',marks:[{i:0,v:65.1,t:'65,1 MW resmi',c:C.navy,dy:-10}]}),leg:[['Dasar',C.ocean],['Tinggi',C.violet,1],['Rendah',C.mut,1]]},
+  v:{t:'Beban puncak Bintan, skenario',s:'MW · estimasi',f:()=>lines({band:[5,7],bandLabel:'proyeksi',xs:['2016','2018','2020','2022','2024','2026','2028','2030'],series:[{n:'Tinggi (anchor load)',v:[null,null,null,null,null,105,190,300],c:C.violet,dash:1},{n:'Dasar 5,3%/th',v:[65.1,72,80,88,96,105,117,130],c:C.ocean,area:1,dots:0},{n:'Rendah 4%/th',v:[null,null,null,null,null,105,113,120],c:C.mut,dash:1}],max:320,ticks:[0,100,200,300],unit:'MW',marks:[{i:0,v:65.1,t:'65,1 MW resmi',c:C.navy,dy:-10}]}),leg:[['Dasar',C.ocean],['Tinggi',C.violet,1],['Rendah',C.mut,1]]},
   i:[['factory','','KEK Galang Batang: alumina + rencana smelter'],['server','','Hub data center BBK (Menteri ESDM, Okt 2026)'],['users','','Lagoi resort: SUTT 150 kV baru 2030']],src:'Setkab 2016 · RUPTL A4.8 & Lampiran E · ESDM 19 Okt 2026 · estimasi'},
  ebt:{h:'EBT Bintan kecil sampai listrik Sumatera masuk',lay:['re','plan','tx','gi'],
   k:[['sun','PLTS Bintan','50','MW','2028 + 2030 · via PLN Batam','sun'],['flame','Bauran Batam','~100','% fosil','gas + PLTU','hot'],['leaf','ISBB 2031','1.200','MW','dari EBT Sumatera','ok']],
-  v:{t:'Rencana EBT untuk Bintan',s:'MW kumulatif',f:()=>bars({cats:['2026','2027','2028','2029','2030','2031'],series:[{n:'PLTS wilus Bintan',v:[0,0,25,25,50,50],c:C.sun},{n:'Akses EBT via ISBB',v:[0,0,0,0,0,1200],c:C.leaf}],max:1300,ticks:[0,600,1200],unit:'MW',vlab:1}),leg:[['PLTS Bintan',C.sun],['Impor EBT Sumatera (ISBB)',C.leaf]]},
+  v:{t:'Rencana EBT untuk Bintan',s:'MW kumulatif',f:()=>bars({fut:0,futLabel:'SEMUA RENCANA RUPTL',cats:['2026','2027','2028','2029','2030','2031'],series:[{n:'PLTS wilus Bintan',v:[0,0,25,25,50,50],c:C.sun},{n:'Akses EBT via ISBB',v:[0,0,0,0,0,1200],c:C.leaf}],max:1300,ticks:[0,600,1200],unit:'MW',vlab:1}),leg:[['PLTS Bintan',C.sun],['Impor EBT Sumatera (ISBB)',C.leaf]]},
   i:[['sun','','Kuota surya "Sumatera–Bintan tersebar" terbuka untuk mitra'],['wave','','Proyek ekspor ke Singapura skala GW di Kepri'],['alert','w','Terms ekspor RI–SG belum final']],src:'RUPTL A4.15, hlm A-51/52, Bab V · EMA · laporan 2026'},
  tar:{h:'Tarif nasional, walau energinya dibeli dari PLN Batam',lay:['sys','load'],
   k:[['tag','I-3/TM','1.114,74','Rp/kWh','>200 kVA · LWBP'],['tag','I-4/TT','996,74','Rp/kWh','≥30 MVA'],['tag','B-3/TM resort','1.114,74','Rp/kWh','Q4 2026 tetap','ok']],
@@ -1230,7 +1265,7 @@ bintan:{name:'Bintan',cls:'b',color:C.ocean,bounds:[[0.8,103.95],[1.22,104.72]],
   i:[['alert','w','Tidak bisa islanding: pembangkit lokal kecil'],['check','g','GI Tanjung Sauh beroperasi 9 Nov 2026'],['tower','','Rekonduktoring TU–SB 2031; Air Raja +60 MVA 2030']],src:'RUPTL Tabel 4.51, A4.4 · Bloomberg Technoz · Listrik Indonesia · IJECBE 2025'},
  int:{h:'Satu sistem sejak 2015; jalur kedua baru 2032, bersyarat',lay:['corr','tx','gi','plan','sys'],wide:1,
   k:[['cable','Kabel laut','10','km','3,45 + 6,55 km · 150 kV'],['bolt','ISBB 2031','1.200','MW','Sumatera → Batam','ok'],['tower','500 kV Bintan','2032','','hanya jika demand pasti','sun']],
-  v:{t:'Perjalanan interkoneksi',s:'2013–2032',f:()=>timeline([{y:'2013',t:'Kontrak kabel laut',c:C.mut},{y:'2015',t:'Energize, 20 MW',c:C.ocean},{y:'2016',t:'SUTT ke Kijang, 34 MW',c:C.ocean},{y:'Okt 2026',t:'Blackout merembet',c:C.coral},{y:'Nov 2026',t:'GI Tanjung Sauh',c:C.leaf},{y:'2031',t:'ISBB 1.200 MW',c:C.leaf},{y:'2032',t:'500 kV ke Bintan',c:C.sun}])},
+  v:{t:'Perjalanan interkoneksi',s:'2013–2032',f:()=>timeline([{y:'2013',t:'Kontrak kabel laut',c:C.mut},{y:'2015',t:'Energize, 20 MW',c:C.ocean},{y:'2016',t:'SUTT ke Kijang, 34 MW',c:C.ocean},{y:'Okt 2026',t:'Blackout merembet',c:C.coral},{y:'Nov 2026',t:'GI Tanjung Sauh',c:C.leaf},{y:'2031',t:'ISBB 1.200 MW',c:'#2b5fa8',f:1},{y:'2032',t:'500 kV ke Bintan',c:'#2b5fa8',f:1}])},
   i:[['cable','','Tidak ada kabel 150 kV kedua di RUPTL'],['info','w','ISBB: 2031 di neraca, 2028 di hlm A-51'],['money','','Connection hub: "sharing recovery" PLN Batam']],src:'ESDM 2013 · Setkab 2016 · RUPTL V-107, V-324, Lampiran E'}
  }},
 karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]],wide:[[0.55,102.45],[1.3,103.7]],
@@ -1249,9 +1284,9 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
   k:[['bolt','Daya mampu','40,6','MW','17 Nov 2026'],['users','Beban puncak','36,1','MW','tumbuh dari 28,2 (2019)'],['battery','Cadangan','4,5','MW','< unit PLTU 7 MW','hot'],['cable','Kabel Sumatera','2027–28','','RUPTL: 2026 / 2028','sun']],
   v:{t:'Cadangan Karimun vs kebutuhan',s:'MW',f:()=>gauge({v:4.5,max:20,c:C.coral,label:'4,5 MW',sub:'cadangan saat ini',u:' MW',zones:[[0,7,C.coral],[7,14,C.sun],[14,20,C.leaf]],mark:{v:14,t:'N-2: 14 MW'}}),leg:[['< 1 unit (gagal N-1)',C.coral],['N-1 s.d. N-2',C.sun],['Memenuhi N-2',C.leaf]]},
   i:[['alert','w','1 unit PLTU ≈ 20% beban puncak'],['plant','','PLTU TBK 2×7 MW + PLTD Bukit Carok'],['factory','','Zona 1–2 swasta, PLN di Zona 3']],src:'Tribun Batam 17 Nov 2026 · RUPTL II.2.2, Lampiran E · detik 2019'},
- kap:{h:'Daya mampu di bawah kriteria RUPTL untuk sistem isolated',lay:['gen','sys','plan','zone'],
-  k:[['plant','PLTU TBK','2×7','MW','DMN 10,2 MW'],['flame','PLTD Bukit Carok','+6','MW','baru 2026 + sewa 7 MW'],['shield','Kebutuhan N-2','50,1','MW','36,1 + 7 + 7','hot']],
-  v:{t:'Daya mampu vs beban puncak',s:'MW',f:()=>bars({cats:['2017','2019','Mei 26','Okt 26','Nov 26'],series:[{n:'Daya mampu',v:[42,35,32,42.6,40.6],c:C.sun},{n:'Beban puncak',v:[25.5,28.2,34.5,33,36.1],c:C.coral}],max:55,ticks:[0,25,50],unit:'MW',vlab:1,refs:[{v:50.1,n:'Kriteria N-2 RUPTL',c:C.navy}]}),leg:[['Daya mampu',C.sun],['Beban puncak',C.coral],['N-2 (RUPTL II.2.2)',C.navy,1]]},
+ kap:{h:'Daya mampu 40,6 MW dari empat sumber, masih di bawah kriteria RUPTL',lay:['gen','sys','plan','zone'],
+  k:[['bolt','Daya mampu total','40,6','MW','4 sumber · Nov 2026'],['plant','PLTU TBK','10,2','MW','2×7 MW terpasang'],['flame','PLTD + genset','30,4','MW','lama ±17,4 · baru 6 · sewa 7'],['shield','Kebutuhan N-2','50,1','MW','36,1 + 7 + 7','hot']],
+  v:{t:'Dari mana 40,6 MW itu?',s:'MW · Nov 2026',f:()=>stack({max:55,ticks:[0,25,50],unit:'MW',cats:[{n:'Daya mampu',sub:'eksisting',segs:[{n:'PLTU TBK',v:10.2,c:C.navy},{n:'PLTD lama',v:17.4,c:'#e07b39'},{n:'PLTD baru',v:6,c:C.sun},{n:'Genset sewa',v:7,c:'#f7c86a'}]},{n:'Beban puncak',sub:'17 Nov 2026',segs:[{n:'Beban',v:36.1,c:C.coral}]},{n:'Kebutuhan N-2',sub:'kriteria RUPTL',segs:[{n:'Beban',v:36.1,c:'#f4b3ab'},{n:'Unit #1',v:7,c:'#8fa3b5',dash:1},{n:'Unit #2',v:7,c:'#b9c6d2',dash:1}]}]}),leg:[['PLTU TBK (DMN)',C.navy],['PLTD lama (est.)','#e07b39'],['PLTD baru 2026',C.sun],['Genset sewa','#f7c86a'],['Beban puncak',C.coral]]},
   i:[['alert','w','Mei 2026: 32 MW vs 34,5 MW, defisit'],['info','','RUPTL isolated: N-2 & cadangan ≥35%'],['cable','g','Jalan keluar RUPTL: kabel 150 kV, bukan PLTU baru']],src:'RUPTL II.2.2, A4.3, Lampiran E · Kepri Headline 2026 · Industry.co.id 2017'},
  dem:{h:'Beban naik ±3–4%/th, tertahan oleh pasokan',lay:['load','sys','zone'],
   k:[['users','2026','36,1','MW','beban puncak PLN'],['trend','2030','±44','MW','skenario dasar'],['factory','FTZ Karimun','Zona 1–2','','galangan, migas, granit','sun']],
@@ -1259,7 +1294,7 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
   i:[['users','','Demand tertahan: industri pakai genset'],['factory','','Hub data center BBK juga menyebut Karimun'],['wave','','Belat: PLTS+BESS s.d. 2 GW (MoU)']],src:'detik 2017/2019 · Tribun Nov 2026 · Bisnis Okt 2026 · estimasi'},
  ebt:{h:'Bauran Karimun ikut Sumatera begitu kabel 150 kV masuk',lay:['re','plan','sys'],
   k:[['sun','PLTS Karimun','2,6','MW','rencana Pemkab','sun'],['leaf','Biomassa','1','MW','pilot PLN EPI × KPP, 35 t/hari','ok'],['wave','Pulau Belat','2.000','MW','PLTS+BESS, MoU Jan 2026']],
-  v:{t:'Proyek & potensi EBT di Kabupaten Karimun',s:'MW',f:()=>hbars([{l:'PLTS Karimun (KPP)',v:5,c:C.sun},{l:'PLTS Pemkab',v:2.6,c:C.sun},{l:'PLTBm Kundur',v:2.5,c:C.leaf},{l:'PLTBm Tg Batu',v:4,c:C.leaf,t:'2+2 MW'},{l:'Biomassa pilot',v:1,c:C.leaf}],6,'MW')},
+  v:{t:'Proyek & potensi EBT di Kabupaten Karimun',s:'MW',f:()=>hbars([{l:'PLTS Karimun (KPP)',v:5,c:C.sun,st:'E'},{l:'PLTS Pemkab',v:2.6,c:C.sun,st:'R'},{l:'Biomassa pilot',v:1,c:C.leaf,st:'M'},{l:'PLTBm Kundur',v:2.5,c:C.leaf,st:'P'},{l:'PLTBm Tg Batu',v:4,c:C.leaf,t:'2+2 MW',st:'P'}],6,'MW'),leg:[['Eksisting = penuh',C.sun],['Rencana = arsir putus',C.sun,1],['MoU / potensi = garis titik','#9aa9b8',1]]},
   i:[['alert','w','Grid ±36 MW: serap PLTS ±4–7 MW tanpa BESS'],['leaf','g','Pangsa EBT Sumatera >30,5% via kabel'],['wave','','Belat orientasi ekspor, bukan grid kota']],src:'RUPTL Lampiran A4 · Listrik Indonesia Apr 2026 · laporan Jan 2026'},
  tar:{h:'Tarif nasional; selisih biaya diesel ditutup kompensasi',lay:['sys','zone'],
   k:[['tag','I-3/TM','1.114,74','Rp/kWh','>200 kVA · LWBP'],['flame','Biaya BBM PLTD','3–4','rb Rp/kWh','estimasi','hot'],['factory','Zona 1–2','B2B','','tarif swasta, tidak publik','sun']],
@@ -1271,7 +1306,7 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
   i:[['battery','g','BESS 5–10 MW: penahan frekuensi tercepat'],['shield','','Skema UFLS bertahap, bukan padam total'],['users','','Pooling cadangan dengan zona swasta']],src:'Ombudsman Kepri 2022 · Kepri Headline · Warta Kepri · Tribun 2026'},
  int:{h:'Kabel 150 kV dari Sumatera via Selat Panjang–Rangsang',lay:['plan','sys','gen'],wide:1,
   k:[['cable','Panjang','±210','kms','SKLT 6 + SUTT 120 + SKLT 70 + 14'],['tower','GI TBK','2×30','MVA','+60 MVA (2032)'],['cal','COD','2026→28','','tabel vs Lampiran E','sun']],
-  v:{t:'Rute interkoneksi (RUPTL)',s:'kms',f:()=>flow({nodes:[{x:45,y:100,t:'Sumatera',s:'grid 150 kV',c:C.leaf,ic:'tower',r:24},{x:145,y:100,t:'Selat Panjang',s:'Tebing Tinggi',c:C.ocean,ic:'island',r:22},{x:270,y:100,t:'P. Rangsang',s:'',c:C.ocean,ic:'island',r:22},{x:375,y:100,t:'GI TBK',s:'2×30 MVA',c:C.sun,ic:'bolt',r:28,ring:1}],links:[{a:0,b:1,c:C.ocean2,t:'SKLT 6 kms',dash:'4 6'},{a:1,b:2,c:C.leaf,t:'SUTT 120 kms'},{a:2,b:3,c:C.ocean2,t:'SKLT 70 + 14 kms',dash:'4 6'}]}),leg:[['Kabel laut (SKLT)',C.ocean2,1],['Saluran udara (SUTT)',C.leaf,1]]},
+  v:{t:'Rute interkoneksi (RENCANA RUPTL)',s:'belum dibangun · kms',f:()=>flow({nodes:[{x:45,y:100,t:'Sumatera',s:'grid 150 kV',c:C.leaf,ic:'tower',r:24},{x:145,y:100,t:'Selat Panjang',s:'Tebing Tinggi',c:C.ocean,ic:'island',r:22},{x:270,y:100,t:'P. Rangsang',s:'',c:C.ocean,ic:'island',r:22},{x:375,y:100,t:'GI TBK',s:'2×30 MVA',c:C.sun,ic:'bolt',r:28,ring:1}],links:[{a:0,b:1,c:C.ocean2,t:'SKLT 6 kms',dash:'4 6'},{a:1,b:2,c:C.leaf,t:'SUTT 120 kms'},{a:2,b:3,c:C.ocean2,t:'SKLT 70 + 14 kms',dash:'4 6'}]}),leg:[['Kabel laut (SKLT)',C.ocean2,1],['Saluran udara (SUTT)',C.leaf,1]]},
   i:[['info','w','Status: 2026 committed vs "masih perencanaan"'],['cable','','Kabel laut 70 km = jalur kritis'],['shield','','Kabel tunggal: pembangkit lokal tetap cadangan']],src:'RUPTL A4, V.11.2, Lampiran E · Kontan Jul 2026 (realisasi transmisi 37%)'}
  }}
 };
@@ -1279,19 +1314,34 @@ karimun:{name:'Karimun',cls:'k',color:C.sun,bounds:[[0.84,103.22],[1.16,103.62]]
 /* ---------- MAP ---------- */
 const map=L.map('map',{zoomSnap:.25,zoomControl:false,attributionControl:true,preferCanvas:false}).fitBounds([[0.6,103.15],[1.3,104.8]]);
 const land=L.geoJSON({type:'Feature',geometry:{type:'MultiPolygon',coordinates:LAND}},{style:{color:C.coast,weight:1,fillColor:C.sand,fillOpacity:1},interactive:false}).addTo(map);
-const ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/';
-const BASES=[[[ESRI+'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',ESRI+'Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}'],'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap','PETA',16],[[ESRI+'Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',ESRI+'Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}'],'Tiles © Esri — GEBCO, NOAA, Garmin','LAUT',10],[['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],'© OpenStreetMap','OSM'],[[ESRI+'World_Imagery/MapServer/tile/{z}/{y}/{x}'],'Tiles © Esri — Maxar, Earthstar','SAT'],null];
+const ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/',ET=(p)=>ESRI+p+'/MapServer/tile/{z}/{y}/{x}';
+const BASES=[
+ {k:'terang',n:'Terang',d:'Esri Light Gray + label',u:[ET('Canvas/World_Light_Gray_Base'),ET('Canvas/World_Light_Gray_Reference')],a:'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap',z:16,sw:'linear-gradient(135deg,#f3f3f3 55%,#d4d6dc 55%)'},
+ {k:'jalan',n:'Jalan',d:'Esri World Street Map',u:[ET('World_Street_Map')],a:'Tiles © Esri — Esri, HERE, Garmin, USGS',z:19,sw:'linear-gradient(135deg,#f6f1e4 50%,#a8d3f0 50%)'},
+ {k:'topo',n:'Topografi',d:'Esri World Topo',u:[ET('World_Topo_Map')],a:'Tiles © Esri — Esri, HERE, Garmin, USGS',z:19,sw:'linear-gradient(135deg,#dfe8c9 50%,#b6dcf2 50%)'},
+ {k:'satelit',n:'Satelit',d:'Esri World Imagery + nama tempat',u:[ET('World_Imagery'),ET('Reference/World_Boundaries_and_Places')],a:'Tiles © Esri — Maxar, Earthstar Geographics',z:19,sw:'linear-gradient(135deg,#365a2f 50%,#183a55 50%)'},
+ {k:'laut',n:'Laut',d:'Esri Ocean (kedalaman)',u:[ET('Ocean/World_Ocean_Base'),ET('Ocean/World_Ocean_Reference')],a:'Tiles © Esri — GEBCO, NOAA, Garmin',z:10,sw:'linear-gradient(135deg,#eae3d2 45%,#7fb3d8 45%)'},
+ {k:'osm',n:'OpenStreetMap',d:'OSM standar',u:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],a:'© OpenStreetMap contributors',z:19,sw:'linear-gradient(135deg,#f2efe9 50%,#aad3df 50%)'},
+ {k:'garis',n:'Garis pantai',d:'tanpa internet (vektor)',u:null,sw:'linear-gradient(135deg,#fbf7ee 50%,#dbeef4 50%)'}];
 let bi=0,tile=null;
-function setBase(i,auto){bi=i;if(tile){map.removeLayer(tile);tile=null}
- if(!BASES[i]){land.setStyle({color:C.coast,fillColor:C.sand,fillOpacity:1});$('#bb').textContent='GARIS';return}
- const ls=BASES[i][0].map((u,j)=>L.tileLayer(u,{attribution:j?'':BASES[i][1],maxZoom:18,maxNativeZoom:BASES[i][3]||18}));tile=L.layerGroup(ls).addTo(map);ls[0].bringToBack();land.setStyle({fillOpacity:0,color:'transparent'});
- $('#bb').textContent=BASES[i][2];let ok=0,bad=0;ls[0].on('tileload',()=>ok++);ls[0].on('tileerror',()=>{if(!ok&&++bad>3){if(auto&&i<2)setBase(i+1,1);else setBase(BASES.length-1)}})}
-$('#bb').onclick=()=>setBase((bi+1)%BASES.length);
+function setBase(i,auto){bi=i;if(tile){map.removeLayer(tile);tile=null}const b=BASES[i];
+ $('#bb').innerHTML=`<span class="bsw" style="background:${b.sw}"></span>`;$('#bb').title='Peta dasar: '+b.n;
+ document.querySelectorAll('.bopt').forEach(o=>o.setAttribute('aria-pressed',o.dataset.b==b.k));
+ if(!b.u){land.setStyle({color:C.coast,fillColor:C.sand,fillOpacity:1});return}
+ const ls=b.u.map((u,j)=>L.tileLayer(u,{attribution:j?'':b.a,maxZoom:19,maxNativeZoom:b.z}));tile=L.layerGroup(ls).addTo(map);ls[0].bringToBack();land.setStyle({fillOpacity:0,color:'transparent'});
+ let ok=0,bad=0;ls[0].on('tileload',()=>ok++);ls[0].on('tileerror',()=>{if(!ok&&++bad>3)setBase(auto&&i===0?5:BASES.length-1)});try{localStorage.setItem('bk_base',b.k)}catch(e){}}
+const bmenu=document.createElement('div');bmenu.className='bmenu';bmenu.hidden=true;
+bmenu.innerHTML='<b>Peta dasar</b>'+BASES.map((b,i)=>`<button type="button" class="bopt" data-b="${b.k}" data-i="${i}" aria-pressed="false"><span class="bsw" style="background:${b.sw}"></span><span>${b.n}<small>${b.d}</small></span></button>`).join('');
+document.querySelector('.zoomb').appendChild(bmenu);
+$('#bb').onclick=e=>{e.stopPropagation();bmenu.hidden=!bmenu.hidden};
+bmenu.addEventListener('click',e=>{const o=e.target.closest('.bopt');if(o){setBase(+o.dataset.i);bmenu.hidden=true}});
+document.addEventListener('click',e=>{if(!bmenu.hidden&&!e.target.closest('.bmenu'))bmenu.hidden=true});
 let inClaude=false;try{inClaude=/claude|anthropic/.test(location.host)}catch(e){}
-setBase(inClaude?BASES.length-1:0,1);
+let saved=null;try{saved=localStorage.getItem('bk_base')}catch(e){}
+const si=BASES.findIndex(b=>b.k===saved);setBase(inClaude?BASES.length-1:(si>=0?si:0),1);
 $('#zi').onclick=()=>map.zoomIn();$('#zo').onclick=()=>map.zoomOut();
 
-const pp=(title,tag,tagc,rows)=>`<div class="pp"><h4>${esc(title)}</h4>${tag?`<span class="tg" style="background:${tagc}22;color:${tagc}">${esc(tag)}</span>`:''}<dl>${rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl></div>`;
+const pp=(title,tag,tagc,rows,st)=>`<div class="pp"><h4>${esc(title)}</h4>${st?stb(st)+' ':''}${tag?`<span class="tg" style="background:${tagc}22;color:${tagc}">${esc(tag)}</span>`:''}<dl>${rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl></div>`;
 const LY={};const REG={};
 const LDEF={
  corr:{n:'Koridor kabel Batam–Bintan',s:'150 kV · aliran daya (animasi)',sw:`<svg class="sw" viewBox="0 0 28 16"><path d="M2 8h24" stroke="${C.coral}" stroke-width="4" stroke-dasharray="5 4"/></svg>`},
@@ -1300,8 +1350,8 @@ const LDEF={
  gen:{n:'Pembangkit',s:'ukuran = MW · warna = bahan bakar',sw:`<svg class="sw" viewBox="0 0 28 16"><circle cx="7" cy="8" r="5" fill="${C.gas}"/><circle cx="16" cy="8" r="4" fill="${C.navy}"/><circle cx="24" cy="8" r="3.5" fill="${C.coral}"/></svg>`},
  load:{n:'Beban industri & data center',s:'KEK, kawasan, DC',sw:`<svg class="sw" viewBox="0 0 28 16"><rect x="9" y="3" width="10" height="10" transform="rotate(45 14 8)" fill="${C.violet}"/></svg>`},
  re:{n:'EBT (surya, biomassa)',s:'ukuran = MW (log)',sw:`<svg class="sw" viewBox="0 0 28 16"><circle cx="14" cy="8" r="6" fill="${C.sun}" fill-opacity=".45" stroke="${C.sun}" stroke-width="2"/></svg>`},
- plan:{n:'Rencana RUPTL',s:'garis putus = rute skematis',sw:`<svg class="sw" viewBox="0 0 28 16"><path d="M2 8h24" stroke="${C.leaf}" stroke-width="3.5" stroke-dasharray="6 4"/></svg>`},
- zone:{n:'Zona wilayah usaha',s:'Zona 1–2 swasta · Zona 3 PLN',sw:`<svg class="sw" viewBox="0 0 28 16"><rect x="3" y="3" width="22" height="10" rx="5" fill="#fff" stroke="${C.violet}" stroke-width="2"/></svg>`},
+ plan:{n:'Rencana RUPTL (putus-putus)',s:'belum dibangun · rute skematis',sw:`<svg class="sw" viewBox="0 0 28 16"><path d="M2 8h24" stroke="${C.leaf}" stroke-width="3.5" stroke-dasharray="6 4"/></svg>`},
+ zone:{n:'Zona wilayah usaha (area)',s:'Zona 1–2 swasta · Zona 3 PLN · batas indikatif',sw:`<svg class="sw" viewBox="0 0 28 16"><rect x="3" y="3" width="22" height="10" rx="5" fill="#fff" stroke="${C.violet}" stroke-width="2"/></svg>`},
  sys:{n:'Status sistem',s:'lingkar merah = risiko',sw:`<svg class="sw" viewBox="0 0 28 16"><circle cx="14" cy="8" r="6" fill="none" stroke="${C.coral}" stroke-width="2.5"/></svg>`},
  inc:{n:'Gangguan besar',s:'klik untuk kronologi',sw:`<svg class="sw" viewBox="0 0 28 16"><path d="M14 2 22 14H6z" fill="${C.coral}"/></svg>`}};
 Object.keys(LDEF).forEach(k=>{LY[k]=L.layerGroup();LY[k+'_bintan']=L.layerGroup();LY[k+'_karimun']=L.layerGroup()});
@@ -1317,13 +1367,14 @@ function polyl(k,pts,st,html,id,label){
   const g=L.layerGroup([vis,hit]);add(k,g,id,pts[Math.floor(pts.length/2)]);if(id)REG[id].pop=()=>hit.openPopup(pts[Math.floor(pts.length/2)]);return {vis,hit};
 }
 /* 150 kV lines from OSM with names */
-TR.forEach(t=>polyl('tx',t.c,{color:C.ocean,weight:3.5,opacity:.9,lineCap:'round'},pp(t.n,'SUTT 150 kV',C.ocean,t.rows),t.id,t.n+' · '+t.km+' km'));
+TR.forEach(t=>{polyl('tx',t.c,{color:C.ocean,weight:3.5,opacity:.9,lineCap:'round'},pp(t.n,'SUTT 150 kV',C.ocean,t.rows,'E'),t.id,'EKSISTING · '+t.n+' · '+t.km+' km');L.polyline(t.c,{color:'#fff',weight:1.5,opacity:.8,dashArray:'1 14',className:'flow slow',interactive:false}).addTo(LY.tx)});
 /* corridor (animated) */
 const CW=[[1.0442,104.1334],[1.035,104.15],[1.03,104.161],[1.02,104.1822]],CE=[[1.02,104.1822],[1.04,104.205],[1.055,104.222],[1.0637,104.2372]];
 [[CW,'Koridor barat: Tanjung Kasam → Tanjung Sauh → Ngenang',[['Panjang','Kabel laut 3,45 km + kabel tanah 1 km'],['Tegangan','150 kV'],['Kontrak','21 Mar 2013'],['Titik','PLTU Tanjung Kasam (Batam) · GI Tanjung Sauh (2026) · GI Ngenang 10 MVA'],['Operator sistem','PT PLN Batam']],'cw'],
  [CE,'Koridor timur: Ngenang → Tanjung Taloh (Bintan)',[['Panjang','Kabel laut 6,55 km'],['Tegangan','150 kV'],['Energize','10 Nov 2015 (bersama GI Tanjung Uban 30 MVA)'],['Transfer','20 MW (2015) → ±34 MW (2016) → ±70 MW kini (est.)'],['Rating / sirkit','Tidak dipublikasikan'],['Risiko','Satu lintasan; gangguan memutus ±⅔ pasok Bintan']],'ce']].forEach(([pts,n,rows,id])=>{
   L.polyline(pts,{color:C.coral,weight:12,opacity:.15,interactive:false}).addTo(LY.corr);
-  const r=polyl('corr',pts,{color:C.coral,weight:5,opacity:1,className:'flow'},pp(n,'Kabel laut 150 kV',C.coral,rows),id,n);});
+  const r=polyl('corr',pts,{color:C.coral,weight:5,opacity:1},pp(n,'Kabel laut 150 kV',C.coral,rows,'E'),id,'EKSISTING · '+n);
+  L.polyline(pts,{color:'#fff',weight:2,opacity:.95,dashArray:'2 12',className:'flow',interactive:false}).addTo(LY.corr);});
 REG.corr=REG.ce;
 lbl(L.circleMarker([1.035,104.19],{radius:0,opacity:0}),'Kabel laut 3,45 + 6,55 km','hot','bottom',[0,10]).addTo(LY.corr);
 /* Bintan planned + 500 kV + ISBB, Karimun cable (schematic) */
@@ -1336,9 +1387,9 @@ const PL=[
  {id:'k2',isl:'karimun',pts:[[0.99,102.66],[1.0,102.78],[0.96,102.92],[0.93,103.06]],n:'SUTT 150 kV Selat Panjang → Pulau Rangsang',rows:[['Panjang','120 kms (saluran udara)'],['Status','Rencana RUPTL']],w:4},
  {id:'karint',isl:'karimun',pts:[[0.93,103.06],[0.95,103.2],[0.99,103.33]],n:'SKLT 150 kV Rangsang → Karimun',rows:[['Panjang','70 kms (kabel laut) · jalur kritis'],['COD','Tabel 2026 Committed · V.11.2 "masih perencanaan" · Lampiran E 2028'],['Perkiraan','2027–2028']],dash:'4 6',w:4},
  {id:'k4',isl:'karimun',pts:[[0.99,103.33],[1.008,103.432]],n:'150 kV pendaratan → GI TBK',rows:[['Panjang','14 kms'],['GI TBK','150/20 kV 2×30 MVA baru; ext 1×60 MVA (2032)']],w:4}];
-PL.forEach(p=>{const r=polyl('plan',p.pts,{color:C.leaf,weight:p.w||3.5,opacity:.95,dashArray:p.dash||null,className:'flow slow'},pp(p.n,'Rencana RUPTL',C.leaf,p.rows),p.id,p.n);});
-add('plan',lbl(L.circleMarker([0.1,103.25],{radius:0,opacity:0}),'ISBB 1.200 MW · 2031','', 'right',[0,0]));
-add('plan',lbl(L.circleMarker([0.96,102.9],{radius:0,opacity:0}),'150 kV Sumatera → Karimun (rencana)','','top',[0,-6]),'k_lbl');KARIDS.add('k_lbl');
+PL.forEach(p=>{const r=polyl('plan',p.pts,{color:C.leaf,weight:p.w||3.5,opacity:.95,dashArray:p.dash||'9 7'},pp(p.n,'Rencana RUPTL · belum dibangun',C.leaf,p.rows,'R'),p.id,'RENCANA · '+p.n);});
+add('plan',lbl(L.circleMarker([0.1,103.25],{radius:0,opacity:0}),'RENCANA · ISBB 1.200 MW · 2031','', 'right',[0,0]));
+add('plan',lbl(L.circleMarker([0.96,102.9],{radius:0,opacity:0}),'RENCANA · 150 kV Sumatera → Karimun','','top',[0,-6]),'k_lbl');KARIDS.add('k_lbl');
 /* points */
 const KC={PLTU:C.navy,PLTGU:C.gas,PLTG:C.gas,PLTMG:C.ocean2,PLTD:C.coral};
 const PTS=[
@@ -1362,33 +1413,39 @@ const PTS=[
  ['load','kftz',[1.075,103.36],'FTZ Karimun',null,null,[['Industri','Galangan, migas, granit'],['Pasokan','Zona swasta + genset']]],
  ['re','re_kpp',[1.0122,103.3519],'PLTS Karimun (KPP)',null,5,[['Zona','2 (swasta)']]],
  ['re','re_bio',[0.995,103.375],'Pilot biomassa PLN EPI × KPP',null,1,[['MoU','Apr 2026'],['Bahan baku','±35 ton/hari']]],
- ['re','re_tbk',[1.03,103.47],'PLTS Karimun (Pemkab)',null,2.6,[['Status','Rencana 2026']]],
+ ['re','re_tbk',[1.022,103.405],'PLTS Karimun (Pemkab)',null,2.6,[['Status','Rencana 2026']]],
  ['re','belat',[0.88,103.62],'PLTS + BESS Pulau Belat',null,2000,[['Pengembang','Gotion × Oriens'],['Status','MoU Jan 2026'],['Orientasi','Ekspor / anchor load']]],
  ['re','re_bin',[0.99,104.56],'PLTS Bintan (wilus PLN Batam)',null,50,[['RUPTL','25 MW (2028) + 25 MW (2030)'],['Lokasi','indikatif']]],
  ['plan','p_mg',[0.96,104.40],'PLTMG Bintan (wilus PLN Batam)',null,null,[['RUPTL','100 MW (2027) + 50 MW (2031)'],['Syarat','Pengembang membawa demand, take-or-pay'],['Lokasi','belum dipublikasikan']]],
  ['plan','gi_tbk',[1.008,103.432],'GI TBK 150/20 kV (baru)',null,null,[['Kapasitas','2×30 MVA'],['COD','2026 (tabel) → 2027–28 (perkiraan)']]],
  ['plan','p_b1',[1.105,104.075],'PLTGU Batam #1',null,null,[['Kapasitas','120 MW'],['COD','2028']]],
  ['plan','p_b34',[1.0,104.06],'PLTGU Batam 3 & 4',null,null,[['Kapasitas','2×150 MW'],['PJBTL','16 Jul 2026']]]];
-PTS.forEach(([k,id,ll,n,kind,mw,rows])=>{let m;const all=(mw!=null&&k!=='load'?[['Kapasitas',fmt(mw,mw%1?1:0)+' MW'+(kind?' · '+kind:'')]]:[]).concat(rows);
+const PST={re_kpp:'E',re_bio:'M',re_tbk:'R',belat:'M',re_bin:'R',p_mg:'R',gi_tbk:'R',p_b1:'K',p_b34:'K',kabil:'K',nongsa:'K',gb:'E',lobam:'E',lagoi:'E',kftz:'E'};
+PTS.forEach(([k,id,ll,n,kind,mw,rows])=>{let m;const st=PST[id]||'E',dash=st==='E'?null:(st==='M'||st==='P')?'1.5 4':'5 4';const all=(mw!=null&&k!=='load'?[['Kapasitas',fmt(mw,mw%1?1:0)+' MW'+(kind?' · '+kind:'')]]:[]).concat(rows);
  if(k==='gen')m=L.circleMarker(ll,{radius:5+Math.sqrt(mw)*.9,color:'#fff',weight:2,fillColor:KC[kind],fillOpacity:.95});
- else if(k==='load')m=L.marker(ll,{icon:L.divIcon({className:'',html:`<div style="width:16px;height:16px;transform:rotate(45deg);background:${C.violet};border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25)"></div>`,iconSize:[16,16],iconAnchor:[8,8]})});
- else if(k==='re')m=L.circleMarker(ll,{radius:Math.min(18,5+Math.log10(mw+1)*4),color:C.sun,weight:2,fillColor:C.sun,fillOpacity:.4});
- else m=L.circleMarker(ll,{radius:9,color:C.leaf,weight:3,dashArray:'3 3',fillColor:C.leaf,fillOpacity:.15});
- m.bindPopup(pp(n,k==='gen'?kind:k==='load'?'Beban':k==='re'?'EBT':'Rencana',k==='gen'?KC[kind]:k==='load'?C.violet:k==='re'?'#b86a00':C.leaf,all),{maxWidth:320});
- m.bindTooltip(n+(mw?' · '+fmt(mw,mw%1?1:0)+' MW':''),{direction:'top',className:'ml',offset:[0,-6]});add(k,m,id,ll)});
+ else if(k==='load')m=L.marker(ll,{icon:L.divIcon({className:'',html:st==='E'?`<div style="width:16px;height:16px;transform:rotate(45deg);background:${C.violet};border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25)"></div>`:`<div style="width:16px;height:16px;transform:rotate(45deg);background:#fff;border:2.5px dashed ${C.violet};box-shadow:0 2px 6px rgba(0,0,0,.2)"></div>`,iconSize:[16,16],iconAnchor:[8,8]})});
+ else if(k==='re')m=L.circleMarker(ll,{radius:Math.min(18,5+Math.log10(mw+1)*4),color:st==='E'?'#fff':'#c4700a',weight:st==='E'?2:2.5,dashArray:dash,fillColor:C.sun,fillOpacity:st==='E'?.95:.18});
+ else m=L.circleMarker(ll,{radius:9,color:st==='K'?C.gas:'#2b5fa8',weight:3,dashArray:dash,fillColor:'#fff',fillOpacity:.85});
+ m.bindPopup(pp(n,k==='gen'?kind:k==='load'?'Beban':k==='re'?'EBT':'Proyek',k==='gen'?KC[kind]:k==='load'?C.violet:k==='re'?'#b86a00':C.leaf,all,st),{maxWidth:320});
+ m.bindTooltip(ST[st][0].toUpperCase()+' · '+n+(mw?' · '+fmt(mw,mw%1?1:0)+' MW':''),{direction:'top',className:'ml',offset:[0,-6]});add(k,m,id,ll)});
 /* GI */
 [['gi_ng',[1.02,104.1822],'GI Ngenang',10,[['Energize','10 Nov 2015']]],['gi_tu',[1.0637,104.2372],'GI Tanjung Uban',60,[['Energize','10 Nov 2015 (30 MVA awal)']]],['gi_sb',[1.1072,104.3639],'GI Sri Bintan',60,[['Energize','24 Jul 2016'],['Rencana','Ext 2 LB (2030)']]],['gi_ar',[0.9456,104.5165],'GI Air Raja',120,[['Wilayah','Tanjungpinang'],['Rencana','+1×60 MVA (2030)']]],['gi_kj',[0.8812,104.6037],'GI Kijang',60,[['Energize','11 Agt 2016']]],['tsauh',[1.03,104.161],'GI Tanjung Sauh',null,[['Status','Beroperasi 9 Nov 2026'],['Fungsi','Fleksibilitas dispatch Batam–Bintan']]]].forEach(([id,ll,n,mva,rows])=>{
- const m=L.circleMarker(ll,{radius:mva?6+Math.sqrt(mva)/1.8:8,color:C.navy,weight:3,fillColor:'#fff',fillOpacity:1}).bindPopup(pp(n,'Gardu induk 150/20 kV',C.navy,(mva?[['Trafo',mva+' MVA']]:[]).concat(rows)),{maxWidth:300}).bindTooltip(n+(mva?' · '+mva+' MVA':''),{direction:'top',className:'ml',offset:[0,-8]});add('gi',m,id,ll)});
+ const m=L.circleMarker(ll,{radius:mva?6+Math.sqrt(mva)/1.8:8,color:C.navy,weight:3,fillColor:'#fff',fillOpacity:1}).bindPopup(pp(n,'Gardu induk 150/20 kV',C.navy,(mva?[['Trafo',mva+' MVA']]:[]).concat(rows),'E'),{maxWidth:300}).bindTooltip(n+(mva?' · '+mva+' MVA':''),{direction:'top',className:'ml',offset:[0,-8]});add('gi',m,id,ll)});
 /* systems with pulse */
 [['sys_b','bintan',[0.99,104.46],'Bintan · 1 koridor',C.coral,26,[['Beban','±105 MW (est.)'],['Lokal','30–35 MW'],['Pasokan','Impor dari Sistem Batam']]],
  ['sys_bt','bintan',[1.09,104.0],'Batam 930/780 MW',C.gas,22,[['Operator','PT PLN Batam'],['Pasok','±930 MW'],['Puncak','±780 MW, tumbuh >15%/th']]],
- ['sys_k','karimun',[1.035,103.43],'Karimun 40,6/36,1 MW',C.coral,24,[['Daya mampu','40,6 MW'],['Puncak','36,1 MW'],['Cadangan','4,5 MW < unit 7 MW']]]].forEach(([id,isl,ll,t,c,r,rows])=>{
+ ['sys_k','karimun',[1.012,103.424],'Karimun 40,6/36,1 MW',C.coral,24,[['Daya mampu','40,6 MW'],['Puncak','36,1 MW'],['Cadangan','4,5 MW < unit 7 MW']]]].forEach(([id,isl,ll,t,c,r,rows])=>{
  const g=L.layerGroup([L.circleMarker(ll,{radius:r,color:c,weight:2,fill:false,className:'ring',interactive:false}),lbl(L.circleMarker(ll,{radius:r,color:c,weight:2.5,fillColor:c,fillOpacity:.08}).bindPopup(pp(t,'Sistem',c,rows)),t,'big '+(c===C.coral?'hot':''),'right',[r,0])]);add('sys',g,id,ll)});
 /* zones Karimun (indicative) */
-[['Zona 1','PT Soma Daya Utama',[1.035,103.335],C.violet,[['Pengelola','PT Soma Daya Utama (swasta)'],['Rencana','PLTU 2×25 MW']]],['Zona 2','PT Karimun Power Plant',[1.09,103.385],C.violet,[['Pengelola','PT Karimun Power Plant (swasta)'],['Izin','2015, ±7.326 ha'],['EBT','PLTS ±5 MW; pilot biomassa PLN EPI']]],['Zona 3','PLN · Tanjung Balai',[1.0,103.47],'#d97a12',[['Pengelola','PLN UP3 Tanjungpinang / ULP TBK'],['Pasokan','PLTU TBK 2×7 MW + PLTD Bukit Carok']]]].forEach(([z,n,ll,c,rows])=>{
+[['Zona 1','PT Soma Daya Utama',[1.025,103.33],C.violet,[['Pengelola','PT Soma Daya Utama (swasta)'],['Rencana','PLTU 2×25 MW']]],['Zona 2','PT Karimun Power Plant',[1.115,103.39],C.violet,[['Pengelola','PT Karimun Power Plant (swasta)'],['Izin','2015, ±7.326 ha'],['EBT','PLTS ±5 MW; pilot biomassa PLN EPI']]],['Zona 3','PLN · Tanjung Balai',[0.992,103.432],'#d97a12',[['Pengelola','PLN UP3 Tanjungpinang / ULP TBK'],['Pasokan','PLTU TBK 2×7 MW + PLTD Bukit Carok']]]].forEach(([z,n,ll,c,rows])=>{
  const m=L.marker(ll,{icon:L.divIcon({className:'',html:`<div style="background:#fff;border:2px solid ${c};color:${c};border-radius:999px;padding:3px 9px;font:800 11px/1.2 var(--f);white-space:nowrap;box-shadow:0 2px 8px rgba(13,34,56,.15)">${z}</div>`,iconSize:[60,22],iconAnchor:[30,11]})}).bindPopup(pp(z+' · '+n,'Wilayah usaha listrik',c,rows.concat([['Lokasi','indikatif']])));m.bindTooltip(n,{direction:'top',className:'ml',offset:[0,-12]});add('zone',m)});
+/* zone areas (indikatif, mengikuti garis pantai) */
+const ZP={"z1":[[1.0749,103.3113],[1.0749,103.36],[1.0071,103.36],[1.0082,103.3579],[1.0078,103.3566],[1.0063,103.3553],[1.0043,103.3551],[1.0043,103.3536],[1.0054,103.3531],[1.005,103.3505],[1.0071,103.3509],[1.0074,103.3516],[1.0099,103.3525],[1.0106,103.351],[1.0113,103.3518],[1.0108,103.3529],[1.0112,103.3533],[1.0136,103.351],[1.0145,103.3484],[1.0158,103.347],[1.0167,103.3445],[1.0167,103.3408],[1.0182,103.3377],[1.0177,103.3343],[1.0201,103.3332],[1.0195,103.3321],[1.0177,103.3314],[1.0188,103.3288],[1.0184,103.328],[1.0193,103.3271],[1.0204,103.3291],[1.0225,103.3306],[1.0232,103.331],[1.0243,103.3304],[1.0275,103.3317],[1.0329,103.3302],[1.0359,103.3278],[1.0357,103.3234],[1.0364,103.3202],[1.0357,103.3187],[1.0349,103.3189],[1.0351,103.3163],[1.036,103.3163],[1.0368,103.3171],[1.0373,103.3208],[1.0412,103.321],[1.0442,103.3197],[1.0438,103.3174],[1.0453,103.3156],[1.0464,103.3124],[1.0477,103.3119],[1.0483,103.3128],[1.0507,103.3132],[1.0542,103.3117],[1.0555,103.3117],[1.057,103.3126],[1.0576,103.3137],[1.0557,103.3152],[1.0559,103.3165],[1.0544,103.3178],[1.0539,103.321],[1.0526,103.323],[1.0531,103.323],[1.0546,103.3204],[1.0548,103.318],[1.0563,103.3167],[1.0561,103.3154],[1.0581,103.3141],[1.0602,103.3148],[1.0635,103.3198],[1.0663,103.3217],[1.0665,103.3237],[1.0672,103.3245],[1.0687,103.3237],[1.0676,103.3217],[1.068,103.3202],[1.0698,103.3202],[1.0724,103.3185],[1.0732,103.3185],[1.0737,103.3195],[1.0734,103.3182],[1.0704,103.3189],[1.0689,103.3133],[1.0723,103.3117],[1.0747,103.3113]],"z2":[[1.1374,103.3741],[1.1365,103.3752],[1.1345,103.3806],[1.133,103.3821],[1.1194,103.3902],[1.1185,103.3897],[1.1185,103.3875],[1.1172,103.3858],[1.1159,103.3824],[1.1144,103.3832],[1.1114,103.3832],[1.1105,103.3802],[1.1077,103.3806],[1.104,103.3797],[1.1014,103.3804],[1.1009,103.3811],[1.0992,103.3808],[1.0994,103.38],[1.0988,103.3797],[1.097,103.3802],[1.0964,103.3778],[1.0951,103.3758],[1.0964,103.3804],[1.0931,103.3826],[1.0932,103.3847],[1.0919,103.3847],[1.0929,103.3839],[1.0931,103.3826],[1.0919,103.3808],[1.0918,103.3785],[1.0916,103.381],[1.0925,103.3824],[1.0925,103.3836],[1.0905,103.3813],[1.0869,103.3815],[1.0838,103.3824],[1.0821,103.3841],[1.081,103.3837],[1.0804,103.3849],[1.0756,103.3867],[1.0745,103.3889],[1.0743,103.3884],[1.0732,103.3882],[1.0711,103.3891],[1.0693,103.3886],[1.0674,103.3893],[1.0661,103.3891],[1.0632,103.3912],[1.0611,103.3938],[1.0611,103.3951],[1.0602,103.3964],[1.058,103.3984],[1.0568,103.3982],[1.0567,103.3966],[1.0581,103.3938],[1.0581,103.3921],[1.057,103.3897],[1.0557,103.3891],[1.0552,103.3882],[1.0563,103.3841],[1.0555,103.3798],[1.0561,103.3758],[1.055,103.3785],[1.0554,103.3837],[1.0541,103.3895],[1.0561,103.391],[1.0563,103.3932],[1.0552,103.3953],[1.0552,103.3969],[1.0513,103.3997],[1.0511,103.4012],[1.0522,103.4036],[1.0511,103.4047],[0.9915,103.4049],[0.9913,103.4023],[0.992,103.4005],[0.9918,103.3982],[0.9928,103.3941],[0.9946,103.393],[0.9969,103.3927],[0.998,103.3915],[0.9985,103.3917],[0.9998,103.3902],[1.0011,103.3899],[1.0015,103.3884],[1.0032,103.3886],[1.0039,103.3878],[1.0045,103.388],[1.008,103.3837],[1.0078,103.3824],[1.0104,103.375],[1.01,103.3719],[1.0108,103.3711],[1.011,103.3683],[1.0095,103.364],[1.0069,103.3613],[1.0071,103.3601],[1.075,103.36],[1.075,103.3109],[1.0765,103.3102],[1.0801,103.3115],[1.0832,103.3111],[1.0871,103.3117],[1.0869,103.3191],[1.0886,103.3202],[1.0906,103.3176],[1.0897,103.3211],[1.0908,103.323],[1.0949,103.3239],[1.0953,103.3254],[1.0971,103.3269],[1.0999,103.3265],[1.1007,103.3276],[1.1038,103.3286],[1.1036,103.3328],[1.1048,103.3343],[1.104,103.3325],[1.1042,103.3289],[1.1074,103.3276],[1.11,103.3278],[1.1101,103.3284],[1.1107,103.3275],[1.1118,103.3278],[1.1139,103.3301],[1.1126,103.3314],[1.1124,103.3327],[1.1139,103.3334],[1.114,103.3343],[1.1168,103.3347],[1.1179,103.3334],[1.1179,103.3358],[1.117,103.3367],[1.1176,103.3375],[1.1168,103.3395],[1.1179,103.3416],[1.1187,103.3423],[1.1202,103.3418],[1.1222,103.3425],[1.123,103.3442],[1.1246,103.3431],[1.1252,103.344],[1.1239,103.3449],[1.1243,103.3462],[1.1259,103.347],[1.128,103.3464],[1.1256,103.3486],[1.1263,103.3499],[1.1282,103.3501],[1.1296,103.349],[1.1295,103.3484],[1.13,103.349],[1.1304,103.3486],[1.1302,103.3479],[1.1347,103.3512],[1.1335,103.3542],[1.1335,103.357],[1.1308,103.3585],[1.1311,103.3598],[1.1321,103.3605],[1.1321,103.3618],[1.1332,103.362],[1.1334,103.3635],[1.1304,103.3642],[1.1256,103.3635],[1.1278,103.3642],[1.128,103.3652],[1.1267,103.3663],[1.1248,103.3668],[1.1226,103.37],[1.1254,103.373],[1.127,103.3724],[1.1276,103.3733],[1.1306,103.3748],[1.1322,103.3745],[1.1337,103.3733],[1.1365,103.3733],[1.1373,103.3739]],"z3":[[1.0509,103.407],[1.0507,103.4081],[1.0492,103.4094],[1.0494,103.4103],[1.0481,103.4112],[1.0463,103.4112],[1.0457,103.4103],[1.0448,103.4109],[1.0457,103.4118],[1.0451,103.4127],[1.0464,103.4149],[1.0455,103.4188],[1.0466,103.4213],[1.0466,103.4229],[1.0453,103.4244],[1.0433,103.4216],[1.0403,103.4207],[1.0372,103.4218],[1.0316,103.4253],[1.0294,103.4246],[1.0277,103.425],[1.0277,103.4229],[1.0271,103.4237],[1.0273,103.4252],[1.0258,103.4257],[1.0247,103.4296],[1.0234,103.4313],[1.0203,103.4304],[1.0177,103.4304],[1.0156,103.4318],[1.0132,103.4322],[1.0102,103.4356],[1.0054,103.4391],[1.0037,103.4413],[1.0026,103.4415],[0.9976,103.4456],[0.9954,103.4463],[0.9941,103.4461],[0.993,103.4439],[0.9892,103.4406],[0.9878,103.4374],[0.9892,103.4341],[0.99,103.4337],[0.9902,103.4324],[0.9909,103.4322],[0.9911,103.4296],[0.992,103.4291],[0.993,103.4252],[0.9926,103.4242],[0.9935,103.4235],[0.993,103.422],[0.9939,103.4207],[0.993,103.4179],[0.9937,103.4175],[0.995,103.4183],[0.9952,103.4192],[0.9967,103.4205],[0.9961,103.4194],[0.9974,103.419],[0.9982,103.4177],[0.998,103.4159],[0.9969,103.4151],[0.9965,103.4164],[0.9924,103.4151],[0.9924,103.409],[0.9915,103.4081],[0.9915,103.4051],[1.0502,103.4051],[1.05,103.4058],[1.0507,103.4068]]};
+[['z1','Zona 1 · PT Soma Daya Utama',C.violet,'Wilayah usaha swasta · barat daya'],['z2','Zona 2 · PT Karimun Power Plant',C.ocean,'Wilayah usaha swasta · ±75% pulau'],['z3','Zona 3 · PLN',C.sun,'Tanjung Balai Karimun · dilayani PLN']].forEach(([k,n,c,d])=>{
+ const pg=L.polygon(ZP[k],{color:c,weight:2,opacity:.95,fillColor:c,fillOpacity:.22}).bindPopup(pp(n,'Wilayah usaha listrik',c,[['Keterangan',d],['Batas','indikatif (tidak ada peta resmi publik)']],'E')).bindTooltip(n,{sticky:true,className:'ml'});
+ pg.on('mouseover',()=>pg.setStyle({fillOpacity:.35}));pg.on('mouseout',()=>pg.setStyle({fillOpacity:.2}));add('zone',pg);pg.bringToBack&&pg.bringToBack()});
 /* incidents */
-[['inc1',[1.13,104.05],'Blackout 12 Okt 2026',[['Mulai','06.37 WIB, GI Sungai Harapan'],['Dampak','Batam + Bintan, 15–16 jam'],['Pelanggan','>411 ribu'],['Investigasi','ESDM belum final']]],['inc2',[1.07,103.45],'Krisis pasokan Karimun',[['Mei 2022','±25 hari padam bergilir'],['Mei 2026','32 vs 34,5 MW'],['Jul 2026','Traveling grate rusak'],['Okt 2026','Blackout under-frequency']]]].forEach(([id,ll,n,rows])=>{
+[['inc1',[1.13,104.05],'Blackout 12 Okt 2026',[['Mulai','06.37 WIB, GI Sungai Harapan'],['Dampak','Batam + Bintan, 15–16 jam'],['Pelanggan','>411 ribu'],['Investigasi','ESDM belum final']]],['inc2',[1.058,103.405],'Krisis pasokan Karimun',[['Mei 2022','±25 hari padam bergilir'],['Mei 2026','32 vs 34,5 MW'],['Jul 2026','Traveling grate rusak'],['Okt 2026','Blackout under-frequency']]]].forEach(([id,ll,n,rows])=>{
  const m=L.marker(ll,{icon:L.divIcon({className:'',html:`<svg width="26" height="24" viewBox="0 0 24 22"><path d="M12 1 23 21H1z" fill="${C.coral}" stroke="#fff" stroke-width="1.5"/><path d="M12 8v6M12 17h.01" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>`,iconSize:[26,24],iconAnchor:[13,12]})}).bindPopup(pp(n,'Gangguan',C.coral,rows)).bindTooltip(n,{direction:'top',className:'ml hot',offset:[0,-10]});add('inc',m,id,ll)});
 
 /* ---------- STATE / VIEWS ---------- */
@@ -1396,7 +1453,7 @@ let isl=null,topic='ring';const vis={};
 const legend=$('#legend');
 function setLayer(k,on){vis[k]=on;[LY[k],LY[k+'_bintan'],LY[k+'_karimun']].forEach(g=>map.removeLayer(g));if(on)(isl&&SPLIT.has(k)?LY[k+'_'+isl]:LY[k]).addTo(map);const b=legend.querySelector(`[data-k="${k}"]`);if(b)b.setAttribute('aria-pressed',on)}
 function drawLegend(){const keys=isl==='karimun'?['sys','gen','plan','zone','re','load','inc']:['corr','tx','gi','gen','plan','load','re','sys','inc'];
- legend.innerHTML=`<header>Legenda · klik untuk on/off <button type="button" id="lgmin">–</button></header>`+keys.map(k=>`<button class="lrow" type="button" data-k="${k}" title="${esc(LDEF[k].s)}" aria-pressed="${!!vis[k]}">${LDEF[k].sw}<span>${esc(LDEF[k].n)}<small>${esc(LDEF[k].s)}</small></span><em>${(SPLIT.has(k)?cnt[k+'_'+isl]:cnt[k])||''}</em></button>`).join('');
+ legend.innerHTML=`<header>Legenda · klik untuk on/off <button type="button" id="lgmin">–</button></header><div class="skey"><span><svg viewBox="0 0 28 10"><path d="M1 5h26" stroke="#0d2238" stroke-width="3"/></svg>Eksisting</span><span><svg viewBox="0 0 28 10"><path d="M1 5h26" stroke="#2b5fa8" stroke-width="3" stroke-dasharray="6 4"/></svg>Rencana</span><span><svg viewBox="0 0 28 10"><path d="M1 5h26" stroke="#7a5af5" stroke-width="3" stroke-dasharray="1.5 4" stroke-linecap="round"/></svg>MoU/potensi</span></div>`+keys.map(k=>`<button class="lrow" type="button" data-k="${k}" title="${esc(LDEF[k].s)}" aria-pressed="${!!vis[k]}">${LDEF[k].sw}<span>${esc(LDEF[k].n)}<small>${esc(LDEF[k].s)}</small></span><em>${(SPLIT.has(k)?cnt[k+'_'+isl]:cnt[k])||''}</em></button>`).join('');
  $('#lgmin').onclick=()=>{legend.classList.toggle('min');$('#lgmin').textContent=legend.classList.contains('min')?'+':'–'}}
 legend.addEventListener('click',e=>{const b=e.target.closest('.lrow');if(b)setLayer(b.dataset.k,!vis[b.dataset.k])});
 
@@ -1414,14 +1471,14 @@ function show(t){topic=t;const I=ISL[isl],T=I.T[t];
  Object.keys(LDEF).forEach(k=>setLayer(k,T.lay.includes(k)));
  const tabName=TABS.find(x=>x[0]===t);
  $('#mtitle').innerHTML=`<span class="ic">${ic(tabName[1])}</span><span><b>${esc(I.name)} · ${esc(tabName[2])}</b><span>${esc(I.tag)}</span></span>`;
- $('#hint').innerHTML=ic('info')+' Klik kabel, gardu, atau titik untuk detail';
+ $('#hint').innerHTML=ic('info')+' Garis penuh = eksisting · putus-putus = rencana · klik untuk detail';
  const b=$('#body');b.classList.toggle('insm',!!T.cards);
  if(T.cards){b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · Insight</small><h2>${esc(T.h)}</h2></div></div>
-  <div class="igrid">${T.cards.map((c,i)=>`<button type="button" class="icd ${c[6]}" data-go="${c[5]}" style="animation-delay:${i*.06}s"><span class="go">${ic('arrow')}</span><span class="qq"><span class="n">${i+1}</span>${ic(c[0])}${esc(c[1])}</span><b data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small></b><p>${esc(c[4])}</p></button>`).join('')}</div>
+  <div class="igrid">${T.cards.map((c,i)=>`<button type="button" class="icd ${c[6]}" data-go="${c[5]}" style="animation-delay:${i*.06}s"><span class="go">${ic('arrow')}</span><span class="qq"><span class="n">${i+1}</span>${ic(c[0])}${esc(c[1])}</span><b data-c="${esc(c[2])}">${esc(c[2])}<small>${esc(c[3])}</small>${stb((BADGE[isl+'.ins']||'')[i])}</b><p>${esc(c[4])}</p></button>`).join('')}</div>
   <div class="inote">${ic('info')}<span>${esc(T.note)}</span></div><div class="src"><b>Sumber:</b> ${esc(T.src)}</div>`;
   countUp(b);fitIsl();setHash(isl+'-'+t);return}
  b.innerHTML=`<div class="hd"><span class="ico">${ic(tabName[1])}</span><div><small>${esc(I.name)} · ${esc(tabName[2])}</small><h2>${esc(T.h)}</h2></div></div>
-  <div class="kp" style="--n:${T.k.length}">${T.k.map((k,i)=>`<button type="button" class="kpi ${k[5]||''}" data-x="${i}" aria-label="Penjelasan ${esc(k[1])}"><span class="qi-i">${ic('info')}</span><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${esc(k[4])}</span></button>`).join('')}</div>
+  <div class="kp" style="--n:${T.k.length}">${T.k.map((k,i)=>`<button type="button" class="kpi ${k[5]||''}" data-x="${i}" aria-label="Penjelasan ${esc(k[1])}"><span class="qi-i">${ic('info')}</span><span class="t">${ic(k[0])}${esc(k[1])}</span><b data-c="${esc(k[2])}">${esc(k[2])}${k[3]?`<small>${esc(k[3])}</small>`:''}</b><span class="s">${stb((BADGE[isl+'.'+t]||'')[i])} ${esc(k[4])}</span></button>`).join('')}</div>
   <div class="viz"><h3>${esc(T.v.t)}<span>${esc(T.v.s)}</span></h3><div class="cv">${T.v.f()}</div>${T.v.leg?legendHtml(T.v.leg):'<div></div>'}</div>
   <div class="ins" style="--n:${T.i.length}">${T.i.map(x=>`<div class="in ${x[1]}">${ic(x[0])}<span>${esc(x[2])}</span></div>`).join('')}</div>
   <div class="src"><b>Sumber:</b> ${esc(T.src)}</div><div class="exp" id="exp" hidden></div>`;
@@ -1429,7 +1486,7 @@ function show(t){topic=t;const I=ISL[isl],T=I.T[t];
 function explain(i){const T=ISL[isl].T[topic],k=T.k[i],E=(EXPL[isl+'.'+topic]||[])[i];if(!k||!E)return;const b=$('#body'),ex=$('#exp'),viz=b.querySelector('.viz');
  b.querySelectorAll('.kpi').forEach((x,j)=>x.classList.toggle('on',j===i));
  ex.style.top=viz.offsetTop+'px';ex.style.maxHeight=(b.clientHeight-viz.offsetTop-12)+'px';ex.hidden=false;
- ex.innerHTML=`<header><span class="ico">${ic(k[0])}</span><div><small>Apa artinya?</small><h4>${esc(k[1])}</h4></div><button type="button" class="xx" aria-label="Tutup penjelasan">${ic('x')}</button></header>
+ ex.innerHTML=`<header><span class="ico">${ic(k[0])}</span><div><small>Apa artinya? ${stb((BADGE[isl+'.'+topic]||'')[i])}</small><h4>${esc(k[1])}</h4></div><button type="button" class="xx" aria-label="Tutup penjelasan">${ic('x')}</button></header>
   <div class="big ${k[5]||''}">${esc(k[2])}<small>${esc(k[3]||'')}</small><span>${esc(k[4])}</span></div><p>${esc(E[0])}</p>
   <footer>${E[1]&&REG[E[1]]?`<button type="button" class="go" data-loc="${E[1]}">${ic('arrow')} Lihat di peta</button>`:'<span></span>'}<span class="hint2">Klik kotak angka lain untuk penjelasannya</span></footer>`;}
 function unexplain(){const ex=$('#exp');if(ex)ex.hidden=true;$('#body').querySelectorAll('.kpi.on').forEach(x=>x.classList.remove('on'))}
